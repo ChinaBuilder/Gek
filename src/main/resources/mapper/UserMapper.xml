@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.it.mapper.UserMapper">
+    <delete id="deleteByPrimaryId" parameterType="java.lang.Long">
+        DELETE FROM t_user WHERE id=#{id}
+        <!--<where>-->
+        <!-- 此处添加if 判断就会从long里面寻找getId()方法-->
+        <!--<if test="id != null and id != ''">-->
+        <!--</where>-->
+    </delete>
+</mapper>
