@@ -14,7 +14,7 @@
 
 
 <h2>
-    <a href="http://code.YouMeek.com" target="_blank">Hello YouMeek</a>
+    <a href="http://code.YouMeek.com" target="_blank">Hello gek</a>
 </h2>
 
 <br>
