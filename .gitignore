@@ -9,7 +9,8 @@
 *.jar
 *.war
 *.ear
-
+# log
+log/
 
 ### Maven template
 target/

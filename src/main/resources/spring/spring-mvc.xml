@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans  
-                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
-                        http://www.springframework.org/schema/context  
-                        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc 
-                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">-->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -30,11 +22,10 @@
     mapping="/js/**"
     表示当浏览器有静态资源请求的时候，并且请求url路径中带有：/js/，则这个资源就到webapp目录下的/WEB-INF/statics/js/去找
     比如我们在 JSP 中引入一个 js 文件：src="${webRoot}/js/jQuery-core/jquery-1.6.1.min.js
+    所有的静态资源请求都改为 /WEB-INF之下
     -->
-    <mvc:resources mapping="/css/**" location="/WEB-INF/statics/css/"/>
-    <mvc:resources mapping="/js/**" location="/WEB-INF/statics/js/"/>
-    <mvc:resources mapping="/images/**" location="/WEB-INF/statics/images/"/>
-
+    <!--TODO 已经解决 配置映射 -->
+    <mvc:resources mapping="/statics/**" location="/statics/"/>
 
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) 使用JSP-->
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
