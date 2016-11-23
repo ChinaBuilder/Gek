@@ -16,3 +16,4 @@ target/
 ### intellij
 .idea/
 *.iml
+/.idea
