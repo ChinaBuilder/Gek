@@ -2,14 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-         http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
 
     <display-name>SSM Web Application</display-name>
     <!--设置默认首页-->
 
-    <welcome-file-list>
+    <!--<welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>-->
 
     <!-- 加载Spring容器的配置文件 -->
     <context-param>
@@ -17,7 +17,7 @@
         <param-value>classpath*:spring/applicationContext*.xml</param-value>
     </context-param>
 
-    <!-- Spring监听器 -->
+    <!-- Spring监听器：监听配置文件 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -66,6 +66,16 @@
         <filter-name>DruidWebStatFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--spring security代理-->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- ############################################ filter end  ############################################ -->
 
 
