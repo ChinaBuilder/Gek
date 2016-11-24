@@ -18,28 +18,27 @@
         <!--TODO 2016年11月19日 登录失败跳转页面是/login/check 而不是/login?login_error=t-->
         <!--设置自定义的login页面-->
         <form-login default-target-url="/welcome"
+                    authentication-success-forward-url="/welcome"
                     login-page="/login"
                     login-processing-url="/login/check"
                     username-parameter="username"
                     password-parameter="password"
                     authentication-failure-forward-url="/login?login_error=t"/>
-
         <logout logout-success-url="/login?logout"/>
-        <!--enable csrf-->
+        <!--enabled csrf-->
         <!--暂时不明白csrf原理 先给改成disable了-->
         <csrf/>
     </http>
     <authentication-manager>
         <authentication-provider>
-            <!--default
+            <!--defaultsql 默认使用jdbcDaoImpl
             sql: select username,password,enabled from users where username = ?
             sql: select username,authority from authorities where username = ?
             -->
-            <!--todo 这里jdbc连接不上 登不上去-->
             <jdbc-user-service data-source-ref="dataSource" id="userService"
+                               users-by-username-query="select username,password,enabled from t_user where username = ?"
+                               authorities-by-username-query="select username,group_name role from t_user where username = ?"
 
-                               users-by-username-query="SELECT  username,password,enable FROM t_user WHERE username = ?;"
-                               group-authorities-by-username-query="SELECT  username,group_name FROM t_user WHERE username = ?"
             />
             <!--<user-service>
                 <user name="lucy" authorities="ROLE_USER" password="123"/>

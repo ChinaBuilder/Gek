@@ -21,4 +21,7 @@ public class SSMTest {
 		SysUser sysUser = sysUserService.getById(1L);
 		System.out.println("--------------------------------" + sysUser.toString());
 	}
+	public void test2(){
+		System.out.println("");
+	}
 }

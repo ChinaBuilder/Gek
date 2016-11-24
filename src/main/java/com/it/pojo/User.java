@@ -6,7 +6,7 @@ public class User implements Serializable {
 	private Long id;
 	private String name;
 	private String password;
-	private boolean enable;
+	private boolean enabled;
 	private String realname;
 	private Integer level;
 
@@ -34,12 +34,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public boolean isEnable() {
-        return enable;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getRealname() {
@@ -64,7 +64,7 @@ public class User implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", enable=" + enable +
+                ", enabled=" + enabled +
                 ", realname='" + realname + '\'' +
                 ", level=" + level +
                 '}';
