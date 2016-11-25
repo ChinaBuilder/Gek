@@ -1,4 +1,4 @@
-# Basic-Single-Module-SSM
+# 基于ssm框架搭建
 
 ## 说明
 - 本项目为开源免费
@@ -13,6 +13,7 @@
         - spring version：**3.2.16.RELEASE（也支持 4.1、4.2）**
         - mybatis version：**3.3.1**
         - mybatis-spring version：**1.2.4**
+    - spring security
 
 
 
