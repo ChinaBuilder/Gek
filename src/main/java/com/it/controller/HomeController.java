@@ -22,6 +22,5 @@ public class HomeController {
     @RequestMapping(value = "/home")
     public String showHeader() {
         return "redirect:/pages/temp";
-
     }
 }
