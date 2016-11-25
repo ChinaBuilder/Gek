@@ -1,4 +1,4 @@
-# Basic-Single-Module-SSM
+# 基于ssm框架搭建
 
 ## 说明
 - 本项目为开源免费
