@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-    @RequestMapping(value = "/welcome")
-    public String showWelcomeHome() {
-        return "redirect:/home";
+    @RequestMapping(value = "/home")
+    public String showHome() {
+        return "/pages/temp";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
@@ -19,8 +19,8 @@ public class HomeController {
         return "/home/test";
     }
 
-    @RequestMapping(value = "/home")
-    public String showHeader() {
-        return "redirect:/pages/temp";
+    @RequestMapping(value = "/welcome")
+    public String loginSuccess() {
+        return "redirect:/home";
     }
 }
