@@ -13,13 +13,13 @@ public class LoginController {
     //此处制定get方法会让 登录失败重定向出错 出现post method not support
 
     /**
-     * 手动输入登录页面
+     * /login登录页面
      *
      * @return
      */
     @RequestMapping()
     public String ShowLoginPage() {
-        return "/index";
+        return "/home/login";
     }
 
     /**

@@ -13,7 +13,21 @@
         - spring version：**3.2.16.RELEASE（也支持 4.1、4.2）**
         - mybatis version：**3.3.1**
         - mybatis-spring version：**1.2.4**
-    - spring security
+        
+- spring security使用注意
+    - 配置文件
+    default-target-url 登陆成功默认跳转首页
+    
+    ```xml
+    <form-login default-target-url="/login/home"
+                        authentication-success-forward-url="/welcome"
+                        login-page="/login"
+                        login-processing-url="/login/check"
+                        username-parameter="username"
+                        password-parameter="password"
+                        authentication-failure-forward-url="/login?login_error=t"/>
+    <logout logout-success-url="/login?logout"/>
+    ```
 
 
 
