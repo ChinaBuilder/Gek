@@ -11,6 +11,17 @@
         <!--</where>-->
     </delete>
     <select id="selectByUsername" resultType="com.gek.pojo.User">
-        SELECT * FROM  t_user WHERE username=#{username};
+        SELECT
+          *
+        FROM
+          t_user
+        WHERE
+          username=#{username};
+    </select>
+    <select id="findAll" resultType="com.gek.pojo.User">
+        SELECT
+          id,username,enabled,realname,`level`,createTime,group_name
+        FROM
+          t_user
     </select>
 </mapper>

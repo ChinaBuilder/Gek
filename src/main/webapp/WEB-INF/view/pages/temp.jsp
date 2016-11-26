@@ -24,7 +24,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-    <jsp:include page="../pages/leftup.jsp"/>
+    <jsp:include page="../pages/leftup_and_right.jsp"/>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -78,6 +78,19 @@
 </div>
 <!-- ./wrapper -->
 <!-- your js here -->
-<jsp:include page="../pages/back.jsp"/>
+<!-- jQuery 2.2.3 -->
+<script src="/statics/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="/statics/bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="/statics/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/statics/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/statics/dist/js/app.min.js"></script>
+<!-- AdminLTE 右侧栏标签内部内容 -->
+<%--<script src="/statics/dist/js/demo.js"></script>--%>
+</body>
+</html>
 
 

@@ -3,14 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.youmeek</groupId>
-    <artifactId>ssm</artifactId>
+    <artifactId>Gek</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ssm project</name>
+    <name>Gek project</name>
     <description>
-        为了方便以后的一些问题的讲解特地准备一个最精简的 SpringMVC+Spring+Mybatis 框架整合，方便以后的一些问题的演示
+        自己开发的Gek 一个用户管理系统
     </description>
-    <url>http://code.YouMeek.com</url>
 
     <!-- 集中定义公用的依赖版本号 -->
     <!--版本变量设置 start-->
@@ -45,6 +44,7 @@
         <httpclient.version>4.3.3</httpclient.version>
         <jackson-databind.version>2.4.2</jackson-databind.version>
         <fastjson.version>1.1.43</fastjson.version>
+
         <!--架包版本变量 end-->
 
         <!--插件版本变量 start-->
@@ -311,7 +311,7 @@
         <!-- 日志文件管理包 end -->
 
 
-        <!--JSON处理-->
+        <!--JSON处理 dependency core&&annotations-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

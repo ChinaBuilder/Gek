@@ -198,7 +198,23 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Layout Options</span>
+                    <span>员工管理</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/users/list"><i class="fa fa-table"></i>员工信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>1</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>2</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>3</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>系统设置</span>
                     <span class="pull-right-container">
               <span class="label label-primary pull-right">4</span>
             </span>

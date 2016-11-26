@@ -20,7 +20,7 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
+            <h3 class="control-sidebar-heading">近期活动</h3>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="javascript:void(0)">

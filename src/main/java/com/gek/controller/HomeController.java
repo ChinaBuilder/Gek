@@ -24,5 +24,8 @@ public class HomeController {
         return "/home/test";
     }
 
-
+    @RequestMapping(value = "/youmeek")
+    public String showUserJSP() {
+        return "/showUser";
+    }
 }

@@ -2,6 +2,8 @@ package com.gek.mapper;
 
 import com.gek.pojo.User;
 
+import java.util.List;
+
 /**
  * Created by KAY on 2016/11/5.
  */
@@ -9,4 +11,6 @@ import com.gek.pojo.User;
 public interface UserMapper {
 	void deleteByPrimaryId(Long id);
 	User selectByUsername(String username);
+
+    List<User> findAll();
 }
