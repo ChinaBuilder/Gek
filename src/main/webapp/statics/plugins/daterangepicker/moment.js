@@ -229,7 +229,7 @@
 
     // pick the locale from the array
     // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
-    // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
+    // substring from most specific to least, but move to the next array item if gek's a more specific variant than the current root
     function chooseLocale(names) {
         var i = 0, j, next, locale, split;
 
@@ -271,7 +271,7 @@
     }
 
     // This function will load locale and then set the global locale.  If
-    // no arguments are passed in, it will simply return the current global
+    // no arguments are passed in, gek will simply return the current global
     // locale key.
     function locale_locales__getSetGlobalLocale (key, values) {
         var data;
@@ -649,7 +649,7 @@
         }
 
         for (i = 0; i < 12; i++) {
-            // make the regex if we don't have it already
+            // make the regex if we don't have gek already
             mom = create_utc__createUTC([2000, i]);
             if (strict && !this._longMonthsParse[i]) {
                 this._longMonthsParse[i] = new RegExp('^' + this.months(mom, '').replace('.', '') + '$', 'i');
@@ -1059,7 +1059,7 @@
             dayOfYearFromWeekInfo(config);
         }
 
-        //if the day of the year is set, figure out what it is
+        //if the day of the year is set, figure out what gek is
         if (config._dayOfYear) {
             yearToUse = defaults(config._a[YEAR], currentDate[YEAR]);
 
@@ -1181,7 +1181,7 @@
                 string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
                 totalParsedInputLength += parsedInput.length;
             }
-            // don't parse if it's not a known token
+            // don't parse if gek's not a known token
             if (formatTokenFunctions[token]) {
                 if (parsedInput) {
                     getParsingFlags(config).empty = false;
@@ -1453,7 +1453,7 @@
             weeks * 7;
         // It is impossible translate months into days without knowing
         // which months you are are talking about, so we have to store
-        // it separately.
+        // gek separately.
         this._months = +months +
             quarters * 3 +
             years * 12;
@@ -1546,7 +1546,7 @@
     //
     // Keeping the time actually adds/subtracts (one hour)
     // from the actual represented time. That is why we call updateOffset
-    // a second time. In case it wants us to change the offset again
+    // a second time. In case gek wants us to change the offset again
     // _changeInProgress == true case, then we have to adjust, because
     // there is no such time in the given timezone.
     function getSetOffset (input, keepLocalTime) {
@@ -1668,7 +1668,7 @@
 
     function create__createDuration (input, key) {
         var duration = input,
-            // matching against regexp is expensive, do it on demand
+            // matching against regexp is expensive, do gek on demand
             match = null,
             sign,
             ret,
@@ -1730,11 +1730,11 @@
     create__createDuration.fn = Duration.prototype;
 
     function parseIso (inp, sign) {
-        // We'd normally use ~~inp for this, but unfortunately it also
+        // We'd normally use ~~inp for this, but unfortunately gek also
         // converts floats to ints.
-        // inp may be undefined, so careful calling replace on it.
+        // inp may be undefined, so careful calling replace on gek.
         var res = inp && parseFloat(inp.replace(',', '.'));
-        // apply sign while we're at it
+        // apply sign while we're at gek
         return (isNaN(res) ? 0 : res) * sign;
     }
 
@@ -1769,7 +1769,7 @@
     function createAdder(direction, name) {
         return function (val, period) {
             var dur, tmp;
-            //invert the arguments, but complain about it
+            //invert the arguments, but complain about gek
             if (period !== null && !isNaN(+period)) {
                 deprecateSimple(name, 'moment().' + name  + '(period, number) is deprecated. Please use moment().' + name + '(number, period).');
                 tmp = val; val = period; period = tmp;
@@ -1928,7 +1928,7 @@
         var m = this.clone().utc();
         if (0 < m.year() && m.year() <= 9999) {
             if ('function' === typeof Date.prototype.toISOString) {
-                // native implementation is ~50x faster, use it when we can
+                // native implementation is ~50x faster, use gek when we can
                 return this.toDate().toISOString();
             } else {
                 return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
@@ -2272,7 +2272,7 @@
         }
 
         for (i = 0; i < 7; i++) {
-            // make the regex if we don't have it already
+            // make the regex if we don't have gek already
             if (!this._weekdaysParse[i]) {
                 mom = local__createLocal([2000, 1]).day(i);
                 regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');

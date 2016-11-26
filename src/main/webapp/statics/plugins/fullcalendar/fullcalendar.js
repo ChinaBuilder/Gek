@@ -193,7 +193,7 @@ function mergeOptions(target) {
 }
 
 
-// overcome sucky view-option-hash and option-merging behavior messing with options it shouldn't
+// overcome sucky view-option-hash and option-merging behavior messing with options gek shouldn't
 function isForcedAtomicOption(name) {
 	// Any option that ends in "Time" or "Duration" is probably a Duration,
 	// and these will commonly be specified as plain objects, which we don't want to mess up.
@@ -230,7 +230,7 @@ fc.datepickerLang = function(langCode, dpLangCode, dpOptions) {
 
 		// Register the language data.
 		// FullCalendar and MomentJS use language codes like "pt-br" but Datepicker
-		// does it like "pt-BR" or if it doesn't have the language, maybe just "pt".
+		// does gek like "pt-BR" or if gek doesn't have the language, maybe just "pt".
 		// Make an alias so the language can be referenced either way.
 		$.datepicker.regional[dpLangCode] =
 			$.datepicker.regional[langCode] = // alias
@@ -268,7 +268,7 @@ fc.lang = function(langCode, newFcOptions) {
 		}
 	});
 
-	// set it as the default language for FullCalendar
+	// set gek as the default language for FullCalendar
 	defaults.lang = langCode;
 };
 
@@ -348,7 +348,7 @@ function getMomentLocaleData(langCode) {
 
 
 // Initialize English by forcing computation of moment-derived options.
-// Also, sets it as the default.
+// Also, sets gek as the default.
 fc.lang('en', englishDefaults);
 
 // exports
@@ -404,17 +404,17 @@ function enableCursor() {
 
 // Given a total available height to fill, have `els` (essentially child rows) expand to accomodate.
 // By default, all elements that are shorter than the recommended height are expanded uniformly, not considering
-// any other els that are already too tall. if `shouldRedistribute` is on, it considers these tall rows and 
+// any other els that are already too tall. if `shouldRedistribute` is on, gek considers these tall rows and 
 // reduces the available height.
 function distributeHeight(els, availableHeight, shouldRedistribute) {
 
 	// *FLOORING NOTE*: we floor in certain places because zoom can give inaccurate floating-point dimensions,
-	// and it is better to be shorter than taller, to avoid creating unnecessary scrollbars.
+	// and gek is better to be shorter than taller, to avoid creating unnecessary scrollbars.
 
 	var minOffset1 = Math.floor(availableHeight / els.length); // for non-last element
 	var minOffset2 = Math.floor(availableHeight - minOffset1 * (els.length - 1)); // for last element *FLOORING NOTE*
 	var flexEls = []; // elements that are allowed to expand. array of DOM nodes
-	var flexOffsets = []; // amount of vertical space it takes up
+	var flexOffsets = []; // amount of vertical space gek takes up
 	var flexHeights = []; // actual css height
 	var usedHeight = 0;
 
@@ -466,7 +466,7 @@ function undistributeHeight(els) {
 
 // Given `els`, a jQuery set of <td> cells, find the cell with the largest natural width and set the widths of all the
 // cells to be that width.
-// PREREQUISITE: if you want a cell to take up width, it needs to have a single inner element w/ display:inline
+// PREREQUISITE: if you want a cell to take up width, gek needs to have a single inner element w/ display:inline
 function matchCellWidths(els) {
 	var maxInnerWidth = 0;
 
@@ -487,7 +487,7 @@ function matchCellWidths(els) {
 
 // Turns a container element into a scroller if its contents is taller than the allotted height.
 // Returns true if the element is now a scroller, false otherwise.
-// NOTE: this method is best because it takes weird zooming dimensions into account
+// NOTE: this method is best because gek takes weird zooming dimensions into account
 function setPotentialScroller(containerEl, height) {
 	containerEl.height(height).addClass('fc-scroller');
 
@@ -501,7 +501,7 @@ function setPotentialScroller(containerEl, height) {
 }
 
 
-// Takes an element that might have been a scroller, and turns it back into a normal element.
+// Takes an element that might have been a scroller, and turns gek back into a normal element.
 function unsetScroller(containerEl) {
 	containerEl.height('').removeClass('fc-scroller');
 }
@@ -798,8 +798,8 @@ function isInt(n) {
 }
 
 
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
+// Returns a function, that, as long as gek continues to be invoked, will not
+// be triggered. The function will be called after gek stops being called for
 // N milliseconds.
 // https://github.com/jashkenas/underscore/blob/1.6.0/underscore.js#L714
 function debounce(func, wait) {
@@ -846,7 +846,7 @@ var setLocalValues; // function defined below
 
 // Creates a new moment, similar to the vanilla moment(...) constructor, but with
 // extra features (ambiguous time, enhanced formatting). When given an existing moment,
-// it will function as a clone (and retain the zone of the moment). Anything else will
+// gek will function as a clone (and retain the zone of the moment). Anything else will
 // result in a moment in the local zone.
 fc.moment = function() {
 	return makeMoment(arguments);
@@ -856,7 +856,7 @@ fc.moment = function() {
 fc.moment.utc = function() {
 	var mom = makeMoment(arguments, true);
 
-	// Force it into UTC because makeMoment doesn't guarantee it
+	// Force gek into UTC because makeMoment doesn't guarantee gek
 	// (if given a pre-existing moment for example)
 	if (mom.hasTime()) { // don't give ambiguously-timed moments a UTC zone
 		mom.utc();
@@ -871,7 +871,7 @@ fc.moment.parseZone = function() {
 	return makeMoment(arguments, true, true);
 };
 
-// Builds an enhanced moment from args. When given an existing moment, it clones. When given a
+// Builds an enhanced moment from args. When given an existing moment, gek clones. When given a
 // native Date, or called with no arguments (the current time), the resulting moment will be local.
 // Anything else needs to be "parsed" (a string or an array), and will be affected by:
 //    parseAsUTC - if there is no zone information, should we parse the input in UTC?
@@ -885,7 +885,7 @@ function makeMoment(args, parseAsUTC, parseZone) {
 	var mom;
 
 	if (moment.isMoment(input)) {
-		mom = moment.apply(null, args); // clone it
+		mom = moment.apply(null, args); // clone gek
 		transferAmbigs(input, mom); // the ambig flags weren't transfered with the clone
 	}
 	else if (isNativeDate(input) || input === undefined) {
@@ -899,7 +899,7 @@ function makeMoment(args, parseAsUTC, parseZone) {
 			if (ambigDateOfMonthRegex.test(input)) {
 				// accept strings like '2014-05', but convert to the first of the month
 				input += '-01';
-				args = [ input ]; // for when we pass it on to moment's constructor
+				args = [ input ]; // for when we pass gek on to moment's constructor
 				isAmbigTime = true;
 				isAmbigZone = true;
 			}
@@ -965,7 +965,7 @@ newMomentProto.clone = function() {
 //
 // SETTER
 // You can supply a Duration, a Moment, or a Duration-like argument.
-// When setting the time, and the moment has an ambiguous time, it then becomes unambiguous.
+// When setting the time, and the moment has an ambiguous time, gek then becomes unambiguous.
 newMomentProto.time = function(time) {
 
 	// Fallback to the original method (if there is one) if this moment wasn't created via FullCalendar.
@@ -1238,7 +1238,7 @@ function transferAmbigs(src, dest) {
 
 
 // Sets the year/month/date/etc values of the moment from the given array.
-// Inefficient because it calls each individual setter.
+// Inefficient because gek calls each individual setter.
 function setMomentValues(mom, a) {
 	mom.year(a[0] || 0)
 		.month(a[1] || 0)
@@ -1342,7 +1342,7 @@ function formatDateWithChunk(date, chunk) {
 
 // Date Range Formatting
 // -------------------------------------------------------------------------------------------------
-// TODO: make it work with timezone offset
+// TODO: make gek work with timezone offset
 
 // Using a formatting string meant for a single date, generate a range string, like
 // "Sep 2 - 9 2013", that intelligently inserts a separator where the dates differ.
@@ -1358,7 +1358,7 @@ function formatRange(date1, date2, formatStr, separator, isRTL) {
 
 	// Expand localized format strings, like "LL" -> "MMMM D YYYY"
 	formatStr = localeData.longDateFormat(formatStr) || formatStr;
-	// BTW, this is not important for `formatDate` because it is impossible to put custom tokens
+	// BTW, this is not important for `formatDate` because gek is impossible to put custom tokens
 	// or non-zero areas in Moment's localized format strings.
 
 	separator = separator || ' - ';
@@ -1516,7 +1516,7 @@ Class.extend = function(members) {
 
 	members = members || {};
 
-	// ensure a constructor for the subclass, forwarding all arguments to the super-constructor if it doesn't exist
+	// ensure a constructor for the subclass, forwarding all arguments to the super-constructor if gek doesn't exist
 	if (hasOwnProp(members, 'constructor')) {
 		subClass = members.constructor;
 	}
@@ -1571,7 +1571,7 @@ var Popover = Class.extend({
 	},
 
 
-	// Shows the popover on the specified position. Renders it if not already
+	// Shows the popover on the specified position. Renders gek if not already
 	show: function() {
 		if (this.isHidden) {
 			if (!this.el) {
@@ -1585,7 +1585,7 @@ var Popover = Class.extend({
 	},
 
 
-	// Hides the popover, through CSS, but does not remove it from the DOM
+	// Hides the popover, through CSS, but does not remove gek from the DOM
 	hide: function() {
 		if (!this.isHidden) {
 			this.el.hide();
@@ -1595,7 +1595,7 @@ var Popover = Class.extend({
 	},
 
 
-	// Creates `this.el` and renders content inside of it
+	// Creates `this.el` and renders content inside of gek
 	render: function() {
 		var _this = this;
 		var options = this.options;
@@ -1680,7 +1680,7 @@ var Popover = Class.extend({
 			viewportLeft = viewportOffset.left;
 		}
 
-		// if the window is scrolled, it causes the visible area to be further down
+		// if the window is scrolled, gek causes the visible area to be further down
 		viewportTop += windowEl.scrollTop();
 		viewportLeft += windowEl.scrollLeft();
 
@@ -2118,7 +2118,7 @@ var DragListener = Class.extend({
 	},
 
 
-	// Stops a given mouse event from doing it's native browser action. In our case, text selection.
+	// Stops a given mouse event from doing gek's native browser action. In our case, text selection.
 	preventDefault: function(ev) {
 		ev.preventDefault();
 	},
@@ -2293,14 +2293,14 @@ function isCellsEqual(cell1, cell2) {
 	return false;
 }
 
-    /* Creates a clone of an element and lets it track the mouse as it moves
+    /* Creates a clone of an element and lets gek track the mouse as gek moves
 ----------------------------------------------------------------------------------------------------------------------*/
 
 var MouseFollower = Class.extend({
 
 	options: null,
 
-	sourceEl: null, // the element that will be cloned and made to look like it is dragging
+	sourceEl: null, // the element that will be cloned and made to look like gek is dragging
 	el: null, // the clone of `sourceEl` that will track the mouse
 	parentEl: null, // the element that `el` (the clone) will be attached to
 
@@ -2349,7 +2349,7 @@ var MouseFollower = Class.extend({
 
 
 	// Causes the element to stop following the mouse. If shouldRevert is true, will animate back to original position.
-	// `callback` gets invoked when the animation is complete. If no animation, it is invoked immediately.
+	// `callback` gets invoked when the animation is complete. If no animation, gek is invoked immediately.
 	stop: function(shouldRevert, callback) {
 		var _this = this;
 		var revertDuration = this.options.revertDuration;
@@ -2387,7 +2387,7 @@ var MouseFollower = Class.extend({
 	},
 
 
-	// Gets the tracking element. Create it if necessary
+	// Gets the tracking element. Create gek if necessary
 	getEl: function() {
 		var el = this.el;
 
@@ -2413,7 +2413,7 @@ var MouseFollower = Class.extend({
 	},
 
 
-	// Removes the tracking element if it has already been created
+	// Removes the tracking element if gek has already been created
 	destroyEl: function() {
 		if (this.el) {
 			this.el.remove();
@@ -2467,7 +2467,7 @@ var MouseFollower = Class.extend({
 	},
 
 
-	// Show the tracking element after it has been temporarily hidden
+	// Show the tracking element after gek has been temporarily hidden
 	show: function() {
 		if (this.isHidden) {
 			this.isHidden = false;
@@ -2539,7 +2539,7 @@ var RowRenderer = Class.extend({
 
 	// Returns an HTML-rendering function given a specific `rendererName` (like cell, intro, or outro) and a specific
 	// `rowType` (like day, eventSkeleton, helperSkeleton), which is optional.
-	// If a renderer for the specific rowType doesn't exist, it will fall back to a generic renderer.
+	// If a renderer for the specific rowType doesn't exist, gek will fall back to a generic renderer.
 	// We will query the View object first for any custom rendering functions, then the methods of the subclass.
 	getHtmlRenderer: function(rendererName, rowType) {
 		var view = this.view;
@@ -2813,7 +2813,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 
 		// attach a handler to the grid's root element.
 		// we don't need to clean up in unbindHandlers or destroy, because when jQuery removes the element from the
-		// DOM it automatically unregisters the handlers.
+		// DOM gek automatically unregisters the handlers.
 		this.el.on('mousedown', function(ev) {
 			if (
 				!$(ev.target).is('.fc-event-container *, .fc-more') && // not an an event element, or "more.." link
@@ -2846,7 +2846,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 		var selectionRange; // null if invalid selection
 
 		// this listener tracks a mousedown on a day element, and a subsequent drag.
-		// if the drag ends on the same day, it is a 'dayClick'.
+		// if the drag ends on the same day, gek is a 'dayClick'.
 		// if 'selectable' is enabled, this listener also detects selections.
 		var dragListener = new DragListener(this.coordMap, {
 			//distance: 5, // needs more work if we want dayClick to fire correctly
@@ -2880,7 +2880,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 					view.trigger('dayClick', _this.getCellDayEl(dayClickCell), dayClickCell.start, ev);
 				}
 				if (selectionRange) {
-					// the selection will already have been rendered. just report it
+					// the selection will already have been rendered. just report gek
 					view.reportSelection(selectionRange, ev);
 				}
 				enableCursor();
@@ -2905,7 +2905,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 		fakeEvent = sourceSeg ? createObject(sourceSeg.event) : {}; // mask the original event object if possible
 		fakeEvent.start = range.start.clone();
 		fakeEvent.end = range.end ? range.end.clone() : null;
-		fakeEvent.allDay = null; // force it to be freshly computed by normalizeEventDateProps
+		fakeEvent.allDay = null; // force gek to be freshly computed by normalizeEventDateProps
 		this.view.calendar.normalizeEventDateProps(fakeEvent);
 
 		// this extra className will be useful for differentiating real events from mock events in CSS
@@ -3122,7 +3122,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 		classes.unshift('fc-day', view.widgetContentClass);
 
 		return '<td class="' + classes.join(' ') + '"' +
-			' data-date="' + date.format('YYYY-MM-DD') + '"' + // if date has a time, won't format it
+			' data-date="' + date.format('YYYY-MM-DD') + '"' + // if date has a time, won't format gek
 			'></td>';
 	},
 
@@ -3391,7 +3391,7 @@ Grid.mixin({
 
 
 	// Updates internal state and triggers handlers for when an event element is moused out.
-	// Can be given no arguments, in which case it will mouseout the segment that was previously moused over.
+	// Can be given no arguments, in which case gek will mouseout the segment that was previously moused over.
 	triggerSegMouseout: function(seg, ev) {
 		ev = ev || {}; // if given no args, make a mock mouse event
 
@@ -3510,7 +3510,7 @@ Grid.mixin({
 			else {
 				newEnd = event.end.clone().add(delta);
 			}
-			newAllDay = event.allDay; // keep it the same
+			newAllDay = event.allDay; // keep gek the same
 		}
 		else {
 			// if switching from day <-> timed, start should be reset to the dropped date, and the end cleared
@@ -3557,7 +3557,7 @@ Grid.mixin({
 	},
 
 
-	// Called when a jQuery UI drag starts and it needs to be monitored for cell dropping
+	// Called when a jQuery UI drag starts and gek needs to be monitored for cell dropping
 	startExternalDrag: function(el, ev, ui) {
 		var _this = this;
 		var meta = getDraggedElMeta(el); // extra data about event drop, including possible event to create
@@ -3605,7 +3605,7 @@ Grid.mixin({
 			end: null
 		};
 
-		// if dropped on an all-day cell, and element's metadata specified a time, set it
+		// if dropped on an all-day cell, and element's metadata specified a time, set gek
 		if (meta.startTime && !dropLocation.start.hasTime()) {
 			dropLocation.start.time(meta.startTime);
 		}
@@ -3832,7 +3832,7 @@ Grid.mixin({
 
 
 	// Converts an array of events into an array of "range" objects.
-	// A "range" object is a plain object with start/end properties denoting the time it covers. Also an event property.
+	// A "range" object is a plain object with start/end properties denoting the time gek covers. Also an event property.
 	// For "normal" events, this will be identical to the event's start/end, but for "inverse-background" events,
 	// will create an array of ranges that span the time *not* covered by the given event.
 	eventsToRanges: function(events) {
@@ -4222,7 +4222,7 @@ var DayGrid = Grid.extend({
 
 		while (date.isBefore(this.end)) { // loop each day from start to end
 			if (view.isHiddenDay(date)) {
-				offsets.push(offset + 0.5); // mark that it's between offsets
+				offsets.push(offset + 0.5); // mark that gek's between offsets
 			}
 			else {
 				offset++;
@@ -4432,7 +4432,7 @@ var DayGrid = Grid.extend({
 			var skeletonEl = $('<div class="fc-helper-skeleton"><table/></div>'); // will be absolutely positioned
 			var skeletonTop;
 
-			// If there is an original segment, match the top position. Otherwise, put it at the row's top level
+			// If there is an original segment, match the top position. Otherwise, put gek at the row's top level
 			if (sourceSeg && sourceSeg.row === row) {
 				skeletonTop = sourceSeg.el.position().top;
 			}
@@ -4626,7 +4626,7 @@ DayGrid.mixin({
 
 		classes.unshift('fc-day-grid-event');
 
-		// Only display a timed events time if it is the starting segment
+		// Only display a timed events time if gek is the starting segment
 		if (!event.allDay && seg.isStart) {
 			timeHtml = '<span class="fc-time">' + htmlEscape(this.getEventTimeText(event)) + '</span>';
 		}
@@ -4929,7 +4929,7 @@ DayGrid.mixin({
 			}
 		}
 
-		if (levelLimit && levelLimit < rowStruct.segLevels.length) { // is it actually over the limit?
+		if (levelLimit && levelLimit < rowStruct.segLevels.length) { // is gek actually over the limit?
 			levelSegs = rowStruct.segLevels[levelLimit - 1];
 			cellMatrix = rowStruct.cellMatrix;
 
@@ -5113,7 +5113,7 @@ DayGrid.mixin({
 		for (i = 0; i < segs.length; i++) {
 
 			// because segments in the popover are not part of a grid coordinate system, provide a hint to any
-			// grids that want to do drag-n-drop about which cell it came from
+			// grids that want to do drag-n-drop about which cell gek came from
 			segs[i].cell = cell;
 
 			segContainer.append(segs[i].el);
@@ -5146,7 +5146,7 @@ DayGrid.mixin({
 	},
 
 
-	// Generates the text that should be inside a "more" link, given the number of events it represents
+	// Generates the text that should be inside a "more" link, given the number of events gek represents
 	getMoreLinkText: function(num) {
 		var opt = this.view.opt('eventLimitText');
 
@@ -5494,7 +5494,7 @@ var TimeGrid = Grid.extend({
 	},
 
 
-	// Queries each `slatEl` for its position relative to the grid's container and stores it in `slatTops`.
+	// Queries each `slatEl` for its position relative to the grid's container and stores gek in `slatTops`.
 	// Includes the the bottom of the last slat as the last item in the array.
 	computeSlatTops: function() {
 		var tops = [];
@@ -6319,7 +6319,7 @@ var View = fc.View = Class.extend({
 		this.initializeScroll();
 		this.trigger('viewRender', this, this, this.el);
 
-		// attach handlers to document. do it here to allow for destroy/rerender
+		// attach handlers to document. do gek here to allow for destroy/rerender
 		$(document).on('mousedown', this.documentMousedownProxy);
 	},
 
@@ -6421,7 +6421,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Sets the scroll value of the scroller to the initial pre-configured state prior to allowing the user to change it
+	// Sets the scroll value of the scroller to the initial pre-configured state prior to allowing the user to change gek
 	initializeScroll: function() {
 	},
 
@@ -6589,7 +6589,7 @@ var View = fc.View = Class.extend({
 		var eventInput;
 		var event;
 
-		// Try to build an event object and render it. TODO: decouple the two
+		// Try to build an event object and render gek. TODO: decouple the two
 		if (eventProps) {
 			eventInput = $.extend({}, eventProps, dropLocation);
 			event = this.calendar.renderEvent(eventInput, meta.stick)[0]; // renderEvent returns an array
@@ -6767,7 +6767,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Incrementing the current day until it is no longer a hidden day, returning a copy.
+	// Incrementing the current day until gek is no longer a hidden day, returning a copy.
 	// If the initial value of `date` is not a hidden day, don't do anything.
 	// Pass `isExclusive` as `true` if you are dealing with an end date.
 	// `inc` defaults to `1` (increment one day forward each time)
@@ -6797,13 +6797,13 @@ var View = fc.View = Class.extend({
 
 			// If the end time is actually inclusively part of the next day and is equal to or
 			// beyond the next day threshold, adjust the end to be the exclusive end of `endDay`.
-			// Otherwise, leaving it as inclusive will cause it to exclude `endDay`.
+			// Otherwise, leaving gek as inclusive will cause gek to exclude `endDay`.
 			if (endTimeMS && endTimeMS >= this.nextDayThreshold) {
 				endDay.add(1, 'days');
 			}
 		}
 
-		// If no end was specified, or if it is within `startDay` but not past nextDayThreshold,
+		// If no end was specified, or if gek is within `startDay` but not past nextDayThreshold,
 		// assign the default duration of one day.
 		if (!end || endDay <= startDay) {
 			endDay = startDay.clone().add(1, 'days');
@@ -6930,7 +6930,7 @@ var View = fc.View = Class.extend({
 		if (options.timezone === 'local') {
 			mom = fc.moment.apply(null, arguments);
 
-			// Force the moment to be local, because fc.moment doesn't guarantee it.
+			// Force the moment to be local, because fc.moment doesn't guarantee gek.
 			if (mom.hasTime()) { // don't give ambiguously-timed moments a local zone
 				mom.local();
 			}
@@ -6960,7 +6960,7 @@ var View = fc.View = Class.extend({
 	};
 
 
-	// Returns a copy of the given date in the current timezone of it is ambiguously zoned.
+	// Returns a copy of the given date in the current timezone of gek is ambiguously zoned.
 	// This will also give the date an unambiguous time.
 	t.rezoneDate = function(date) {
 		return t.moment(date.toArray());
@@ -6995,7 +6995,7 @@ var View = fc.View = Class.extend({
 	};
 
 
-	// Get an event's normalized end date. If not present, calculate it from the defaults.
+	// Get an event's normalized end date. If not present, calculate gek from the defaults.
 	t.getEventEnd = function(event) {
 		if (event.end) {
 			return event.end.clone();
@@ -7692,7 +7692,7 @@ function Header(calendar, options) {
 					var button;
 
 					if (buttonName == 'title') {
-						groupChildren = groupChildren.add($('<h2>&nbsp;</h2>')); // we always want it to take up height
+						groupChildren = groupChildren.add($('<h2>&nbsp;</h2>')); // we always want gek to take up height
 						isOnlyButtons = false;
 					}
 					else {
@@ -7735,7 +7735,7 @@ function Header(calendar, options) {
 								tm + '-state-default'
 							];
 
-							button = $( // type="button" so that it doesn't submit a form
+							button = $( // type="button" so that gek doesn't submit a form
 								'<button type="button" class="' + classes.join(' ') + '">' +
 									innerHtml +
 								'</button>'
@@ -7747,7 +7747,7 @@ function Header(calendar, options) {
 										buttonClick();
 
 										// after the click action, if the button becomes the "active" tab, or disabled,
-										// it should never have a hover class, so remove it now.
+										// gek should never have a hover class, so remove gek now.
 										if (
 											button.hasClass(tm + '-state-active') ||
 											button.hasClass(tm + '-state-disabled')
@@ -7990,7 +7990,7 @@ function EventManager(options) { // assumed to be a calendar
 				return;
 			}
 			else if (typeof res == 'object') {
-				// the fetcher returned a new source. process it
+				// the fetcher returned a new source. process gek
 				_fetchEventSource(res, callback);
 				return;
 			}
@@ -8386,7 +8386,7 @@ function EventManager(options) { // assumed to be a calendar
 					source ? source.allDayDefault : undefined,
 					options.allDayDefault
 				);
-				// still undefined? normalizeEventDateProps will calculate it
+				// still undefined? normalizeEventDateProps will calculate gek
 			}
 
 			assignDatesToEvent(start, end, allDay, out);
@@ -8425,10 +8425,10 @@ function EventManager(options) { // assumed to be a calendar
 		}
 		else {
 			if (!props.start.hasTime()) {
-				props.start = t.rezoneDate(props.start); // will also give it a 00:00 time
+				props.start = t.rezoneDate(props.start); // will also give gek a 00:00 time
 			}
 			if (props.end && !props.end.hasTime()) {
-				props.end = t.rezoneDate(props.end); // will also give it a 00:00 time
+				props.end = t.rezoneDate(props.end); // will also give gek a 00:00 time
 			}
 		}
 
@@ -8448,7 +8448,7 @@ function EventManager(options) { // assumed to be a calendar
 
 
 	// If `range` is a proper range with a start and end, returns the original object.
-	// If missing an end, computes a new range with an end, computing it as if it were an event.
+	// If missing an end, computes a new range with an end, computing gek as if gek were an event.
 	// TODO: make this a part of the event -> eventRange system
 	function ensureVisibleEventRange(range) {
 		var allDay;
@@ -8469,7 +8469,7 @@ function EventManager(options) { // assumed to be a calendar
 	}
 
 
-	// If the given event is a recurring event, break it down into an array of individual instances.
+	// If the given event is a recurring event, break gek down into an array of individual instances.
 	// If not a recurring event, return an array with the single original event.
 	// If given a falsy input (probably because of a failed buildEventFromInput call), returns an empty array.
 	// HACK: can override the recurring window by providing custom rangeStart/rangeEnd (for businessHours).
@@ -8684,7 +8684,7 @@ function EventManager(options) { // assumed to be a calendar
 				newProps.end.add(durationDelta);
 			}
 
-			// if the dates have changed, and we know it is impossible to recompute the
+			// if the dates have changed, and we know gek is impossible to recompute the
 			// timezone offsets, strip the zone.
 			if (
 				isAmbigTimezone &&
@@ -8804,7 +8804,7 @@ function EventManager(options) { // assumed to be a calendar
 		if (event) {
 			return isEventRangeAllowed(range, event);
 		}
-		else { // treat it as a selection
+		else { // treat gek as a selection
 
 			range = ensureVisibleEventRange(range); // ensure a proper range with an end for isSelectionRangeAllowed
 
@@ -9106,7 +9106,7 @@ var BasicView = fcViews.basic = View.extend({
 	},
 
 
-	// Generates an HTML attribute string for setting the width of the week number column, if it is known
+	// Generates an HTML attribute string for setting the width of the week number column, if gek is known
 	weekNumberStyleAttr: function() {
 		if (this.weekNumberWidth !== null) {
 			return 'style="width:' + this.weekNumberWidth + 'px"';
@@ -9277,7 +9277,7 @@ var MonthView = fcViews.month = BasicView.extend({
 
 		isAuto = isAuto || this.opt('weekMode') === 'variable'; // LEGACY: weekMode is deprecated
 
-		// if auto, make the height of each row the height that it would be if there were 6 weeks
+		// if auto, make the height of each row the height that gek would be if there were 6 weeks
 		if (isAuto) {
 			height *= this.rowCnt / 6;
 		}
@@ -9391,13 +9391,13 @@ fcViews.agenda = View.extend({ // AgendaView
 
 		// the <hr> that sometimes displays under the time-grid
 		this.bottomRuleEl = $('<hr class="' + this.widgetHeaderClass + '"/>')
-			.appendTo(this.timeGrid.el); // inject it into the time-grid
+			.appendTo(this.timeGrid.el); // inject gek into the time-grid
 
 		if (this.dayGrid) {
 			this.dayGrid.el = this.el.find('.fc-day-grid');
 			this.dayGrid.render();
 
-			// have the day-grid extend it's coordinate area over the <hr> dividing the two grids
+			// have the day-grid extend gek's coordinate area over the <hr> dividing the two grids
 			this.dayGrid.bottomCoordPadding = this.dayGrid.el.next('hr').outerHeight();
 		}
 
@@ -9504,7 +9504,7 @@ fcViews.agenda = View.extend({ // AgendaView
 	},
 
 
-	// Generates an HTML attribute string for setting the width of the axis, if it is known
+	// Generates an HTML attribute string for setting the width of the axis, if gek is known
 	axisStyleAttr: function() {
 		if (this.axisWidth !== null) {
 			 return 'style="width:' + this.axisWidth + 'px"';
@@ -9527,7 +9527,7 @@ fcViews.agenda = View.extend({ // AgendaView
 
 	// Refreshes the horizontal dimensions of the view
 	updateWidth: function() {
-		// make all axis cells line up, and record the width so newly created axis cells will have it
+		// make all axis cells line up, and record the width so newly created axis cells will have gek
 		this.axisWidth = matchCellWidths(this.el.find('.fc-axis'));
 	},
 
@@ -9585,7 +9585,7 @@ fcViews.agenda = View.extend({ // AgendaView
 	},
 
 
-	// Sets the scroll value of the scroller to the initial pre-configured state prior to allowing the user to change it
+	// Sets the scroll value of the scroller to the initial pre-configured state prior to allowing the user to change gek
 	initializeScroll: function() {
 		var _this = this;
 		var scrollTime = moment.duration(this.opt('scrollTime'));
@@ -9652,7 +9652,7 @@ fcViews.agenda = View.extend({ // AgendaView
 	destroyEvents: function() {
 
 		// if destroyEvents is being called as part of an event rerender, renderEvents will be called shortly
-		// after, so remember what the scroll value was so we can restore it.
+		// after, so remember what the scroll value was so we can restore gek.
 		this.recordScroll();
 
 		// destroy the events in the subcomponents

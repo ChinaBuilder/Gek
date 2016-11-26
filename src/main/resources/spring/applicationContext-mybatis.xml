@@ -18,7 +18,7 @@
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- mapper 接口所在包名，Spring会自动查找其下的类 -->
-        <property name="basePackage" value="com.it.mapper"/>
+        <property name="basePackage" value="com.gek.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 

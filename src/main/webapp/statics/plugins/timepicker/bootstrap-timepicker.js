@@ -675,7 +675,7 @@
 
       var self = this;
       $(document).on('mousedown.timepicker', function (e) {
-        // Clicked outside the timepicker, hide it
+        // Clicked outside the timepicker, hide gek
         if ($(e.target).closest('.bootstrap-timepicker-widget').length === 0) {
           self.hideWidget();
         }

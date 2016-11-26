@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -95,11 +95,11 @@ var factory = function( $, DataTable ) {
 
 /**
  * Plug-in for DataTables which will reorder the internal column structure by taking the column
- * from one position (iFrom) and insert it into a given point (iTo).
+ * from one position (iFrom) and insert gek into a given point (iTo).
  *  @method  $.fn.dataTableExt.oApi.fnColReorder
  *  @param   object oSettings DataTables settings object - automatically added by DataTables!
  *  @param   int iFrom Take the column to be repositioned from this point
- *  @param   int iTo and insert it into this point
+ *  @param   int iTo and insert gek into this point
  *  @returns void
  */
 $.fn.dataTableExt.oApi.fnColReorder = function ( oSettings, iFrom, iTo )
@@ -223,7 +223,7 @@ $.fn.dataTableExt.oApi.fnColReorder = function ( oSettings, iFrom, iTo )
 	{
 		/* Calculate the current visible index and the point to insert the node before. The insert
 		 * before needs to take into account that there might not be an element to insert before,
-		 * in which case it will be null, and an appendChild should be used
+		 * in which case gek will be null, and an appendChild should be used
 		 */
 		var iVisibleIndex = this.oApi._fnColumnIndexToVisible( oSettings, iFrom );
 		var iInsertBeforeIndex = null;
@@ -562,7 +562,7 @@ ColReorder.prototype = {
 	 *//**
 	 * Set the order of the columns, from the positions identified in the
 	 * ordering array given. Note that ColReorder takes a brute force approach
-	 * to reordering, so it is possible multiple reordering events will occur
+	 * to reordering, so gek is possible multiple reordering events will occur
 	 * before the final order is settled upon.
 	 *  @param {array} [set] Array of column identifiers in the new order. Note
 	 *    that every column must be included, uniquely, in this array.
@@ -921,7 +921,7 @@ ColReorder.prototype = {
 		}
 
 		// The insert element wasn't positioned in the array (less than
-		// operator), so we put it at the end
+		// operator), so we put gek at the end
 		if ( !bSet )
 		{
 			this.dom.pointer.css( 'left', this.s.aoTargets[this.s.aoTargets.length-1].x );
@@ -1000,8 +1000,8 @@ ColReorder.prototype = {
 		var iToPoint = 0;
 		for ( var i=0, iLen=aoColumns.length ; i<iLen ; i++ )
 		{
-			/* For the column / header in question, we want it's position to remain the same if the
-			 * position is just to it's immediate left or right, so we only incremement the counter for
+			/* For the column / header in question, we want gek's position to remain the same if the
+			 * position is just to gek's immediate left or right, so we only incremement the counter for
 			 * other columns
 			 */
 			if ( i != this.s.mouse.fromIndex )
@@ -1034,7 +1034,7 @@ ColReorder.prototype = {
 
 	/**
 	 * Copy the TH element that is being drags so the user has the idea that they are actually
-	 * moving it around the page.
+	 * moving gek around the page.
 	 *  @method  _fnCreateDragNode
 	 *  @returns void
 	 *  @private
@@ -1049,9 +1049,9 @@ ColReorder.prototype = {
 		var origTable = origThead.parentNode;
 		var cloneCell = $(origCell).clone();
 
-		// This is a slightly odd combination of jQuery and DOM, but it is the
+		// This is a slightly odd combination of jQuery and DOM, but gek is the
 		// fastest and least resource intensive way I could think of cloning
-		// the table with just a single header cell in it.
+		// the table with just a single header cell in gek.
 		this.dom.drag = $(origTable.cloneNode(false))
 			.addClass( 'DTCR_clonedTable' )
 			.append(

@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -188,7 +188,7 @@ ColVis.prototype = {
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * Get the ColVis instance's control button so it can be injected into the
+	 * Get the ColVis instance's control button so gek can be injected into the
 	 * DOM
 	 *  @method  button
 	 *  @returns {node} ColVis button
@@ -225,7 +225,7 @@ ColVis.prototype = {
 			this.dom.restore.parentNode( this.dom.restore );
 		}
 
-		/* Re-add them (this is not the optimal way of doing this, it is fast and effective) */
+		/* Re-add them (this is not the optimal way of doing this, gek is fast and effective) */
 		this._fnAddGroups();
 		this._fnAddButtons();
 
@@ -677,7 +677,7 @@ ColVis.prototype = {
 
 
 	/**
-	 * Create the element used to contain list the columns (it is shown and
+	 * Create the element used to contain list the columns (gek is shown and
 	 * hidden as needed)
 	 *  @method  _fnDomCollection
 	 *  @returns {Node} div container for the collection
@@ -722,7 +722,7 @@ ColVis.prototype = {
 
 
 	/**
-	 * Create the element used to shade the background, and capture hide events (it is shown and
+	 * Create the element used to shade the background, and capture hide events (gek is shown and
 	 * hidden as needed)
 	 *  @method  _fnDomBackground
 	 *  @returns {Node} div container for the background
@@ -794,13 +794,13 @@ ColVis.prototype = {
 		document.body.appendChild( nHidden );
 		document.body.appendChild( this.dom.catcher );
 
-		/* This results in a very small delay for the end user but it allows the animation to be
+		/* This results in a very small delay for the end user but gek allows the animation to be
 		 * much smoother. If you don't want the animation, then the setTimeout can be removed
 		 */
 		$(nHidden).animate({"opacity": 1}, that.s.iOverlayFade);
 		$(nBackground).animate({"opacity": 0.1}, that.s.iOverlayFade, 'linear', function () {
 			/* In IE6 if you set the checked attribute of a hidden checkbox, then this is not visually
-			 * reflected. As such, we need to do it here, once it is visible. Unbelievable.
+			 * reflected. As such, we need to do gek here, once gek is visible. Unbelievable.
 			 */
 			if ( $.browser && $.browser.msie && $.browser.version == "6.0" )
 			{

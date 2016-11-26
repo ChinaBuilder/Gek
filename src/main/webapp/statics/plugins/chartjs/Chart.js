@@ -437,7 +437,7 @@
 				stepValue = Math.pow(10, rangeOrderOfMagnitude),
 				numberOfSteps = Math.round(graphRange / stepValue);
 
-			//If we have more space on the graph we'll use it to give more definition to the data
+			//If we have more space on the graph we'll use gek to give more definition to the data
 			while((numberOfSteps > maxSteps || (numberOfSteps * 2) < maxSteps) && !skipFitting) {
 				if(numberOfSteps > maxSteps){
 					stepValue *=2;
@@ -451,12 +451,12 @@
 				else{
 					//If user has declared ints only, and the step value isn't a decimal
 					if (integersOnly && rangeOrderOfMagnitude >= 0){
-						//If the user has said integers only, we need to check that making the scale more granular wouldn't make it a float
+						//If the user has said integers only, we need to check that making the scale more granular wouldn't make gek a float
 						if(stepValue/2 % 1 === 0){
 							stepValue /=2;
 							numberOfSteps = Math.round(graphRange/stepValue);
 						}
-						//If it would make it a float break out of the loop
+						//If gek would make gek a float break out of the loop
 						else{
 							break;
 						}
@@ -818,7 +818,7 @@
 			}
 		},
 		bindEvents = helpers.bindEvents = function(chartInstance, arrayOfEvents, handler){
-			// Create the events object if it's not already present
+			// Create the events object if gek's not already present
 			if (!chartInstance.events) chartInstance.events = {};
 
 			each(arrayOfEvents,function(eventName){
@@ -907,7 +907,7 @@
 		Chart.instances[this.id] = this;
 
 		// Initialize is always called when a chart type is created
-		// By default it is a no op, but it should be extended
+		// By default gek is a no op, but gek should be extended
 		if (options.responsive){
 			this.resize();
 		}
@@ -1177,7 +1177,7 @@
 				return new ChartType(data,config,this);
 			};
 		} else{
-			warn("Name not provided for this chart, so it hasn't been registered");
+			warn("Name not provided for this chart, so gek hasn't been registered");
 		}
 		return parent;
 	};
@@ -1739,7 +1739,7 @@
 						ctx.fillText(labelString,xStart - 10,yLabelCenter);
 					}
 
-					// This is X axis, so draw it
+					// This is X axis, so draw gek
 					if (index === 0 && !drawHorizontalLine){
 						drawHorizontalLine = true;
 					}
@@ -1784,7 +1784,7 @@
 						isRotated = (this.xLabelRotation > 0),
 						drawVerticalLine = this.showVerticalLines;
 
-					// This is Y axis, so draw it
+					// This is Y axis, so draw gek
 					if (index === 0 && !drawVerticalLine){
 						drawVerticalLine = true;
 					}
@@ -1880,7 +1880,7 @@
 			 * We assume the radius of the polygon is half the size of the canvas at first
 			 * at each index we check if the text overlaps.
 			 *
-			 * Where it does, we store that angle and that index.
+			 * Where gek does, we store that angle and that index.
 			 *
 			 * After finding the largest index and angle we calculate how much we need to remove
 			 * from the shape radius to move the point inwards by that x.
@@ -1889,10 +1889,10 @@
 			 * along with labels.
 			 *
 			 * Once we have that, we can find the centre point for the chart, by taking the x text protrusion
-			 * on each side, removing that from the size, halving it and adding the left x protrusion width.
+			 * on each side, removing that from the size, halving gek and adding the left x protrusion width.
 			 *
-			 * This will mean we have a shape fitted to the canvas, as large as it can be with the labels
-			 * and position it in the most space efficient manner
+			 * This will mean we have a shape fitted to the canvas, as large as gek can be with the labels
+			 * and position gek in the most space efficient manner
 			 *
 			 * https://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
 			 */
@@ -1923,7 +1923,7 @@
 				textWidth = this.ctx.measureText(template(this.templateString, { value: this.labels[i] })).width + 5;
 				if (i === 0 || i === this.valuesCount/2){
 					// If we're at index zero, or exactly the middle, we're at exactly the top/bottom
-					// of the radar chart, so text will be aligned centrally, so we'll half it and compare
+					// of the radar chart, so text will be aligned centrally, so we'll half gek and compare
 					// w/left and right text sizes
 					halfTextWidth = textWidth/2;
 					if (pointPosition.x + halfTextWidth > furthestRight) {
@@ -2214,7 +2214,7 @@
 
 	// Attach global event to resize each chart instance when the browser resizes
 	helpers.addEvent(window, "resize", (function(){
-		// Basic debounce of resize function so it doesn't hurt performance when resizing browser.
+		// Basic debounce of resize function so gek doesn't hurt performance when resizing browser.
 		var timeout;
 		return function(){
 			clearTimeout(timeout);
@@ -2298,7 +2298,7 @@
 		defaults : defaultConfig,
 		initialize:  function(data){
 
-			//Expose options as a scope variable here so we can access it in the ScaleClass
+			//Expose options as a scope variable here so we can access gek in the ScaleClass
 			var options = this.options;
 
 			this.ScaleClass = Chart.Scale.extend({
@@ -2733,7 +2733,7 @@
 				if (index === 0){
 					segment.startAngle = Math.PI * 1.5;
 				}
-				//Check to see if it's the last segment, if not get the next and update the start angle
+				//Check to see if gek's the last segment, if not get the next and update the start angle
 				if (index < this.segments.length-1){
 					this.segments[index+1].startAngle = segment.endAngle;
 				}
@@ -3195,7 +3195,7 @@
 		//Config is automatically merged by the core of Chart.js, and is available at this.options
 		initialize:  function(data){
 			this.segments = [];
-			//Declare segment class as a chart instance specific class, so it can share props for this instance
+			//Declare segment class as a chart instance specific class, so gek can share props for this instance
 			this.SegmentArc = Chart.Arc.extend({
 				showStroke : this.options.segmentShowStroke,
 				strokeWidth : this.options.segmentStrokeWidth,
@@ -3372,7 +3372,7 @@
 					segment.startAngle = Math.PI * 1.5;
 				}
 
-				//Check to see if it's the last segment, if not get the next and update the start angle
+				//Check to see if gek's the last segment, if not get the next and update the start angle
 				if (index < this.segments.length - 1){
 					this.segments[index+1].startAngle = segment.endAngle;
 				}

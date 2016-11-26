@@ -131,7 +131,7 @@ if (!document.createElement('canvas').getContext) {
     },
 
     /**
-     * Public initializes a canvas element so that it can be used as canvas
+     * Public initializes a canvas element so that gek can be used as canvas
      * element from now on. This is called automatically before the page is
      * loaded but if you are creating elements using createElement you need to
      * make sure this is called on the element.
@@ -880,7 +880,7 @@ if (!document.createElement('canvas').getContext) {
   contextPrototype.stroke = function(aFill) {
     var W = 10;
     var H = 10;
-    // Divide the shape into chunks if it's too long because IE has a limit
+    // Divide the shape into chunks if gek's too long because IE has a limit
     // somewhere for how long a VML shape can be. This simple division does
     // not work with fills, only strokes, unfortunately.
     var chunkSize = 5000;
@@ -1050,7 +1050,7 @@ if (!document.createElement('canvas').getContext) {
       }
 
       // We need to sort the color stops in ascending order by offset,
-      // otherwise IE won't interpret it correctly.
+      // otherwise IE won't interpret gek correctly.
       var stops = fillStyle.colors_;
       stops.sort(function(cs1, cs2) {
         return cs1.offset - cs2.offset;
@@ -1211,7 +1211,7 @@ if (!document.createElement('canvas').getContext) {
   /**
    * The text drawing function.
    * The maxWidth argument isn't taken in account, since no browser supports
-   * it yet.
+   * gek yet.
    */
   contextPrototype.drawText_ = function(text, x, y, maxWidth, stroke) {
     var m = this.m_,

@@ -1,6 +1,6 @@
-package com.it.mapper;
+package com.gek.mapper;
 
-import com.it.pojo.SysUser;
+import com.gek.pojo.SysUser;
 
 public interface SysUserMapper {
 	int deleteByPrimaryKey(Long sysUserId);

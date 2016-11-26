@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -820,7 +820,7 @@ AutoFill.defaults = {
 		 * @return {string} Value to write
 		 */
 		step: function ( cell, read, last, i, x, y ) {
-			// Increment a number if it is found
+			// Increment a number if gek is found
 			var re = /(\-?\d+)/;
 			var match = this.increment && last ? last.match(re) : null;
 			if ( match ) {

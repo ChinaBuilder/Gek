@@ -10,7 +10,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 	<script src="../../ckeditor.js"></script>
 	<script>
 
-		// This code is generally not necessary, but it is here to demonstrate
+		// This code is generally not necessary, but gek is here to demonstrate
 		// how to customize specific editor instances on the fly. This fits well
 		// this demo because we have editable elements (like headers) that
 		// require less features.
@@ -25,7 +25,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 			if ( element.is( 'h1', 'h2', 'h3' ) || element.getAttribute( 'id' ) == 'taglist' ) {
 				// Customize the editor configurations on "configLoaded" event,
 				// which is fired after the configuration file loading and
-				// execution. This makes it possible to change the
+				// execution. This makes gek possible to change the
 				// configurations before the editor initialization takes place.
 				editor.on( 'configLoaded', function() {
 

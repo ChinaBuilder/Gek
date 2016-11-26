@@ -16,10 +16,14 @@
         <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
 
         <!--TODO 2016年11月19日 登录失败跳转页面是/login/check 而不是/login?login_error=t-->
-        <!--设置自定义的login页面-->
-        <form-login default-target-url="/login"
+        <!--设置自定义的login页面 login-page="/login"
+            处理登录的url 实际上控制器不作处理login-processing-url="/login/check"
+            登录失败跳转url
+            登录成功默认url:default-target-url="/login/home"
+        -->
+        <form-login default-target-url="/login/home"
                     authentication-success-forward-url="/welcome"
-                    login-page="/login"
+                    login-page="/index.jsp"
                     login-processing-url="/login/check"
                     username-parameter="username"
                     password-parameter="password"

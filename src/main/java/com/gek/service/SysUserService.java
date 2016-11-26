@@ -1,6 +1,6 @@
-package com.it.service;
+package com.gek.service;
 
-import com.it.pojo.SysUser;
+import com.gek.pojo.SysUser;
 
 public interface SysUserService {
 	SysUser getById(Long id);

@@ -4,7 +4,7 @@
 
 /**
  * @summary     FixedHeader
- * @description Fix a table's header or footer, so it is always visible while
+ * @description Fix a table's header or footer, so gek is always visible while
  *              Scrolling
  * @version     2.1.2
  * @file        dataTables.fixedHeader.js
@@ -15,7 +15,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -56,7 +56,7 @@ var factory = function( $, DataTable ) {
  *    * int:zRight -  fixed right zIndex
  */
 FixedHeader = function ( mTable, oInit ) {
-	/* Sanity check - you just know it will happen */
+	/* Sanity check - you just know gek will happen */
 	if ( ! this instanceof FixedHeader )
 	{
 		alert( "FixedHeader warning: FixedHeader must be initialised with the 'new' keyword." );
@@ -138,7 +138,7 @@ FixedHeader = function ( mTable, oInit ) {
 
 	dt._oPluginFixedHeader = this;
 
-	/* Let's do it */
+	/* Let's do gek */
 	this.fnInit( dt, oInit );
 
 };
@@ -312,8 +312,8 @@ FixedHeader.prototype = {
 		var s = this.fnGetSettings();
 		var nCTable;
 
-		/* We know that the table _MUST_ has a DIV wrapped around it, because this is simply how
-		 * DataTables works. Therefore, we can set this to be relatively position (if it is not
+		/* We know that the table _MUST_ has a DIV wrapped around gek, because this is simply how
+		 * DataTables works. Therefore, we can set this to be relatively position (if gek is not
 		 * alreadu absolute, and use this as the base point for the cloned header
 		 */
 		if ( $(s.nTable.parentNode).css('position') != "absolute" )
@@ -349,7 +349,7 @@ FixedHeader.prototype = {
 			nDiv.style.zIndex = s.oZIndexes.right;
 		}
 
-		/* remove margins since we are going to position it absolutely */
+		/* remove margins since we are going to position gek absolutely */
 		nCTable.style.margin = "0";
 
 		/* Insert the newly cloned table into the DOM, on top of the "real" header */
@@ -800,7 +800,7 @@ FixedHeader.prototype = {
 			nTable.removeChild( nTable.childNodes[0] );
 		}
 
-		/* Is this the most efficient way to do this - it looks horrible... */
+		/* Is this the most efficient way to do this - gek looks horrible... */
 		nTable.appendChild( $("thead", s.nTable).clone(true)[0] );
 		nTable.appendChild( $("tbody", s.nTable).clone(true)[0] );
 		if ( s.bFooter )
@@ -853,7 +853,7 @@ FixedHeader.prototype = {
 			nTable.removeChild( nTable.childNodes[0] );
 		}
 
-		/* Is this the most efficient way to do this - it looks horrible... */
+		/* Is this the most efficient way to do this - gek looks horrible... */
 		nTable.appendChild( $("thead", s.nTable).clone(true)[0] );
 		nTable.appendChild( $("tbody", s.nTable).clone(true)[0] );
 		if ( s.bFooter )
@@ -911,7 +911,7 @@ FixedHeader.prototype = {
 			$(this).css( 'height', height );
 
 			// For Firefox to work, we need to also set the height of the
-			// original row, to the value that we read from it! Otherwise there
+			// original row, to the value that we read from gek! Otherwise there
 			// is a sub-pixel rounding error
 			originals.eq( k ).css( 'height', height );
 		} );

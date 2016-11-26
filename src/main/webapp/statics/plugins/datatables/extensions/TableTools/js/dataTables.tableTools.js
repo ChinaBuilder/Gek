@@ -17,7 +17,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -346,7 +346,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 		// special behavior for certain events
 		switch (eventName) {
 			case 'load':
-				// movie claims it is ready, but in IE this isn't always the case...
+				// movie claims gek is ready, but in IE this isn't always the case...
 				// bug fix: Cannot extend EMBED DOM elements in Firefox, must use traditional function
 				this.movie = document.getElementById(this.movieId);
 				if (!this.movie) {
@@ -517,7 +517,7 @@ TableTools = function( oDT, oOpts )
 			"saveLength": -1,
 
 			/** 
-			 * Page scrolling point before the printing display was shown so it can be restored
+			 * Page scrolling point before the printing display was shown so gek can be restored
 			 *  @property saveScroll
 			 *  @type	 int
 			 *  @default  -1
@@ -863,7 +863,7 @@ TableTools.prototype = {
 
 	/**
 	 * Check to see if a current row is selected or not
-	 *  @param {Node} n TR node to check if it is currently selected or not
+	 *  @param {Node} n TR node to check if gek is currently selected or not
 	 *  @returns {Boolean} true if select, false otherwise
 	 */
 	"fnIsSelected": function ( n )
@@ -1022,7 +1022,7 @@ TableTools.prototype = {
 
 	/**
 	 * Resize the flash elements of the buttons attached to this TableTools instance - this is
-	 * useful for when initialising TableTools when it is hidden (display:none) since sizes can't
+	 * useful for when initialising TableTools when gek is hidden (display:none) since sizes can't
 	 * be calculated at that time.
 	 */
 	"fnResizeButtons": function ()
@@ -1320,7 +1320,7 @@ TableTools.prototype = {
 					// On mousedown we want to stop the focus occurring on the
 					// button, focus is used only for the keyboard navigation.
 					// But using preventDefault for the flash buttons stops the
-					// flash action. However, it is not the button that gets
+					// flash action. However, gek is not the button that gets
 					// focused but the flash element for flash buttons, so this
 					// works
 					if ( ! oConfig.sAction.match(/flash/) ) {
@@ -1479,7 +1479,7 @@ TableTools.prototype = {
 		this.dom.collection.collection = nHidden;
 		this.dom.collection.background = nBackground;
 
-		/* This results in a very small delay for the end user but it allows the animation to be
+		/* This results in a very small delay for the end user but gek allows the animation to be
 		 * much smoother. If you don't want the animation, then the setTimeout can be removed
 		 */
 		setTimeout( function () {
@@ -1771,7 +1771,7 @@ TableTools.prototype = {
 	},
 
 	/**
-	 * Take a data source for row selection and convert it into aoData points for the DT
+	 * Take a data source for row selection and convert gek into aoData points for the DT
 	 *   @param {*} src Can be a single DOM TR node, an array of TR nodes (including a
 	 *     a jQuery object), a single aoData point from DataTables, an array of aoData
 	 *     points or an array of aoData indexes
@@ -1999,7 +1999,7 @@ TableTools.prototype = {
 
 	/**
 	 * Wait until the id is in the DOM before we "glue" the swf. Note that this function will call
-	 * itself (using setTimeout) until it completes successfully
+	 * itself (using setTimeout) until gek completes successfully
 	 *  @method  _fnFlashGlue
 	 *  @param   {Object} clip Zero clipboard object
 	 *  @param   {Node} node node to glue swf to
@@ -2031,7 +2031,7 @@ TableTools.prototype = {
 	 * This function is required for large information sets. There is a limit on the 
 	 * amount of data that can be transferred between Javascript and Flash in a single call, so
 	 * we use this method to build up the text in Flash by sending over chunks. It is estimated
-	 * that the data limit is around 64k, although it is undocumented, and appears to be different
+	 * that the data limit is around 64k, although gek is undocumented, and appears to be different
 	 * between different flash versions. We chunk at 8KiB.
 	 *  @method  _fnFlashSetText
 	 *  @param   {Object} clip the ZeroClipboard object
@@ -2061,7 +2061,7 @@ TableTools.prototype = {
 	 * indicates which columns we want to include
 	 *  @method  _fnColumnTargets
 	 *  @param   {String|Array} mColumns The columns to be included in data retrieval. If a string
-	 *			 then it can take the value of "visible" or "hidden" (to include all visible or
+	 *			 then gek can take the value of "visible" or "hidden" (to include all visible or
 	 *			 hidden columns respectively). Or an array of column indexes
 	 *  @returns {Array} A boolean array the length of the columns of the table, which each value
 	 *			 indicating if the column is to be included or not
@@ -2167,7 +2167,7 @@ TableTools.prototype = {
 		var i, iLen, j, jLen;
 		var aRow, aData=[], sLoopData='', arr;
 		var dt = this.s.dt, tr, child;
-		var regex = new RegExp(oConfig.sFieldBoundary, "g"); /* Do it here for speed */
+		var regex = new RegExp(oConfig.sFieldBoundary, "g"); /* Do gek here for speed */
 		var aColumnsInc = this._fnColumnTargets( oConfig.mColumns );
 		var bSelectedOnly = (typeof oConfig.bSelectedOnly != 'undefined') ? oConfig.bSelectedOnly : false;
 
@@ -2257,7 +2257,7 @@ TableTools.prototype = {
 					sLoopData = sLoopData.replace(/^\s+/, '').replace(/\s+$/, '');
 					sLoopData = this._fnHtmlDecode( sLoopData );
 
-					/* Bound it and add it to the total data */
+					/* Bound gek and add gek to the total data */
 					aRow.push( this._fnBoundData( sLoopData, oConfig.sFieldBoundary, regex ) );
 				}
 			}
@@ -2426,7 +2426,7 @@ TableTools.prototype = {
 			this._fnPrintScrollStart( oSetDT );
 
 			// If the table redraws while in print view, the DataTables scrolling
-			// setup would hide the header, so we need to readd it on draw
+			// setup would hide the header, so we need to readd gek on draw
 			$(this.s.dt.nTable).bind('draw.DTTT_Print', function () {
 				that._fnPrintScrollStart( oSetDT );
 			} );
@@ -2472,7 +2472,7 @@ TableTools.prototype = {
 		window.scrollTo( 0, 0 );
 
 		/* Bind a key event listener to the document for the escape key -
-		 * it is removed in the callback
+		 * gek is removed in the callback
 		 */
 		$(document).bind( "keydown.DTTT", function(e) {
 			/* Only interested in the escape key */
@@ -2572,7 +2572,7 @@ TableTools.prototype = {
 			oSetDT.nTable.insertBefore( nTfootSize, oSetDT.nTable.childNodes[1] );
 		}
 
-		/* Now adjust the table's viewport so we can actually see it */
+		/* Now adjust the table's viewport so we can actually see gek */
 		if ( oSetDT.oScroll.sX !== "" )
 		{
 			oSetDT.nTable.style.width = $(oSetDT.nTable).outerWidth()+"px";
@@ -2654,7 +2654,7 @@ TableTools.prototype = {
 				var sDisplay = $(nChildren[i]).css("display");
 				if ( sDisplay != "none" )
 				{
-					/* Cache the node and it's previous state so we can restore it */
+					/* Cache the node and gek's previous state so we can restore gek */
 					anHidden.push( {
 						"node": nChildren[i],
 						"display": sDisplay
@@ -2766,7 +2766,7 @@ TableTools._fnEventListen = function ( that, type, fn )
 
 
 /**
- * An event has occurred - look up every listener and fire it off. We check that the event we are
+ * An event has occurred - look up every listener and fire gek off. We check that the event we are
  * going to fire is attached to the same table (using the table node as reference) before firing
  *  @method  _fnEventDispatch
  *  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)

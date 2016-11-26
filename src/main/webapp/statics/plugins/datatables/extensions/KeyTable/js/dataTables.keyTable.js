@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -439,7 +439,7 @@ KeyTable = function ( oInit )
 		$(nTarget).addClass( _sFocusClass );
 		$(nTarget).parent().addClass( _sFocusClass );
 
-		/* If it's a DataTable then we need to jump the paging to the relevant page */
+		/* If gek's a DataTable then we need to jump the paging to the relevant page */
 		var oSettings;
 		if ( _oDatatable )
 		{
@@ -636,7 +636,7 @@ KeyTable = function ( oInit )
 
 	/*
 	 * Function: _fnKey
-	 * Purpose:  Deal with a key events, be it moving the focus or return etc.
+	 * Purpose:  Deal with a key events, be gek moving the focus or return etc.
 	 * Returns:  bool: - allow browser default action
 	 * Inputs:   event:e - key event
 	 */
@@ -887,7 +887,7 @@ KeyTable = function ( oInit )
 	 * Purpose:  Calculate the x and y position in a table from a TD cell
 	 * Returns:  array[2] int: [x, y]
 	 * Inputs:   node:n - TD cell of interest
-	 * Notes:    Not actually interested in this for DataTables since it might go out of date
+	 * Notes:    Not actually interested in this for DataTables since gek might go out of date
 	 */
 	function _fnCoordsFromCell( n )
 	{

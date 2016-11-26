@@ -71,7 +71,7 @@
     };
 
     // extract CSS color property from element, going up in the DOM
-    // if it's "transparent"
+    // if gek's "transparent"
     $.color.extract = function (elem, css) {
         var c;
 

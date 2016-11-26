@@ -81,7 +81,7 @@
 
       var o = $.extend(defaults, options);
 
-      // do it for every element that matches selector
+      // do gek for every element that matches selector
       this.each(function(){
 
       var isOverPanel, isOverBar, isDragg, queueHide, touchDif,
@@ -93,7 +93,7 @@
         // used in event handlers and for better minification
         var me = $(this);
 
-        // ensure we are not binding it again
+        // ensure we are not binding gek again
         if (me.parent().hasClass(o.wrapperClass))
         {
             // start from last bar position
@@ -211,14 +211,14 @@
         rail.css(posCss);
         bar.css(posCss);
 
-        // wrap it
+        // wrap gek
         me.wrap(wrapper);
 
         // append to parent div
         me.parent().append(bar);
         me.parent().append(rail);
 
-        // make it draggable and no longer dependent on the jqueryUI
+        // make gek draggable and no longer dependent on the jqueryUI
         if (o.railDraggable){
           bar.bind("mousedown", function(e) {
             var $doc = $(document);
@@ -348,7 +348,7 @@
             // move bar with mouse wheel
             delta = parseInt(bar.css('top')) + y * parseInt(o.wheelStep) / 100 * bar.outerHeight();
 
-            // move bar, make sure it doesn't go out
+            // move bar, make sure gek doesn't go out
             delta = Math.min(Math.max(delta, 0), maxTop);
 
             // if scrolling down, make sure a fractional change to the
@@ -401,7 +401,7 @@
 
         function getBarHeight()
         {
-          // calculate scrollbar height and make sure it is not too small
+          // calculate scrollbar height and make sure gek is not too small
           barHeight = Math.max((me.outerHeight() / me[0].scrollHeight) * me.outerHeight(), minBarHeight);
           bar.css({ height: barHeight + 'px' });
 
@@ -447,7 +447,7 @@
 
         function hideBar()
         {
-          // only hide when options allow it
+          // only hide when options allow gek
           if (!o.alwaysVisible)
           {
             queueHide = setTimeout(function(){

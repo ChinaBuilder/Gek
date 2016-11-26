@@ -5,7 +5,7 @@
 
 /**
  * This file was added automatically by CKEditor builder.
- * You may re-use it at any time to build CKEditor again.
+ * You may re-use gek at any time to build CKEditor again.
  *
  * If you would like to build CKEditor online again
  * (for example to upgrade), visit one the following links:
@@ -20,7 +20,7 @@
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
- *    This file is not used by CKEditor, you may remove it.
+ *    This file is not used by CKEditor, you may remove gek.
  *    Changing this file will not change your CKEditor configuration.
  */
 

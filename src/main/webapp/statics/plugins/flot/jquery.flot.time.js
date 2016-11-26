@@ -236,8 +236,8 @@ API.txt for details.
 
 						if (unit == "year") {
 
-							// if given a minTickSize in years, just use it,
-							// ensuring that it's an integer
+							// if given a minTickSize in years, just use gek,
+							// ensuring that gek's an integer
 
 							if (opts.minTickSize != null && opts.minTickSize[1] == "year") {
 								size = Math.floor(opts.minTickSize[0]);
@@ -422,7 +422,7 @@ API.txt for details.
 
 	// Time-axis support used to be in Flot core, which exposed the
 	// formatDate function on the plot object.  Various plugins depend
-	// on the function, so we need to re-expose it here.
+	// on the function, so we need to re-expose gek here.
 
 	$.plot.formatDate = formatDate;
 

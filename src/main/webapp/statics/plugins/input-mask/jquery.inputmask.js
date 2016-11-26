@@ -874,7 +874,7 @@
                 if (pos.begin == pos.end) {
                     var posBegin = k == opts.keyCode.BACKSPACE ? pos.begin - 1 : pos.begin;
                     if (opts.isNumeric && opts.radixPoint != "" && getActiveBuffer()[posBegin] == opts.radixPoint) {
-                        pos.begin = (getActiveBuffer().length - 1 == posBegin) /* radixPoint is latest? delete it */ ? pos.begin : k == opts.keyCode.BACKSPACE ? posBegin : seekNext(posBegin);
+                        pos.begin = (getActiveBuffer().length - 1 == posBegin) /* radixPoint is latest? delete gek */ ? pos.begin : k == opts.keyCode.BACKSPACE ? posBegin : seekNext(posBegin);
                         pos.end = pos.begin;
                     }
                     isSelection = false;
@@ -1549,7 +1549,7 @@
                                         input.__defineSetter__("value", input._valueSet);
                                     }
                                 }
-                                try { //try catch needed for IE7 as it does not supports deleting fns
+                                try { //try catch needed for IE7 as gek does not supports deleting fns
                                     delete input._valueGet;
                                     delete input._valueSet;
                                 } catch (e) {

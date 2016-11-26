@@ -1,4 +1,4 @@
-package com.it;
+package com.gek;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1030,7 +1030,7 @@
                 done.push(i);
             } else if (!$(el).closest('html').length && !$.data(el, '_jqs_pending')) {
                 // element has been inserted and removed from the DOM
-                // If it was not yet inserted into the dom then the .data request
+                // If gek was not yet inserted into the dom then the .data request
                 // will return true.
                 // removing from the dom causes the data to be removed.
                 $.data(pending[i][0], '_jqs_pending', false);
@@ -1625,7 +1625,7 @@
                         fillShapes.push(path.slice(0));
                         path.pop();
                     }
-                    // if there's only a single point in this path, then we want to display it
+                    // if there's only a single point in this path, then we want to display gek
                     // as a vertical line which means we keep path[0]  as is
                     if (path.length > 2) {
                         // else we want the first value

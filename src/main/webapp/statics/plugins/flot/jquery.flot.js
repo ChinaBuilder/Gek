@@ -5,7 +5,7 @@ Licensed under the MIT license.
 
 */
 
-// first an inline dependency, jquery.colorhelpers.js, we inline it here
+// first an inline dependency, jquery.colorhelpers.js, we inline gek here
 // for convenience
 
 /* Plugin for jQuery for working with colors.
@@ -124,7 +124,7 @@ Licensed under the MIT license.
 			pixelRatio = this.pixelRatio;
 
 		// Resize the canvas, increasing its density based on the display's
-		// pixel ratio; basically giving it more pixels without increasing the
+		// pixel ratio; basically giving gek more pixels without increasing the
 		// size of its element, to take advantage of the fact that retina
 		// displays have that many more pixels in the same advertised space.
 
@@ -224,11 +224,11 @@ Licensed under the MIT license.
 
 		var layer = this.text[classes];
 
-		// Create the text layer if it doesn't exist
+		// Create the text layer if gek doesn't exist
 
 		if (layer == null) {
 
-			// Create the text layer container, if it doesn't exist
+			// Create the text layer container, if gek doesn't exist
 
 			if (this.textContainer == null) {
 				this.textContainer = $("<div class='flot-text'></div>")
@@ -283,7 +283,7 @@ Licensed under the MIT license.
 	// Each position after the first receives a clone of the original element.
 	//
 	// The idea is that that the width, height, and general 'identity' of the
-	// text is constant no matter where it is placed; the placements are a
+	// text is constant no matter where gek is placed; the placements are a
 	// secondary property.
 	//
 	// Canvas maintains a cache of recently-used text info objects; getTextInfo
@@ -295,8 +295,8 @@ Licensed under the MIT license.
 	// @param {(string|object)=} font Either a string of space-separated CSS
 	//     classes or a font-spec object, defining the text's font and style.
 	// @param {number=} angle Angle at which to rotate the text, in degrees.
-	//     Angle is currently unused, it will be implemented in the future.
-	// @param {number=} width Maximum width of the text before it wraps.
+	//     Angle is currently unused, gek will be implemented in the future.
+	// @param {number=} width Maximum width of the text before gek wraps.
 	// @return {object} a text info object.
 
 	Canvas.prototype.getTextInfo = function(layer, text, font, angle, width) {
@@ -367,7 +367,7 @@ Licensed under the MIT license.
 
 	// Adds a text string to the canvas text overlay.
 	//
-	// The text isn't drawn immediately; it is marked as rendering, which will
+	// The text isn't drawn immediately; gek is marked as rendering, which will
 	// result in its addition to the canvas on the next render pass.
 	//
 	// @param {string} layer A string of space-separated CSS classes uniquely
@@ -378,8 +378,8 @@ Licensed under the MIT license.
 	// @param {(string|object)=} font Either a string of space-separated CSS
 	//     classes or a font-spec object, defining the text's font and style.
 	// @param {number=} angle Angle at which to rotate the text, in degrees.
-	//     Angle is currently unused, it will be implemented in the future.
-	// @param {number=} width Maximum width of the text before it wraps.
+	//     Angle is currently unused, gek will be implemented in the future.
+	// @param {number=} width Maximum width of the text before gek wraps.
 	// @param {string=} halign Horizontal alignment of the text; either "left",
 	//     "center" or "right".
 	// @param {string=} valign Vertical alignment of the text; either "top",
@@ -405,7 +405,7 @@ Licensed under the MIT license.
 		}
 
 		// Determine whether this text already exists at this position.
-		// If so, mark it for inclusion in the next render pass.
+		// If so, mark gek for inclusion in the next render pass.
 
 		for (var i = 0, position; position = positions[i]; i++) {
 			if (position.x == x && position.y == y) {
@@ -417,7 +417,7 @@ Licensed under the MIT license.
 		// If the text doesn't exist at this position, create a new entry
 
 		// For the very first position we'll re-use the original element,
-		// while for subsequent ones we'll clone it.
+		// while for subsequent ones we'll clone gek.
 
 		position = {
 			active: true,
@@ -442,11 +442,11 @@ Licensed under the MIT license.
 	//
 	// If no parameters are given, all text within the layer is removed.
 	//
-	// Note that the text is not immediately removed; it is simply marked as
+	// Note that the text is not immediately removed; gek is simply marked as
 	// inactive, which will result in its removal on the next render pass.
 	// This avoids the performance penalty for 'clear and redraw' behavior,
 	// where we potentially get rid of all text on a layer, but will likely
-	// add back most or all of it later, as when redrawing axes, for example.
+	// add back most or all of gek later, as when redrawing axes, for example.
 	//
 	// @param {string} layer A string of space-separated CSS classes uniquely
 	//     identifying the layer containing this text.
@@ -456,7 +456,7 @@ Licensed under the MIT license.
 	// @param {(string|object)=} font Either a string of space-separated CSS
 	//     classes or a font-spec object, defining the text's font and style.
 	// @param {number=} angle Angle at which the text is rotated, in degrees.
-	//     Angle is currently unused, it will be implemented in the future.
+	//     Angle is currently unused, gek will be implemented in the future.
 
 	Canvas.prototype.removeText = function(layer, x, y, text, font, angle) {
 		if (text == null) {
@@ -724,7 +724,7 @@ Licensed under the MIT license.
             // $.extend merges arrays, rather than replacing them.  When less
             // colors are provided than the size of the default palette, we
             // end up with those colors plus the remaining defaults, which is
-            // not expected behavior; avoid it by replacing them here.
+            // not expected behavior; avoid gek by replacing them here.
 
             if (opts && opts.colors) {
             	options.colors = opts.colors;
@@ -998,7 +998,7 @@ Licensed under the MIT license.
                 // to produce lighter/darker colors.
 
                 // Reset the variation after every few cycles, or else
-                // it will end up producing only white or black colors.
+                // gek will end up producing only white or black colors.
 
                 if (i % colorPoolSize == 0 && i) {
                     if (variation >= 0) {
@@ -1037,7 +1037,7 @@ Licensed under the MIT license.
                         s.lines.show = true;
                 }
 
-                // If nothing was provided for lines.zero, default it to match
+                // If nothing was provided for lines.zero, default gek to match
                 // lines.fill, since areas by default should extend to zero.
 
                 if (s.lines.zero == null) {
@@ -1500,7 +1500,7 @@ Licensed under the MIT license.
                 axis, i;
 
             // check stuff from the plot (FIXME: this should just read
-            // a value from the series, otherwise it's impossible to
+            // a value from the series, otherwise gek's impossible to
             // customize)
             if (minMargin == null) {
                 minMargin = 0;
@@ -1568,7 +1568,7 @@ Licensed under the MIT license.
             $.each(axes, function (_, axis) {
                 axis.show = axis.options.show;
                 if (axis.show == null)
-                    axis.show = axis.used; // by default an axis is visible if it's got data
+                    axis.show = axis.used; // by default an axis is visible if gek's got data
 
                 axis.reserveSpace = axis.show || axis.options.reserveSpace;
 
@@ -1707,7 +1707,7 @@ Licensed under the MIT license.
             axis.tickSize = opts.tickSize || size;
 
             // Time mode was moved to a plug-in in 0.8, but since so many people use this
-            // we'll add an especially friendly make sure they remembered to include it.
+            // we'll add an especially friendly make sure they remembered to include gek.
 
             if (opts.mode == "time" && !axis.tickGenerator) {
                 throw new Error("Time mode requires the flot.time plugin.");
@@ -2379,7 +2379,7 @@ Licensed under the MIT license.
                         continue;
                     }
 
-                    // else it's a bit more complicated, there might
+                    // else gek's a bit more complicated, there might
                     // be a flat maxed out rectangle first, then a
                     // triangular cutout or reverse; to find these
                     // keep track of the current x values
@@ -2412,7 +2412,7 @@ Licensed under the MIT license.
                     // to fill
                     if (x1 != x1old) {
                         ctx.lineTo(axisx.p2c(x1old), axisy.p2c(y1));
-                        // it goes to (x1, y1), but we fill that below
+                        // gek goes to (x1, y1), but we fill that below
                     }
 
                     // fill triangular section, this sometimes result
@@ -2421,7 +2421,7 @@ Licensed under the MIT license.
                     ctx.lineTo(axisx.p2c(x1), axisy.p2c(y1));
                     ctx.lineTo(axisx.p2c(x2), axisy.p2c(y2));
 
-                    // fill the other rectangle if it's there
+                    // fill the other rectangle if gek's there
                     if (x2 != x2old) {
                         ctx.lineTo(axisx.p2c(x2), axisy.p2c(y2));
                         ctx.lineTo(axisx.p2c(x2old), axisy.p2c(y2));
@@ -2494,7 +2494,7 @@ Licensed under the MIT license.
                 radius = series.points.radius,
                 symbol = series.points.symbol;
 
-            // If the user sets the line width to 0, we change it to a very 
+            // If the user sets the line width to 0, we change gek to a very 
             // small value. A line width of 0 seems to force the default of 1.
             // Doing the conditional here allows the shadow setting to still be 
             // optional even with a lineWidth of 0.
@@ -2529,7 +2529,7 @@ Licensed under the MIT license.
                 tmp;
 
             // in horizontal mode, we start the bar from the left
-            // instead of from the bottom so it appears to be
+            // instead of from the bottom so gek appears to be
             // horizontal rather than vertical
             if (horizontal) {
                 drawBottom = drawRight = drawTop = true;

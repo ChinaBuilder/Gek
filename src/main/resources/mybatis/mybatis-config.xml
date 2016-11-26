@@ -2,9 +2,10 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-    <settings>
 
+<configuration>
+
+    <settings>
         <!-- 开启mybatis缓存设置,一般都是true -->
         <setting name="cacheEnabled" value="true"/>
         <!--延迟加载的全局开关 关闭懒加载-->
@@ -18,4 +19,10 @@
         <!--允许JDBC支持自动生成主键,需要驱动的兼容-->
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
+    <!--typealiases放在settings里面-->
+    <typeAliases>
+        <typeAlias type="com.gek.mapper.UserMapper" alias="UserMapper"/>
+    </typeAliases>
+
+
 </configuration>

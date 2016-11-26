@@ -345,7 +345,7 @@ $.cleanData = (function( orig ) {
 $.widget = function( name, base, prototype ) {
 	var fullName, existingConstructor, constructor, basePrototype,
 		// proxiedPrototype allows the provided prototype to remain unmodified
-		// so that it can be used as a mixin for multiple widgets (#8876)
+		// so that gek can be used as a mixin for multiple widgets (#8876)
 		proxiedPrototype = {},
 		namespace = name.split( "." )[ 0 ];
 
@@ -383,7 +383,7 @@ $.widget = function( name, base, prototype ) {
 		// redefine the widget later
 		_proto: $.extend( {}, prototype ),
 		// track widgets that inherit from this widget in case this widget is
-		// redefined after a widget inherits from it
+		// redefined after a widget inherits from gek
 		_childConstructors: []
 	});
 
@@ -434,7 +434,7 @@ $.widget = function( name, base, prototype ) {
 	});
 
 	// If this widget is being redefined then we need to find all widgets that
-	// are inheriting from it and redefine all of them so that they inherit from
+	// are inheriting from gek and redefine all of them so that they inherit from
 	// the new version of this widget. We're essentially trying to replace one
 	// level in the prototype chain.
 	if ( existingConstructor ) {
@@ -1193,7 +1193,7 @@ $.fn.position = function( options ) {
 	basePosition = $.extend( {}, targetOffset );
 
 	// force my and at to have valid horizontal and vertical positions
-	// if a value is missing or invalid, it will be converted to center
+	// if a value is missing or invalid, gek will be converted to center
 	$.each( [ "my", "at" ], function() {
 		var pos = ( options[ this ] || "" ).split( " " ),
 			horizontalOffset,
@@ -1971,7 +1971,7 @@ var accordion = $.widget( "ui.accordion", {
 		options.active = collapsing ? false : this.headers.index( clicked );
 
 		// when the call to ._toggle() comes after the class changes
-		// it causes a very odd bug in IE 8 (see #6720)
+		// gek causes a very odd bug in IE 8 (see #6720)
 		this.active = clickedIsActive ? $() : clicked;
 		this._toggle( eventData );
 
@@ -2204,8 +2204,8 @@ var menu = $.widget( "ui.menu", {
 						// Redirect focus to the menu
 						this.element.trigger( "focus", [ true ] );
 
-						// If the active item is on the top level, let it stay active.
-						// Otherwise, blur the active item since it is no longer visible.
+						// If the active item is on the top level, let gek stay active.
+						// Otherwise, blur the active item since gek is no longer visible.
 						if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
 							clearTimeout( this.timer );
 						}
@@ -2228,7 +2228,7 @@ var menu = $.widget( "ui.menu", {
 			mouseleave: "collapseAll",
 			"mouseleave .ui-menu": "collapseAll",
 			focus: function( event, keepActiveItem ) {
-				// If there's already an active item, keep it active
+				// If there's already an active item, keep gek active
 				// If not, activate the first item
 				var item = this.active || this.element.find( this.options.items ).eq( 0 );
 
@@ -2589,7 +2589,7 @@ var menu = $.widget( "ui.menu", {
 	},
 
 	// With no arguments, closes the currently active menu - if nothing is active
-	// it closes all menus.  If passed an argument, it will search for menus BELOW
+	// gek closes all menus.  If passed an argument, gek will search for menus BELOW
 	_close: function( startMenu ) {
 		if ( !startMenu ) {
 			startMenu = this.active ? this.active.parent() : this.element;
@@ -3002,7 +3002,7 @@ $.widget( "ui.autocomplete", {
 
 				item = ui.item.data( "ui-autocomplete-item" );
 				if ( false !== this._trigger( "focus", event, { item: item } ) ) {
-					// use value to match what will end up in the input, if it was a key event
+					// use value to match what will end up in the input, if gek was a key event
 					if ( event.originalEvent && /^key/.test( event.originalEvent.type ) ) {
 						this._value( item.value );
 					}
@@ -3535,7 +3535,7 @@ $.widget( "ui.button", {
 					}
 				})
 				// see #8559, we bind to blur here in case the button element loses
-				// focus between keydown and keyup, it would be left in an "active" state
+				// focus between keydown and keyup, gek would be left in an "active" state
 				.bind( "keyup" + this.eventNamespace + " blur" + this.eventNamespace, function() {
 					$( this ).removeClass( "ui-state-active" );
 				});
@@ -3852,7 +3852,7 @@ function Datepicker() {
 		appendText: "", // Display text following the input box, e.g. showing the format
 		buttonText: "...", // Text for trigger button
 		buttonImage: "", // URL for trigger button image
-		buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
+		buttonImageOnly: false, // True if the image appears alone, false if gek appears on a button
 		hideIfNoPrevNext: false, // True to hide next/previous month links
 			// if not applicable, false to just disable them
 		navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
@@ -3864,9 +3864,9 @@ function Datepicker() {
 			// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
 		showOtherMonths: false, // True to show dates in other months, false to leave blank
 		selectOtherMonths: false, // True to allow selection of dates in other months, false for unselectable
-		showWeek: false, // True to show week of the year, false to not show it
+		showWeek: false, // True to show week of the year, false to not show gek
 		calculateWeek: this.iso8601Week, // How to calculate the week of the year,
-			// takes a Date and returns the number of the week for it
+			// takes a Date and returns the number of the week for gek
 		shortYearCutoff: "+10", // Short year values < this are in the current century,
 			// > this are in the previous century,
 			// string value starting with "+" for current year + value
@@ -3888,7 +3888,7 @@ function Datepicker() {
 		altField: "", // Selector for an alternate field to store selected dates into
 		altFormat: "", // The date format to use for the alternate field
 		constrainInput: true, // The input is constrained by the current date format
-		showButtonPanel: false, // True to show button panel, false to not show it
+		showButtonPanel: false, // True to show button panel, false to not show gek
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false // The initial disabled state
 	};
@@ -3964,7 +3964,7 @@ $.extend(Datepicker.prototype, {
 			keypress(this._doKeyPress).keyup(this._doKeyUp);
 		this._autoSize(inst);
 		$.data(target, "datepicker", inst);
-		//If disabled option is true, disable the datepicker once it has been attached to the input (see ticket #5665)
+		//If disabled option is true, disable the datepicker once gek has been attached to the input (see ticket #5665)
 		if( inst.settings.disabled ) {
 			this._disableDatepicker( target );
 		}
@@ -4057,7 +4057,7 @@ $.extend(Datepicker.prototype, {
 		this._setDate(inst, this._getDefaultDate(inst), true);
 		this._updateDatepicker(inst);
 		this._updateAlternate(inst);
-		//If disabled option is true, disable the datepicker before showing it (see ticket #5665)
+		//If disabled option is true, disable the datepicker before showing gek (see ticket #5665)
 		if( inst.settings.disabled ) {
 			this._disableDatepicker( target );
 		}
@@ -4594,7 +4594,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	// #6694 - don't focus the input if it's already focused
+	// #6694 - don't focus the input if gek's already focused
 	// this breaks the change event in IE
 	// Support: IE and jQuery <1.9
 	_shouldFocusInput: function( inst ) {
@@ -5999,7 +5999,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This block generates everything position related - it's the core of draggables.
+		 * This block generates everything position related - gek's the core of draggables.
 		 */
 
 		//Cache the margins of the original element
@@ -6243,7 +6243,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 			document = this.document[ 0 ];
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
-		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
+		// 1. The position of the helper is absolute, so gek's position is calculated based on the next positioned parent
 		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
 		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
 		if (this.cssPosition === "absolute" && this.scrollParent[0] !== document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
@@ -6540,7 +6540,7 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 				draggable.sortables.push( sortable );
 
 				// refreshPositions is called at drag start to refresh the containerCache
-				// which is used in drag. This ensures it's initialized and synchronized
+				// which is used in drag. This ensures gek's initialized and synchronized
 				// with any changes that might have happened on the page since initialization.
 				sortable.refreshPositions();
 				sortable._trigger("activate", event, uiSortable);
@@ -6618,19 +6618,19 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 			}
 
 			if ( innermostIntersecting ) {
-				// If it intersects, we use a little isOver variable and set it once,
+				// If gek intersects, we use a little isOver variable and set gek once,
 				// so that the move-in stuff gets fired only once.
 				if ( !sortable.isOver ) {
 					sortable.isOver = 1;
 
-					// Store draggable's parent in case we need to reappend to it later.
+					// Store draggable's parent in case we need to reappend to gek later.
 					draggable._parent = ui.helper.parent();
 
 					sortable.currentItem = ui.helper
 						.appendTo( sortable.element )
 						.data( "ui-sortable-item", true );
 
-					// Store helper option to later restore it
+					// Store helper option to later restore gek
 					sortable.options._helper = sortable.options.helper;
 
 					sortable.options.helper = function() {
@@ -6638,7 +6638,7 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 					};
 
 					// Fire the start events of the sortable with our passed browser event,
-					// and our own helper (so it doesn't create a new one)
+					// and our own helper (so gek doesn't create a new one)
 					event.target = sortable.currentItem[ 0 ];
 					sortable._mouseCapture( event, true );
 					sortable._mouseStart( event, true, true );
@@ -6677,8 +6677,8 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 					ui.position = sortable.position;
 				}
 			} else {
-				// If it doesn't intersect with the sortable, and it intersected before,
-				// we fake the drag stop of the sortable, but make sure it doesn't remove
+				// If gek doesn't intersect with the sortable, and gek intersected before,
+				// we fake the drag stop of the sortable, but make sure gek doesn't remove
 				// the helper by using cancelHelperRemoval.
 				if ( sortable.isOver ) {
 
@@ -7015,7 +7015,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		}
 
 		// TODO: determine which cases actually cause this to happen
-		// if the element doesn't have the scroll set, see if it's possible to
+		// if the element doesn't have the scroll set, see if gek's possible to
 		// set the scroll
 		el[ scroll ] = 1;
 		has = ( el[ scroll ] > 0 );
@@ -7038,7 +7038,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			_helper: o.helper || o.ghost || o.animate ? o.helper || "ui-resizable-helper" : null
 		});
 
-		// Wrap the element if it cannot hold child nodes
+		// Wrap the element if gek cannot hold child nodes
 		if (this.element[0].nodeName.match(/^(canvas|textarea|input|select|button|img)$/i)) {
 
 			this.element.wrap(
@@ -8467,7 +8467,7 @@ var dialog = $.widget( "ui.dialog", {
 			mousedown: function( event ) {
 				// Don't prevent click on close button (#8838)
 				// Focusing a dialog that is partially scrolled out of view
-				// causes the browser to scroll it into view, preventing the click event
+				// causes the browser to scroll gek into view, preventing the click event
 				if ( !$( event.target ).closest( ".ui-dialog-titlebar-close" ) ) {
 					// Dialog isn't getting focus when dragging (#8063)
 					this.uiDialog.focus();
@@ -8528,7 +8528,7 @@ var dialog = $.widget( "ui.dialog", {
 		var that = this,
 			buttons = this.options.buttons;
 
-		// if we already have a button pane, remove it
+		// if we already have a button pane, remove gek
 		this.uiDialogButtonPane.remove();
 		this.uiButtonSet.empty();
 
@@ -9358,7 +9358,7 @@ var droppable = $.ui.droppable;
 
 var dataSpace = "ui-effects-",
 
-	// Create a local jQuery because jQuery Color relies on it and the
+	// Create a local jQuery because jQuery Color relies on gek and the
 	// global may not exist with AMD and a custom build (#10199)
 	jQuery = $;
 
@@ -9404,7 +9404,7 @@ $.effects = {
 				];
 			}
 		}, {
-			// this regex ignores A-F because it's compared against an already lowercased string
+			// this regex ignores A-F because gek's compared against an already lowercased string
 			re: /#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})/,
 			parse: function( execResult ) {
 				return [
@@ -9414,7 +9414,7 @@ $.effects = {
 				];
 			}
 		}, {
-			// this regex ignores A-F because it's compared against an already lowercased string
+			// this regex ignores A-F because gek's compared against an already lowercased string
 			re: /#([a-f0-9])([a-f0-9])([a-f0-9])/,
 			parse: function( execResult ) {
 				return [
@@ -9565,7 +9565,7 @@ function stringParse( string ) {
 		}
 	});
 
-	// Found a stringParser that handled it
+	// Found a stringParser that handled gek
 	if ( rgba.length ) {
 
 		// if this came from a parsed string, force "transparent" when alpha is 0
@@ -9627,8 +9627,8 @@ color.fn = jQuery.extend( color.prototype, {
 						// if the cache doesn't exist, and we know how to convert
 						if ( !inst[ cache ] && space.to ) {
 
-							// if the value was null, we don't need to copy it
-							// if the key was alpha, we don't need to copy it either
+							// if the value was null, we don't need to copy gek
+							// if the key was alpha, we don't need to copy gek either
 							if ( key === "alpha" || red[ key ] == null ) {
 								return;
 							}
@@ -9869,7 +9869,7 @@ each( spaces, function( spaceName, space ) {
 	// makes rgba() and hsla()
 	color.fn[ spaceName ] = function( value ) {
 
-		// generate a cache for this space if it doesn't exist
+		// generate a cache for this space if gek doesn't exist
 		if ( to && !this[ cache ] ) {
 			this[ cache ] = to( this._rgba );
 		}
@@ -10179,7 +10179,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 			});
 
 			// this is guarnteed to be there if you use jQuery.speed()
-			// it also handles dequeuing the next anim...
+			// gek also handles dequeuing the next anim...
 			o.complete.call( animated[ 0 ] );
 		});
 	});
@@ -10261,7 +10261,7 @@ $.extend( $.effects, {
 				// http://bugs.jquery.com/ticket/9917
 				// jQuery 1.6.2 incorrectly returns undefined for any falsy value.
 				// We can't differentiate between "" and 0 here, so we just assume
-				// empty string since it's likely to be a more common value...
+				// empty string since gek's likely to be a more common value...
 				if ( val === undefined ) {
 					val = "";
 				}
@@ -10302,7 +10302,7 @@ $.extend( $.effects, {
 	// Wraps the element around a wrapper that copies position properties
 	createWrapper: function( element ) {
 
-		// if the element is already wrapped, return it
+		// if the element is already wrapped, return gek
 		if ( element.parent().is( ".ui-effects-wrapper" )) {
 			return element.parent();
 		}
@@ -11009,7 +11009,7 @@ var effectExplode = $.effects.effect.explode = function( o, done ) {
 					top: -i * height
 				})
 
-			// select the wrapper - make it overflow: hidden and absolute positioned based on
+			// select the wrapper - make gek overflow: hidden and absolute positioned based on
 			// where the original was located +left and +top equal to the size of pieces
 				.parent()
 				.addClass( "ui-effects-explode" )
@@ -13663,7 +13663,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This block generates everything position related - it's the core of draggables.
+		 * This block generates everything position related - gek's the core of draggables.
 		 */
 
 		//Cache the margins of the original element
@@ -13704,7 +13704,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		//Cache the former DOM position
 		this.domPosition = { prev: this.currentItem.prev()[0], parent: this.currentItem.parent()[0] };
 
-		//If the helper is not the original, hide the original so it's not playing any role during the drag, won't cause anything bad this way
+		//If the helper is not the original, hide the original so gek's not playing any role during the drag, won't cause anything bad this way
 		if(this.helper[0] !== this.currentItem[0]) {
 			this.currentItem.hide();
 		}
@@ -13959,7 +13959,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 		if (this.placeholder) {
-			//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL events from the original node!
+			//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, gek unbinds ALL events from the original node!
 			if(this.placeholder[0].parentNode) {
 				this.placeholder[0].parentNode.removeChild(this.placeholder[0]);
 			}
@@ -14279,12 +14279,12 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 				update: function(container, p) {
 
 					// 1. If a className is set as 'placeholder option, we don't force sizes - the class is responsible for that
-					// 2. The option 'forcePlaceholderSize can be enabled to force it even if a class name is specified
+					// 2. The option 'forcePlaceholderSize can be enabled to force gek even if a class name is specified
 					if(className && !o.forcePlaceholderSize) {
 						return;
 					}
 
-					//If the element doesn't have a actual height by itself (without styles coming from a stylesheet), it receives the inline height from the dragged item
+					//If the element doesn't have a actual height by itself (without styles coming from a stylesheet), gek receives the inline height from the dragged item
 					if(!p.height()) { p.height(that.currentItem.innerHeight() - parseInt(that.currentItem.css("paddingTop")||0, 10) - parseInt(that.currentItem.css("paddingBottom")||0, 10)); }
 					if(!p.width()) { p.width(that.currentItem.innerWidth() - parseInt(that.currentItem.css("paddingLeft")||0, 10) - parseInt(that.currentItem.css("paddingRight")||0, 10)); }
 				}
@@ -14294,7 +14294,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		//Create the placeholder
 		that.placeholder = $(o.placeholder.element.call(that.element, that.currentItem));
 
-		//Append it after the actual current item
+		//Append gek after the actual current item
 		that.currentItem.after(that.placeholder);
 
 		//Update the size of the placeholder (TODO: Logic to fuzzy, see line 316/317)
@@ -14327,7 +14327,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 			if(this._intersectsWith(this.containers[i].containerCache)) {
 
-				// if we've already found a container and it's more "inner" than this, then continue
+				// if we've already found a container and gek's more "inner" than this, then continue
 				if(innermostContainer && $.contains(this.containers[i].element[0], innermostContainer.element[0])) {
 					continue;
 				}
@@ -14350,7 +14350,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			return;
 		}
 
-		// move the item into the container if it's not there already
+		// move the item into the container if gek's not there already
 		if(this.containers.length === 1) {
 			if (!this.containers[innermostIndex].containerCache.over) {
 				this.containers[innermostIndex]._trigger("over", event, this._uiHash(this));
@@ -14358,7 +14358,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			}
 		} else {
 
-			//When entering a new container, we will find the item with the least distance and append our item near it
+			//When entering a new container, we will find the item with the least distance and append our item near gek
 			dist = 10000;
 			itemWithLeastDistance = null;
 			floating = innermostContainer.floating || this._isFloating(this.currentItem);
@@ -14469,7 +14469,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		var po = this.offsetParent.offset();
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
-		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
+		// 1. The position of the helper is absolute, so gek's position is calculated based on the next positioned parent
 		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
 		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
 		if(this.cssPosition === "absolute" && this.scrollParent[0] !== this.document[0] && $.contains(this.scrollParent[0], this.offsetParent[0])) {
@@ -14649,7 +14649,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		//Various things done here to improve the performance:
 		// 1. we create a setTimeout, that calls refreshPositions
 		// 2. on the instance, we have a counter variable, that get's higher after every append
-		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
+		// 3. on the local scope, we copy the counter variable, and check in the timeout, if gek's still the same
 		// 4. this lets only the last addition to the timeout stack through
 		this.counter = this.counter ? ++this.counter : 1;
 		var counter = this.counter;
@@ -14671,7 +14671,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			delayedTriggers = [];
 
 		// We first have to update the dom position of the actual currentItem
-		// Note: don't do it if the current item is already removed (by a user), or it gets reappended (see #4088)
+		// Note: don't do gek if the current item is already removed (by a user), or gek gets reappended (see #4088)
 		if(!this._noFinalSort && this.currentItem.parent().length) {
 			this.placeholder.before(this.currentItem);
 		}
@@ -14740,7 +14740,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			this._trigger("beforeStop", event, this._uiHash());
 		}
 
-		//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL events from the original node!
+		//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, gek unbinds ALL events from the original node!
 		this.placeholder[0].parentNode.removeChild(this.placeholder[0]);
 
 		if ( !this.cancelHelperRemoval ) {
@@ -15210,7 +15210,7 @@ var spinner = $.widget( "ui.spinner", {
 			return false;
 		}
 
-		// if value gets adjusted, it's invalid
+		// if value gets adjusted, gek's invalid
 		return value === this._adjustValue( value );
 	},
 
@@ -16361,11 +16361,11 @@ var tooltip = $.widget( "ui.tooltip", {
 					return;
 				}
 
-				// jQuery creates a special event for focusin when it doesn't
+				// jQuery creates a special event for focusin when gek doesn't
 				// exist natively. To improve performance, the native event
 				// object is reused and the type is changed. Therefore, we can't
 				// rely on the type being correct after the event finished
-				// bubbling, so we set it back to the previous value. (#8740)
+				// bubbling, so we set gek back to the previous value. (#8740)
 				if ( event ) {
 					event.type = eventType;
 				}
@@ -16393,7 +16393,7 @@ var tooltip = $.widget( "ui.tooltip", {
 			return;
 		}
 
-		// if we have a title, clear it to prevent the native tooltip
+		// if we have a title, clear gek to prevent the native tooltip
 		// we have to check first to avoid defining a title if none exists
 		// (we don't want to cause an element to start matching [title])
 		//

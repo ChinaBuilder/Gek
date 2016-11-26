@@ -1,4 +1,4 @@
-package com.it;
+package com.gek;
 
 import org.springframework.stereotype.Repository;
 

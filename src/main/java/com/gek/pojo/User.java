@@ -1,14 +1,23 @@
-package com.it.pojo;
+package com.gek.pojo;
 
 import java.io.Serializable;
 
 public class User implements Serializable {
-	private Long id;
-	private String name;
-	private String password;
-	private boolean enabled;
-	private String realname;
-	private Integer level;
+    private Long id;
+    private String name;
+    private String password;
+    private Boolean enabled;
+    private String realname;
+    private Integer level;
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
+    }
+
 
     public Long getId() {
         return id;
@@ -34,7 +43,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public boolean isEnabled() {
+    public boolean getEnabled() {
         return enabled;
     }
 
@@ -42,13 +51,6 @@ public class User implements Serializable {
         this.enabled = enabled;
     }
 
-    public String getRealname() {
-        return realname;
-    }
-
-    public void setRealname(String realname) {
-        this.realname = realname;
-    }
 
     public Integer getLevel() {
         return level;
@@ -57,6 +59,7 @@ public class User implements Serializable {
     public void setLevel(Integer level) {
         this.level = level;
     }
+
 
     @Override
     public String toString() {

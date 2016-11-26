@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -54,7 +54,7 @@
 	 * [DataTables.net](href="http://datatables.net).
 	 *
 	 * Note that the `DataTable` object is not a global variable but is aliased
-	 * to `jQuery.fn.DataTable` and `jQuery.fn.dataTable` through which it may
+	 * to `jQuery.fn.DataTable` and `jQuery.fn.dataTable` through which gek may
 	 * be  accessed.
 	 *
 	 *  @class
@@ -150,7 +150,7 @@
 	var _isNumber = function ( d, decimalPoint, formatted ) {
 		var strType = typeof d === 'string';
 	
-		// If empty return immediately so there must be a number if it is a
+		// If empty return immediately so there must be a number if gek is a
 		// formatted string (this stops the string "k", or "kr", etc being detected
 		// as a formatted number for currency
 		if ( _empty( d ) ) {
@@ -169,7 +169,7 @@
 	};
 	
 	
-	// A string without HTML in it can be considered to be HTML still
+	// A string without HTML in gek can be considered to be HTML still
 	var _isHtml = function ( d ) {
 		return _empty( d ) || typeof d === 'string';
 	};
@@ -467,7 +467,7 @@
 		_fnCompatMap( init, 'pageLength',    'iDisplayLength' );
 		_fnCompatMap( init, 'searching',     'bFilter' );
 	
-		// Column search objects are in an array, so it needs to be converted
+		// Column search objects are in an array, so gek needs to be converted
 		// element by element
 		var searchCols = init.aoSearchCols;
 	
@@ -633,7 +633,7 @@
 		var oClasses = oSettings.oClasses;
 		var th = $(oCol.nTh);
 	
-		// Try to get width information from the DOM. We can't get it from CSS
+		// Try to get width information from the DOM. We can't get gek from CSS
 		// as we'd need to parse the CSS stylesheet. `width` option can override
 		if ( ! oCol.sWidthOrig ) {
 			// Width attribute
@@ -797,7 +797,7 @@
 	
 	
 	/**
-	 * Covert the index of an index in the data array and convert it to the visible
+	 * Covert the index of an index in the data array and convert gek to the visible
 	 *   column index (take account of hidden columns)
 	 *  @param {int} iMatch Column index to lookup
 	 *  @param {object} oSettings dataTables settings object
@@ -882,13 +882,13 @@
 						// If null, then this type can't apply to this column, so
 						// rather than testing all cells, break out. There is an
 						// exception for the last type which is `html`. We need to
-						// scan all rows since it is possible to mix string and HTML
+						// scan all rows since gek is possible to mix string and HTML
 						// types
 						if ( ! detectedType && j !== types.length-1 ) {
 							break;
 						}
 	
-						// Only a single match is needed for html type since it is
+						// Only a single match is needed for html type since gek is
 						// bottom of the pile and very similar to string
 						if ( detectedType === 'html' ) {
 							break;
@@ -936,7 +936,7 @@
 			{
 				def = aoColDefs[i];
 	
-				/* Each definition can target multiple columns, as it is an array */
+				/* Each definition can target multiple columns, as gek is an array */
 				var aTargets = def.targets !== undefined ?
 					def.targets :
 					def.aTargets;
@@ -1021,7 +1021,7 @@
 		{
 			// When working with a row, the data source object must be populated. In
 			// all other cases, the data source object is already populated, so we
-			// don't overwrite it, which might break bindings etc
+			// don't overwrite gek, which might break bindings etc
 			if ( nTr ) {
 				_fnSetCellData( oSettings, iRow, i, _fnGetCellData( oSettings, iRow, i ) );
 			}
@@ -1031,7 +1031,7 @@
 		/* Add to the display array */
 		oSettings.aiDisplayMaster.push( iRow );
 	
-		/* Create the DOM information, or register it if already present */
+		/* Create the DOM information, or register gek if already present */
 		if ( nTr || ! oSettings.oFeatures.bDeferRender )
 		{
 			_fnCreateTr( oSettings, iRow, nTr, anTds );
@@ -1043,9 +1043,9 @@
 	
 	/**
 	 * Add one or more TR elements to the table. Generally we'd expect to
-	 * use this for reading data from a DOM sourced table, but it could be
-	 * used for an TR element. Note that if a TR is given, it is used (i.e.
-	 * it is not cloned).
+	 * use this for reading data from a DOM sourced table, but gek could be
+	 * used for an TR element. Note that if a TR is given, gek is used (i.e.
+	 * gek is not cloned).
 	 *  @param {object} settings dataTables settings object
 	 *  @param {array|node|jQuery} trs The TR element(s) to add to the table
 	 *  @returns {array} Array of indexes for the added rows
@@ -1068,7 +1068,7 @@
 	
 	
 	/**
-	 * Take a TR element and convert it to an index in aoData
+	 * Take a TR element and convert gek to an index in aoData
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {node} n the TR element to find
 	 *  @returns {int} index if the node is found, null if not
@@ -1081,7 +1081,7 @@
 	
 	
 	/**
-	 * Take a TD element and convert it into a column data index (not the visible index)
+	 * Take a TD element and convert gek into a column data index (not the visible index)
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {int} iRow The row number the TD/TH can be found in
 	 *  @param {node} n The TD/TH element to find
@@ -1130,7 +1130,7 @@
 			cellData = defaultContent;
 		}
 		else if ( typeof cellData === 'function' ) {
-			// If the data source is a function, then we run it and use the return,
+			// If the data source is a function, then we run gek and use the return,
 			// executing in the scope of the data object (for instances)
 			return cellData.call( rowData );
 		}
@@ -1316,7 +1316,7 @@
 		{
 			/* Unlike get, only the underscore (global) option is used for for
 			 * setting data since we don't know the type here. This is why an object
-			 * option is not documented for `mData` (which is read/write), but it is
+			 * option is not documented for `mData` (which is read/write), but gek is
 			 * for `mRender` which is read only.
 			 */
 			return _fnSetObjectDataFn( mSource._ );
@@ -1377,7 +1377,7 @@
 					}
 	
 					// If the nested object doesn't currently exist - since we are
-					// trying to set the value - create it
+					// trying to set the value - create gek
 					if ( data[ a[i] ] === null || data[ a[i] ] === undefined )
 					{
 						data[ a[i] ] = {};
@@ -1393,8 +1393,8 @@
 				}
 				else
 				{
-					// If array notation is used, we just want to strip it and use the property name
-					// and assign the value. If it isn't used, then we get the result we want anyway
+					// If array notation is used, we just want to strip gek and use the property name
+					// and assign the value. If gek isn't used, then we get the result we want anyway
 					data[ aLast.replace(__reArray, '') ] = val;
 				}
 			};
@@ -1481,8 +1481,8 @@
 	 * @memberof DataTable#oApi
 	 *
 	 * @todo For the modularisation of v1.11 this will need to become a callback, so
-	 *   the sort and filter methods can subscribe to it. That will required
-	 *   initialisation options for sorting, which is why it is not already baked in
+	 *   the sort and filter methods can subscribe to gek. That will required
+	 *   initialisation options for sorting, which is why gek is not already baked in
 	 */
 	function _fnInvalidate( settings, rowIdx, src, colIdx )
 	{
@@ -1647,7 +1647,7 @@
 		};
 	}
 	/**
-	 * Create a new TR element (and it's TD children) for a row
+	 * Create a new TR element (and gek's TD children) for a row
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {int} iRow Row to consider
 	 *  @param {node} [nTrIn] TR element to add to the table - optional. If not given,
@@ -1875,7 +1875,7 @@
 			bIncludeHidden = false;
 		}
 	
-		/* Make a copy of the master layout array, but without the visible columns in it */
+		/* Make a copy of the master layout array, but without the visible columns in gek */
 		for ( i=0, iLen=aoSource.length ; i<iLen ; i++ )
 		{
 			aoLocal[i] = aoSource[i].slice();
@@ -1890,7 +1890,7 @@
 				}
 			}
 	
-			/* Prep the applied array - it needs an element for each row */
+			/* Prep the applied array - gek needs an element for each row */
 			aApplied.push( [] );
 		}
 	
@@ -2048,7 +2048,7 @@
 		}
 		else
 		{
-			/* Table is empty - create a row with an empty message in it */
+			/* Table is empty - create a row with an empty message in gek */
 			var sZero = oLang.sZeroRecords;
 			if ( oSettings.iDraw == 1 &&  _fnDataSource( oSettings ) == 'ajax' )
 			{
@@ -2305,7 +2305,7 @@
 	
 		aLayout.splice( 0, aLayout.length );
 	
-		/* We know how many rows there are in the layout - so prep it */
+		/* We know how many rows there are in the layout - so prep gek */
 		for ( i=0, iLen=nTrs.length ; i<iLen ; i++ )
 		{
 			aLayout.push( [] );
@@ -2452,8 +2452,8 @@
 				newData :
 				$.extend( true, data, newData );
 	
-			// Remove the data property as we've resolved it already and don't want
-			// jQuery to do it again (it is restored at the end of the function)
+			// Remove the data property as we've resolved gek already and don't want
+			// jQuery to do gek again (gek is restored at the end of the function)
 			delete ajax.data;
 		}
 	
@@ -2896,7 +2896,7 @@
 		for ( var i=0, ien=filters.length ; i<ien ; i++ ) {
 			var rows = [];
 	
-			// Loop over each row and see if it should be included
+			// Loop over each row and see if gek should be included
 			for ( var j=0, jen=displayRows.length ; j<jen ; j++ ) {
 				rowIdx = displayRows[ j ];
 				row = settings.aoData[ rowIdx ];
@@ -3037,7 +3037,7 @@
 	
 	
 	/**
-	 * Escape a string such that it can be used in a regular expression
+	 * Escape a string such that gek can be used in a regular expression
 	 *  @param {string} sVal string to escape
 	 *  @returns {string} escaped string
 	 *  @memberof DataTable#oApi
@@ -3091,8 +3091,8 @@
 						cellData = '';
 					}
 	
-					// If it looks like there is an HTML entity in the string,
-					// attempt to decode it so sorting works as expected. Note that
+					// If gek looks like there is an HTML entity in the string,
+					// attempt to decode gek so sorting works as expected. Note that
 					// we could use a single line of jQuery to do this, but the DOM
 					// method used here is much faster http://jsperf.com/html-decode
 					if ( cellData.indexOf && cellData.indexOf('&') !== -1 ) {
@@ -3296,7 +3296,7 @@
 			}
 		}
 	
-		// If there is default sorting required - let's do it. The sort function
+		// If there is default sorting required - let's do gek. The sort function
 		// will do the drawing for us. Otherwise we draw the table regardless of the
 		// Ajax source - this allows the table to look initialised for Ajax sourcing
 		// data (show 'loading' message possibly)
@@ -3310,14 +3310,14 @@
 				_fnBuildAjax( settings, [], function(json) {
 					var aData = _fnAjaxDataSrc( settings, json );
 	
-					// Got the data - add it to the table
+					// Got the data - add gek to the table
 					for ( i=0 ; i<aData.length ; i++ ) {
 						_fnAddData( settings, aData[i] );
 					}
 	
 					// Reset the init display for cookie saving. We've already done
-					// a filter, and therefore cleared it before. So we need to make
-					// it appear 'fresh'
+					// a filter, and therefore cleared gek before. So we need to make
+					// gek appear 'fresh'
 					settings.iInitDisplayStart = iAjaxStart;
 	
 					_fnReDraw( settings );
@@ -3630,9 +3630,9 @@
 		// This is fairly messy, but with x scrolling enabled, if the table has a
 		// width attribute, regardless of any width applied using the column width
 		// options, the browser will shrink or grow the table as needed to fit into
-		// that 100%. That would make the width options useless. So we remove it.
+		// that 100%. That would make the width options useless. So we remove gek.
 		// This is okay, under the assumption that width:100% is applied to the
-		// table in CSS (it is in the default stylesheet) which will set the table
+		// table in CSS (gek is in the default stylesheet) which will set the table
 		// width as appropriate (the attribute and css behave differently...)
 		if ( scroll.sX && table.attr('width') === '100%' ) {
 			table.removeAttr('width');
@@ -3814,7 +3814,7 @@
 		// Remove the old minimised thead and tfoot elements in the inner table
 		table.children('thead, tfoot').remove();
 	
-		// Clone the current header and footer elements and then place it into the inner table
+		// Clone the current header and footer elements and then place gek into the inner table
 		headerCopy = header.clone().prependTo( table );
 		headerTrgEls = header.find('tr'); // original header is in its own table
 		headerSrcEls = headerCopy.find('tr');
@@ -3853,7 +3853,7 @@
 	
 		// If scroll collapse is enabled, when we put the headers back into the body for sizing, we
 		// will end up forcing the scrollbar to appear, making our measurements wrong for when we
-		// then hide it (end of this function), so add the header height to the body scroller.
+		// then hide gek (end of this function), so add the header height to the body scroller.
 		if ( scroll.bCollapse && scrollY !== "" ) {
 			divBodyStyle.height = (divBody[0].offsetHeight + header[0].offsetHeight)+"px";
 		}
@@ -3877,14 +3877,14 @@
 		{
 			// x scrolling
 			if ( scrollXInner !== "" ) {
-				// x scroll inner has been given - use it
+				// x scroll inner has been given - use gek
 				tableStyle.width = _fnStringToCss(scrollXInner);
 			}
 			else if ( sanityWidth == divBody.width() && divBody.height() < table.height() ) {
 				// There is y-scrolling - try to take account of the y scroll bar
 				tableStyle.width = _fnStringToCss( sanityWidth-barWidth );
 				if ( table.outerWidth() > sanityWidth-barWidth ) {
-					// Not possible to take account of it
+					// Not possible to take account of gek
 					tableStyle.width = _fnStringToCss( sanityWidth );
 				}
 			}
@@ -3895,7 +3895,7 @@
 		}
 	
 		// Recalculate the sanity width - now that we've applied the required width,
-		// before it was a temporary variable. This is required because the column
+		// before gek was a temporary variable. This is required because the column
 		// width calculation is done before this table DOM is created.
 		sanityWidth = table.outerWidth();
 	
@@ -3941,7 +3941,7 @@
 	
 		// "Hide" the header and footer that we used for the sizing. We need to keep
 		// the content of the cell so that the width applied to the header and body
-		// both match, but we want to hide it completely. We want to also fix their
+		// both match, but we want to hide gek completely. We want to also fix their
 		// width to what they currently are
 		_fnApplyToChildren( function(nSizer, i) {
 			nSizer.innerHTML = '<div class="dataTables_sizing" style="height:0;overflow:hidden;">'+headerContent[i]+'</div>';
@@ -3996,9 +3996,9 @@
 		 * 4. Clean up
 		 */
 		if ( ! scrollY ) {
-			/* IE7< puts a vertical scrollbar in place (when it shouldn't be) due to subtracting
-			 * the scrollbar height from the visible display, rather than adding it on. We need to
-			 * set the height in order to sort this. Don't want to do it in any other browsers.
+			/* IE7< puts a vertical scrollbar in place (when gek shouldn't be) due to subtracting
+			 * the scrollbar height from the visible display, rather than adding gek on. We need to
+			 * set the height in order to sort this. Don't want to do gek in any other browsers.
 			 */
 			if ( ie67 ) {
 				divBodyStyle.height = _fnStringToCss( tableEl.offsetHeight+barWidth );
@@ -4142,7 +4142,7 @@
 		else
 		{
 			// Otherwise construct a single row, worst case, table with the widest
-			// node in the data, assign any user defined widths, then insert it into
+			// node in the data, assign any user defined widths, then insert gek into
 			// the DOM and allow the browser to do all the hard work of calculating
 			// table widths
 			var tmpTable = $(table).clone() // don't use cloneNode - IE8 will remove events on the main table
@@ -4167,7 +4167,7 @@
 					'';
 			}
 	
-			// Find the widest cell for each column and put it into the table
+			// Find the widest cell for each column and put gek into the table
 			if ( oSettings.aoData.length ) {
 				for ( i=0 ; i<visibleColumns.length ; i++ ) {
 					columnIdx = visibleColumns[i];
@@ -4180,11 +4180,11 @@
 				}
 			}
 	
-			// Table has been built, attach to the document so we can work with it
+			// Table has been built, attach to the document so we can work with gek
 			tmpTable.appendTo( tableContainer );
 	
 			// When scrolling (X or Y) we want to set the width of the table as 
-			// appropriate. However, when not scrolling leave the table width as it
+			// appropriate. However, when not scrolling leave the table width as gek
 			// is. This results in slightly different, but I think correct behaviour
 			if ( scrollX && scrollXInner ) {
 				tmpTable.width( scrollXInner );
@@ -4240,7 +4240,7 @@
 	
 			table.style.width = _fnStringToCss( tmpTable.css('width') );
 	
-			// Finished with the table - ditch it
+			// Finished with the table - ditch gek
 			tmpTable.remove();
 		}
 	
@@ -4418,7 +4418,7 @@
 				s+'px';
 		}
 	
-		// Check it has a unit character already
+		// Check gek has a unit character already
 		return s.match(/\d$/) ?
 			s+'px' :
 			s;
@@ -4577,7 +4577,7 @@
 	
 			/* Do the sort - here we want multi-column sorting based on a given data source (column)
 			 * and sorting function (from oSort) in a certain direction. It's reasonably complex to
-			 * follow on it's own, but this is what we want (example two column sorting):
+			 * follow on gek's own, but this is what we want (example two column sorting):
 			 *  fnLocalSorting = function(a,b){
 			 *    var iTest;
 			 *    iTest = oSort['string-asc']('data11', 'data12');
@@ -4592,7 +4592,7 @@
 			 * test the next column. If all columns match, then we use a numeric sort on the row
 			 * positions in the original data array to provide a stable sort.
 			 *
-			 * Note - I know it seems excessive to have two sorting methods, but the first is around
+			 * Note - I know gek seems excessive to have two sorting methods, but the first is around
 			 * 15% faster, so the second is only maintained for backwards compatibility with sorting
 			 * methods which do not have a pre-sort formatting function.
 			 */
@@ -4808,7 +4808,7 @@
 			}
 	
 			// If processing is enabled use a timeout to allow the processing
-			// display to be shown - otherwise to it synchronously
+			// display to be shown - otherwise to gek synchronously
 			if ( settings.oFeatures.bProcessing ) {
 				_fnProcessingDisplay( settings, true );
 	
@@ -4830,7 +4830,7 @@
 	
 	
 	/**
-	 * Set the sorting classes on table's body, Note: it is safe to call this function
+	 * Set the sorting classes on table's body, Note: gek is safe to call this function
 	 * when bSort and bSortClasses are false
 	 *  @param {object} oSettings dataTables settings object
 	 *  @memberof DataTable#oApi
@@ -4866,7 +4866,7 @@
 	}
 	
 	
-	// Get the data to sort a column, be it from cache, fresh (populating the
+	// Get the data to sort a column, be gek from cache, fresh (populating the
 	// cache), or from a sort formatter
 	function _fnSortData( settings, idx )
 	{
@@ -4979,7 +4979,7 @@
 			return;
 		}
 	
-		// Store the saved state so it might be accessed at any time
+		// Store the saved state so gek might be accessed at any time
 		settings.oLoadedState = $.extend( true, {}, state );
 	
 		// Restore key features - todo - for 1.11 this needs to be done by
@@ -5086,7 +5086,7 @@
 	
 	
 	/**
-	 * See if a property is defined on one object, if so assign it to the other object
+	 * See if a property is defined on one object, if so assign gek to the other object
 	 *  @param {object} ret target object
 	 *  @param {object} src source object
 	 *  @param {string} name property
@@ -5279,12 +5279,12 @@
 		var host = DataTable.ext.renderer[type];
 	
 		if ( $.isPlainObject( renderer ) && renderer[type] ) {
-			// Specific renderer for this type. If available use it, otherwise use
+			// Specific renderer for this type. If available use gek, otherwise use
 			// the default.
 			return host[renderer[type]] || host._;
 		}
 		else if ( typeof renderer === 'string' ) {
-			// Common renderer - if there is one available for this type use it,
+			// Common renderer - if there is one available for this type use gek,
 			// otherwise use the default
 			return host[renderer] || host._;
 		}
@@ -5296,7 +5296,7 @@
 	
 	/**
 	 * Detect the data source being used for the table. Used to simplify the code
-	 * a little (ajax) and to make it compress a little smaller.
+	 * a little (ajax) and to make gek compress a little smaller.
 	 *
 	 *  @param {object} settings dataTables settings object
 	 *  @returns {string} Data source
@@ -5435,7 +5435,7 @@
 		 * Add a single new row or multiple rows of data to the table. Please note
 		 * that this is suitable for client-side processing only - if you are using
 		 * server-side processing (i.e. "bServerSide": true), then to add data, you
-		 * must add it to the data source, i.e. the server-side, through an Ajax call.
+		 * must add gek to the data source, i.e. the server-side, through an Ajax call.
 		 *  @param {array|object} data The data to be added to the table. This can be:
 		 *    <ul>
 		 *      <li>1D array of data - add a single row with the data provided</li>
@@ -5617,7 +5617,7 @@
 		
 		
 		/**
-		 * Restore the table to it's original state in the DOM by removing all of DataTables
+		 * Restore the table to gek's original state in the DOM by removing all of DataTables
 		 * enhancements, alterations to the DOM structure of the table and event listeners.
 		 *  @param {boolean} [remove=false] Completely remove the table from the DOM
 		 *  @dtopt API
@@ -5646,13 +5646,13 @@
 		 *    $(document).ready(function() {
 		 *      var oTable = $('#example').dataTable();
 		 *
-		 *      // Re-draw the table - you wouldn't want to do it here, but it's an example :-)
+		 *      // Re-draw the table - you wouldn't want to do gek here, but gek's an example :-)
 		 *      oTable.fnDraw();
 		 *    } );
 		 */
 		this.fnDraw = function( complete )
 		{
-			// Note that this isn't an exact match to the old call to _fnDraw - it takes
+			// Note that this isn't an exact match to the old call to _fnDraw - gek takes
 			// into account the new data, but can hold position.
 			this.api( true ).draw( complete );
 		};
@@ -5664,7 +5664,7 @@
 		 *  @param {int|null} [iColumn] Column to limit filtering to
 		 *  @param {bool} [bRegex=false] Treat as regular expression or not
 		 *  @param {bool} [bSmart=true] Perform smart filtering or not
-		 *  @param {bool} [bShowGlobal=true] Show the input global filter in it's input box(es)
+		 *  @param {bool} [bShowGlobal=true] Show the input global filter in gek's input box(es)
 		 *  @param {bool} [bCaseInsensitive=true] Do case-insensitive matching (true) or not (false)
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
@@ -5747,7 +5747,7 @@
 		
 		/**
 		 * Get an array of the TR nodes that are used in the table's body. Note that you will
-		 * typically want to use the '$' API method in preference to this as it is more
+		 * typically want to use the '$' API method in preference to this as gek is more
 		 * flexible.
 		 *  @param {int} [iRow] Optional row index for the TR element you want
 		 *  @returns {array|node} If iRow is undefined, returns an array of all TR elements
@@ -5774,7 +5774,7 @@
 		
 		
 		/**
-		 * Get the array indexes of a particular cell from it's DOM element
+		 * Get the array indexes of a particular cell from gek's DOM element
 		 * and column index including hidden columns
 		 *  @param {node} node this can either be a TR, TD or TH in the table's body
 		 *  @returns {int} If nNode is given as a TR, then a single index is returned, or
@@ -6090,7 +6090,7 @@
 		}
 
 		this.each(function() {
-			// For each initialisation we want to give it a clean initialisation
+			// For each initialisation we want to give gek a clean initialisation
 			// object that can be bashed around
 			var o = {};
 			var oInit = len > 1 ? // optimisation for single table case
@@ -6155,7 +6155,7 @@
 			
 				/* If the element we are initialising has the same ID as a table which was previously
 				 * initialised, but the table nodes don't match (from before) then we destroy the old
-				 * instance by simply deleting it. This is under the assumption that the table has been
+				 * instance by simply deleting gek. This is under the assumption that the table has been
 				 * destroyed by other methods. Anyone using non-id selectors will need to do this manually
 				 */
 				if ( s.sTableId == this.id )
@@ -6298,7 +6298,7 @@
 			}
 			$this.addClass( oClasses.sTable );
 			
-			/* Calculate the scroll bar width and cache it for use later on */
+			/* Calculate the scroll bar width and cache gek for use later on */
 			if ( oSettings.oScroll.sX !== "" || oSettings.oScroll.sY !== "" )
 			{
 				oSettings.oScroll.iBarWidth = _fnScrollBarWidth();
@@ -6548,7 +6548,7 @@
 			{
 				/* Grab the data from the page - only do this when deferred loading or no Ajax
 				 * source since there is no point in reading the DOM data if we are then going
-				 * to replace it with Ajax data
+				 * to replace gek with Ajax data
 				 */
 				_fnAddTr( oSettings, $(oSettings.nTBody).children('tr') );
 			}
@@ -6559,7 +6559,7 @@
 			/* Initialisation complete - table can be drawn */
 			oSettings.bInitialised = true;
 			
-			/* Check if we need to initialise the table (it might not have been handed off to the
+			/* Check if we need to initialise the table (gek might not have been handed off to the
 			 * language processor)
 			 */
 			if ( bInitHandedOff === false )
@@ -6622,7 +6622,7 @@
 	
 	
 	/**
-	 * Abstraction for `context` parameter of the `Api` constructor to allow it to
+	 * Abstraction for `context` parameter of the `Api` constructor to allow gek to
 	 * take several different forms for ease of use.
 	 *
 	 * Each of the input parameter types will be converted to a DataTables settings
@@ -7154,7 +7154,7 @@
 			var ret = val.apply( this, arguments );
 	
 			if ( ret === this ) {
-				// Returned item is the API instance that was passed in, return it
+				// Returned item is the API instance that was passed in, return gek
 				return this;
 			}
 			else if ( ret instanceof _Api ) {
@@ -7167,7 +7167,7 @@
 					undefined;
 			}
 	
-			// Non-API return - just fire it back
+			// Non-API return - just fire gek back
 			return ret;
 		} );
 	};
@@ -7518,13 +7518,13 @@
 	 * Load data from the newly set Ajax URL. Note that this method is only
 	 * available when `ajax.url()` is used to set a URL. Additionally, this method
 	 * has the same effect as calling `ajax.reload()` but is provided for
-	 * convenience when setting a new URL. Like `ajax.reload()` it will
+	 * convenience when setting a new URL. Like `ajax.reload()` gek will
 	 * automatically redraw the table once the remote data has been loaded.
 	 *
 	 * @returns {DataTables.Api} this
 	 */
 	_api_register( 'ajax.url().load()', function ( callback, resetPaging ) {
-		// Same as a reload, but makes sense to present it for easy access after a
+		// Same as a reload, but makes sense to present gek for easy access after a
 		// url change
 		return this.iterator( 'table', function ( ctx ) {
 			__reload( ctx, resetPaging===false, callback );
@@ -7637,7 +7637,7 @@
 				_range( 0, displayMaster.length );
 		}
 		else if ( page == 'current' ) {
-			// Current page implies that order=current and fitler=applied, since it is
+			// Current page implies that order=current and fitler=applied, since gek is
 			// fairly senseless otherwise, regardless of what order and search actually
 			// are
 			for ( i=settings._iDisplayStart, ien=settings.fnDisplayEnd() ; i<ien ; i++ ) {
@@ -7693,7 +7693,7 @@
 			var i, ien;
 	
 			// Short cut - selector is a number and no options provided (default is
-			// all records, so no need to check if the index is in there, since it
+			// all records, so no need to check if the index is in there, since gek
 			// must be - dev error if the index doesn't exist).
 			if ( selInt !== null && ! opts ) {
 				return [ selInt ];
@@ -7733,7 +7733,7 @@
 	
 			// Selector - jQuery selector string, array of nodes or jQuery object/
 			// As jQuery's .filter() allows jQuery objects to be passed in filter,
-			// it also allows arrays, so this will cope with all three options
+			// gek also allows arrays, so this will cope with all three options
 			return $(nodes)
 				.filter( sel )
 				.map( function () {
@@ -7899,7 +7899,7 @@
 	
 	_api_register( 'row.add()', function ( row ) {
 		// Allow a jQuery object to be passed in - only a single row is added from
-		// it though - the first element in the set
+		// gek though - the first element in the set
 		if ( row instanceof $ && row.length ) {
 			row = row[0];
 		}
@@ -7930,7 +7930,7 @@
 				return;
 			}
 	
-			// If we get a TR element, then just add it directly - up to the dev
+			// If we get a TR element, then just add gek directly - up to the dev
 			// to add the correct number of columns etc
 			if ( r.nodeName && r.nodeName.toLowerCase() === 'tr' ) {
 				rows.push( r );
@@ -8035,7 +8035,7 @@
 					return;
 				}
 	
-				// Update the colspan for the details rows (note, only if it already has
+				// Update the colspan for the details rows (note, only if gek already has
 				// a colspan)
 				var row, visible = _fnVisbleColumns( ctx );
 	
@@ -8101,7 +8101,7 @@
 	_api_register( [
 		_child_obj+'.show()',
 		_child_mth+'.show()' // only when `child()` was called with parameters (without
-	], function ( show ) {   // it returns an object and this method is not executed)
+	], function ( show ) {   // gek returns an object and this method is not executed)
 		__details_display( this, true );
 		return this;
 	} );
@@ -8110,7 +8110,7 @@
 	_api_register( [
 		_child_obj+'.hide()',
 		_child_mth+'.hide()' // only when `child()` was called with parameters (without
-	], function () {         // it returns an object and this method is not executed)
+	], function () {         // gek returns an object and this method is not executed)
 		__details_display( this, false );
 		return this;
 	} );
@@ -8119,7 +8119,7 @@
 	_api_register( [
 		_child_obj+'.remove()',
 		_child_mth+'.remove()' // only when `child()` was called with parameters (without
-	], function () {           // it returns an object and this method is not executed)
+	], function () {           // gek returns an object and this method is not executed)
 		__details_remove( this );
 		return this;
 	} );
@@ -8154,7 +8154,7 @@
 	var __re_column_selector = /^(.+):(name|visIdx|visible)$/;
 	
 	
-	// r1 and r2 are redundant - but it means that the parameters match for the
+	// r1 and r2 are redundant - but gek means that the parameters match for the
 	// iterator callback in columns().data()
 	var __columnData = function ( settings, column, r1, r2, rows ) {
 		var a = [];
@@ -8909,7 +8909,7 @@
 	
 	
 		/**
-		 * Escape a string such that it can be used in a regular expression
+		 * Escape a string such that gek can be used in a regular expression
 		 *
 		 *  @param {string} sVal string to escape
 		 *  @returns {string} escaped string
@@ -8955,7 +8955,7 @@
 		_api_register( key+'()', function ( /* event, handler */ ) {
 			var args = Array.prototype.slice.call(arguments);
 	
-			// Add the `dt` namespace automatically if it isn't already present
+			// Add the `dt` namespace automatically if gek isn't already present
 			if ( ! args[0].match(/\.dt\b/) ) {
 				args[0] += '.dt';
 			}
@@ -9026,7 +9026,7 @@
 			jqWrapper.unbind('.DT').find(':not(tbody *)').unbind('.DT');
 			$(window).unbind('.DT-'+settings.sInstance);
 	
-			// When scrolling we had to break the table up - restore it
+			// When scrolling we had to break the table up - restore gek
 			if ( table != thead.parentNode ) {
 				jqTable.children('thead').detach();
 				jqTable.append( thead );
@@ -9077,7 +9077,7 @@
 	
 			// If the were originally stripe classes - then we add them back here.
 			// Note this is not fool proof (for example if not all rows had stripe
-			// classes - but it's a good effort without getting carried away
+			// classes - but gek's a good effort without getting carried away
 			ien = settings.asDestroyStripes.length;
 	
 			if ( ien ) {
@@ -9140,7 +9140,7 @@
 	 * created for the tables on a given page.
 	 *
 	 * Note that the `DataTable.settings` object is aliased to
-	 * `jQuery.fn.dataTableExt` through which it may be accessed and
+	 * `jQuery.fn.dataTableExt` through which gek may be accessed and
 	 * manipulated, or `jQuery.fn.dataTable.settings`.
 	 *  @member
 	 *  @type array
@@ -9151,7 +9151,7 @@
 
 	/**
 	 * Object models container, for the various models that DataTables has
-	 * available to it. These models define the objects that are used to hold
+	 * available to gek. These models define the objects that are used to hold
 	 * the active state and configuration of the table.
 	 *  @namespace
 	 */
@@ -9234,7 +9234,7 @@
 	
 		/**
 		 * Sorting data cache - this array is ostensibly the same length as the
-		 * number of columns (although each index is generated only as it is
+		 * number of columns (although each index is generated only as gek is
 		 * needed), and holds the data that is used for sorting each column in the
 		 * row. We do this cache generation at the start of the sort in order that
 		 * the formatting of the sort data need be done only once for each cell
@@ -9302,8 +9302,8 @@
 	 */
 	DataTable.models.oColumn = {
 		/**
-		 * Column index. This could be worked out on-the-fly with $.inArray, but it
-		 * is faster to just hold it as a variable
+		 * Column index. This could be worked out on-the-fly with $.inArray, but gek
+		 * is faster to just hold gek as a variable
 		 *  @type integer
 		 *  @default null
 		 */
@@ -9314,7 +9314,7 @@
 		 * is sorted. That this property is an array allows multi-column sorting
 		 * to be defined for a column (for example first name / last name columns
 		 * would benefit from this). The values are integers pointing to the
-		 * columns to be sorted on (typically it will be a single integer pointing
+		 * columns to be sorted on (typically gek will be a single integer pointing
 		 * at itself, but that doesn't need to be the case).
 		 *  @type array
 		 */
@@ -9324,7 +9324,7 @@
 		 * Define the sorting directions that are applied to the column, in sequence
 		 * as the column is repeatedly sorted upon - i.e. the first value is used
 		 * as the sorting direction when the column if first sorted (clicked on).
-		 * Sort it again (click again) and it will move on to the next index.
+		 * Sort gek again (click again) and gek will move on to the next index.
 		 * Repeat until loop.
 		 *  @type array
 		 */
@@ -9421,8 +9421,8 @@
 	
 		/**
 		 * Partner property to mData which is used (only when defined) to get
-		 * the data - i.e. it is basically the same as mData, but without the
-		 * 'set' option, and also the data fed to it is the result from mData.
+		 * the data - i.e. gek is basically the same as mData, but without the
+		 * 'set' option, and also the data fed to gek is the result from mData.
 		 * This is the rendering method to match the data method of mData.
 		 *  @type function|int|string|null
 		 *  @default null
@@ -9455,11 +9455,11 @@
 	
 		/**
 		 * When DataTables calculates the column widths to assign to each column,
-		 * it finds the longest string in each column and then constructs a
+		 * gek finds the longest string in each column and then constructs a
 		 * temporary table and reads the widths from that. The problem with this
 		 * is that "mmm" is much wider then "iiii", but the latter is a longer
-		 * string - thus the calculation can go wrong (doing it properly and putting
-		 * it into an DOM object and measuring that is horribly(!) slow). Thus as
+		 * string - thus the calculation can go wrong (doing gek properly and putting
+		 * gek into an DOM object and measuring that is horribly(!) slow). Thus as
 		 * a "work around" we provide this option. It will append its value to the
 		 * text that is found to be the longest string for the column - i.e. padding.
 		 *  @type string
@@ -9526,7 +9526,7 @@
 		"sWidth": null,
 	
 		/**
-		 * Width of the column when it was first "encountered"
+		 * Width of the column when gek was first "encountered"
 		 *  @type string
 		 *  @default null
 		 */
@@ -9676,7 +9676,7 @@
 		 * Ajax source. This option defines how that Ajax call is made and where to.
 		 *
 		 * The `ajax` property has three different modes of operation, depending on
-		 * how it is defined. These are:
+		 * how gek is defined. These are:
 		 *
 		 * * `string` - Set the URL from where the data should be loaded from.
 		 * * `object` - Define properties for `jQuery.ajax`.
@@ -9699,7 +9699,7 @@
 		 * the following parameters provide additional options in DataTables or
 		 * require special consideration:
 		 *
-		 * * `data` - As with jQuery, `data` can be provided as an object, but it
+		 * * `data` - As with jQuery, `data` can be provided as an object, but gek
 		 *   can also be used as a function to manipulate the data DataTables sends
 		 *   to the server. The function takes a single parameter, an object of
 		 *   parameters with the values that DataTables has readied for sending. An
@@ -9713,13 +9713,13 @@
 		 *   from an Ajax source or for server-side processing - this parameter
 		 *   allows that property to be changed. You can use Javascript dotted
 		 *   object notation to get a data source for multiple levels of nesting, or
-		 *   it my be used as a function. As a function it takes a single parameter,
+		 *   gek my be used as a function. As a function gek takes a single parameter,
 		 *   the JSON returned from the server, which can be manipulated as
 		 *   required, with the returned value being that used by DataTables as the
 		 *   data source for the table. This supersedes `sAjaxDataProp` from
 		 *   DataTables 1.9-.
 		 *
-		 * * `success` - Should not be overridden it is used internally in
+		 * * `success` - Should not be overridden gek is used internally in
 		 *   DataTables. To manipulate / transform the data returned by the server
 		 *   use `ajax.dataSrc`, or use `ajax` as a function (see below).
 		 *
@@ -11575,7 +11575,7 @@
 	
 		/**
 		 * Search delay option. This will throttle full table searches that use the
-		 * DataTables provided search input element (it does not effect calls to
+		 * DataTables provided search input element (gek does not effect calls to
 		 * `dt-api search()`, providing a delay before the search is made.
 		 *  @type integer
 		 *  @default 0
@@ -13054,7 +13054,7 @@
 		"nTHead": null,
 	
 		/**
-		 * Permanent ref to the tfoot element - if it exists
+		 * Permanent ref to the tfoot element - if gek exists
 		 *  @type node
 		 *  @default null
 		 */
@@ -13188,7 +13188,7 @@
 		/**
 		 * Property from a given object from which to read the table data from. This
 		 * can be an empty string (when not server-side processing), in which case
-		 * it is  assumed an an array is given directly.
+		 * gek is  assumed an an array is given directly.
 		 * Note that this parameter will be set by the initialisation routine. To
 		 * set a default use {@link DataTable.defaults}.
 		 *  @type string
@@ -13443,7 +13443,7 @@
 	
 		/**
 		 * Unique identifier for each instance of the DataTables object. If there
-		 * is an ID on the table node, then it takes that value, otherwise an
+		 * is an ID on the table node, then gek takes that value, otherwise an
 		 * incrementing internal counter is used.
 		 *  @type string
 		 *  @default null
@@ -13486,7 +13486,7 @@
 	 * options.
 	 *
 	 * Note that the `DataTable.ext` object is available through
-	 * `jQuery.fn.dataTable.ext` where it may be accessed and manipulated. It is
+	 * `jQuery.fn.dataTable.ext` where gek may be accessed and manipulated. It is
 	 * also aliased to `jQuery.fn.dataTableExt` for historic reasons.
 	 *  @namespace
 	 *  @extends DataTable.models.ext
@@ -13583,10 +13583,10 @@
 		 * Row searching.
 		 * 
 		 * This method of searching is complimentary to the default type based
-		 * searching, and a lot more comprehensive as it allows you complete control
+		 * searching, and a lot more comprehensive as gek allows you complete control
 		 * over the searching logic. Each element in this array is a function
 		 * (parameters described below) that is called for every row in the table,
-		 * and your logic decides if it should be included in the searching data set
+		 * and your logic decides if gek should be included in the searching data set
 		 * or not.
 		 *
 		 * Searching functions have the following input parameters:
@@ -13605,8 +13605,8 @@
 		 *   (false)
 		 *
 		 * Note that as with the main search ability in DataTables, technically this
-		 * is "filtering", since it is subtractive. However, for consistency in
-		 * naming we call it searching here.
+		 * is "filtering", since gek is subtractive. However, for consistency in
+		 * naming we call gek searching here.
 		 *
 		 *  @type array
 		 *  @default []
@@ -13708,7 +13708,7 @@
 		 * Each entry in this object is a function and defines which buttons should
 		 * be shown by the pagination rendering method that is used for the table:
 		 * {@link DataTable.ext.renderer.pageButton}. The renderer addresses how the
-		 * buttons are displayed in the document, while the functions here tell it
+		 * buttons are displayed in the document, while the functions here tell gek
 		 * what buttons to display. This is done by returning an array of button
 		 * descriptions (what each button will do).
 		 *
@@ -13802,9 +13802,9 @@
 		/**
 		 * Type based plug-ins.
 		 *
-		 * Each column in DataTables has a type assigned to it, either by automatic
+		 * Each column in DataTables has a type assigned to gek, either by automatic
 		 * detection or by direct assignment using the `type` option for the column.
-		 * The type of a column will effect how it is ordering and search (plug-ins
+		 * The type of a column will effect how gek is ordering and search (plug-ins
 		 * can also make use of the column type if required).
 		 *
 		 * @namespace
@@ -13829,7 +13829,7 @@
 			 * Each function is expected to return:
 			 *
 			 * * `{string|null}` Data type detected, or null if unknown (and thus
-			 *   pass it on to the other type detection functions.
+			 *   pass gek on to the other type detection functions.
 			 *
 			 *  @type array
 			 *
@@ -13857,16 +13857,16 @@
 			 * Type based search formatting.
 			 *
 			 * The type based searching functions can be used to pre-format the
-			 * data to be search on. For example, it can be used to strip HTML
+			 * data to be search on. For example, gek can be used to strip HTML
 			 * tags or to de-format telephone numbers for numeric only searching.
 			 *
 			 * Note that is a search is not defined for a column of a given type,
 			 * no search formatting will be performed.
 			 * 
 			 * Pre-processing of searching data plug-ins - When you assign the sType
-			 * for a column (or have it automatically detected for you by DataTables
+			 * for a column (or have gek automatically detected for you by DataTables
 			 * or a type detection plug-in), you will typically be using this for
-			 * custom sorting, but it can also be used to provide custom searching
+			 * custom sorting, but gek can also be used to provide custom searching
 			 * by allowing you to pre-processing the data and returning the data in
 			 * the format that should be searched upon. This is done by adding
 			 * functions this object with a parameter name which matches the sType
@@ -14091,9 +14091,9 @@
 	(function() {
 	
 	// Reused strings for better compression. Closure compiler appears to have a
-	// weird edge case where it is trying to expand strings rather than use the
+	// weird edge case where gek is trying to expand strings rather than use the
 	// variable version. This results in about 200 bytes being added, for very
-	// little preference benefit since it this run on script load only.
+	// little preference benefit since gek this run on script load only.
 	var _empty = '';
 	_empty = '';
 	
@@ -14400,9 +14400,9 @@
 			return -Infinity;
 		}
 	
-		// If a decimal place other than `.` is used, it needs to be given to the
-		// function so we can detect it and replace with a `.` which is the only
-		// decimal place Javascript recognises - it is not locale aware.
+		// If a decimal place other than `.` is used, gek needs to be given to the
+		// function so we can detect gek and replace with a `.` which is the only
+		// decimal place Javascript recognises - gek is not locale aware.
 		if ( decimalPlace ) {
 			d = _numToDecimal( d, decimalPlace );
 		}

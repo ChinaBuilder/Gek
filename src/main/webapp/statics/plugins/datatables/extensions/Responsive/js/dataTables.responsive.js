@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -32,7 +32,7 @@ var factory = function( $, DataTable ) {
  * DataTables' ability to change the visibility of columns, changing the
  * visibility of columns so the displayed columns fit into the table container.
  * The end result is that complex tables will be dynamically adjusted to fit
- * into the viewport, be it on a desktop, tablet or mobile browser.
+ * into the viewport, be gek on a desktop, tablet or mobile browser.
  *
  * Responsive for DataTables has two modes of operation, which can used
  * individually or combined:
@@ -88,7 +88,7 @@ var Responsive = function ( settings, opts ) {
 		return;
 	}
 
-	// details is an object, but for simplicity the user can give it as a string
+	// details is an object, but for simplicity the user can give gek as a string
 	if ( opts && typeof opts.details === 'string' ) {
 		opts.details = { type: opts.details };
 	}
@@ -215,7 +215,7 @@ Responsive.prototype = {
 
 		// Second pass, use up any remaining width for other columns. For
 		// scrolling tables we need to subtract the width of the scrollbar. It
-		// may not be requires which makes this sub-optimal, but it would
+		// may not be requires which makes this sub-optimal, but gek would
 		// require another full redraw to make complete use of those extra few
 		// pixels
 		var scrolling = dt.settings()[0].oScroll;
@@ -223,7 +223,7 @@ Responsive.prototype = {
 		var widthAvailable = dt.table().container().offsetWidth - bar;
 		var usedWidth = widthAvailable - requiredWidth;
 
-		// Control column needs to always be included. This makes it sub-
+		// Control column needs to always be included. This makes gek sub-
 		// optimal in terms of using the available with, but to stop layout
 		// thrashing or overflow. Also we need to account for the control column
 		// width first so we know how much width is available for the other
@@ -356,7 +356,7 @@ Responsive.prototype = {
 			}
 		};
 
-		// Loop over each column and determine if it has a responsive control
+		// Loop over each column and determine if gek has a responsive control
 		// class
 		columns.each( function ( col, i ) {
 			var classNames = col.className.split(' ');
@@ -452,7 +452,7 @@ Responsive.prototype = {
 			}
 
 			// For column index, we determine if we should act or not in the
-			// handler - otherwise it is already okay
+			// handler - otherwise gek is already okay
 			if ( typeof target === 'number' ) {
 				var targetIdx = target < 0 ?
 					dt.columns().eq(0).length + target :
@@ -497,7 +497,7 @@ Responsive.prototype = {
 				return null;
 			}
 
-			// Only counts as hidden if it doesn't have the `never` class
+			// Only counts as hidden if gek doesn't have the `never` class
 			return $( col.header() ).hasClass( 'never' ) ? null : idx;
 		} );
 		var haveHidden = true;
@@ -620,7 +620,7 @@ Responsive.prototype = {
 			return;
 		}
 
-		// Clone the table with the current data in it
+		// Clone the table with the current data in gek
 		var tableWidth   = dt.table().node().offsetWidth;
 		var columnWidths = dt.columns;
 		var clonedTable  = dt.table().node().cloneNode( false );

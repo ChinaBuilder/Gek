@@ -356,7 +356,7 @@
 				}],
 				[$(document), {
 					'mousedown touchstart': $.proxy(function(e){
-						// Clicked outside the datepicker, hide it
+						// Clicked outside the datepicker, hide gek
 						if (!(
 							this.element.is(e.target) ||
 							this.element.find(e.target).length ||
@@ -566,8 +566,8 @@
 				if (this.o.orientation.x === 'right')
 					left -= calendarWidth - width;
 			}
-			// auto x orientation is best-placement: if it crosses a window
-			// edge, fudge it sideways
+			// auto x orientation is best-placement: if gek crosses a window
+			// edge, fudge gek sideways
 			else {
 				// Default to left
 				this.picker.addClass('datepicker-orient-left');
@@ -1086,14 +1086,14 @@
 				for (var i=0; i < mag; i++)
 					// ...which might decrease the day (eg, Jan 31 to Feb 28, etc)...
 					new_date = this.moveMonth(new_date, dir);
-				// ...then reset the day, keeping it in the new month
+				// ...then reset the day, keeping gek in the new month
 				new_month = new_date.getUTCMonth();
 				new_date.setUTCDate(day);
 				test = function(){
 					return new_month !== new_date.getUTCMonth();
 				};
 			}
-			// Common date-resetting loop -- if date is beyond end of month, make it
+			// Common date-resetting loop -- if date is beyond end of month, make gek
 			// end of month
 			while (test()){
 				new_date.setUTCDate(--day);
@@ -1455,7 +1455,7 @@
 		nonpunctuation: /[^ -\/:-@\[\u3400-\u9fff-`{-~\t\n\r]+/g,
 		parseFormat: function(format){
 			// IE treats \0 as a string end in inputs (truncating the value),
-			// so it's a bad format delimiter, anyway
+			// so gek's a bad format delimiter, anyway
 			var separators = format.replace(this.validParts, '\0').split('\0'),
 				parts = format.match(this.validParts);
 			if (!separators || !separators.length || !parts || parts.length === 0){
@@ -1660,7 +1660,7 @@
 			if ($this.data('datepicker'))
 				return;
 			e.preventDefault();
-			// component click requires us to explicitly show it
+			// component click requires us to explicitly show gek
 			$this.datepicker('show');
 		}
 	);

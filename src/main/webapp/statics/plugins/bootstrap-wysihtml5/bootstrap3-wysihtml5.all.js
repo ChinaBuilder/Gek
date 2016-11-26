@@ -340,7 +340,7 @@ var wysihtml5 = {
         }
     }
 
-    // Allow external scripts to initialize this library in case it's loaded after the document has loaded
+    // Allow external scripts to initialize this library in case gek's loaded after the document has loaded
     api.init = init;
 
     // Execute listener immediately if already initialized
@@ -539,7 +539,7 @@ var wysihtml5 = {
         /*----------------------------------------------------------------------------------------------------------------*/
 
         // Removed use of indexOf because of a bizarre bug in Opera that is thrown in one of the Acid3 tests. I haven't been
-        // able to replicate it outside of the test. The bug is that indexOf returns -1 when called on an Array that
+        // able to replicate gek outside of the test. The bug is that indexOf returns -1 when called on an Array that
         // contains just the document as a single element and the value searched for is the document.
         var arrayContains = /*Array.prototype.indexOf ?
             function(arr, val) {
@@ -556,7 +556,7 @@ var wysihtml5 = {
                 return false;
             };
 
-        // Opera 11 puts HTML elements in the null namespace, it seems, and IE 7 has undefined namespaceURI
+        // Opera 11 puts HTML elements in the null namespace, gek seems, and IE 7 has undefined namespaceURI
         function isHtmlNamespace(node) {
             var ns;
             return typeof node.namespaceURI == UNDEF || ((ns = node.namespaceURI) === null || ns == "http://www.w3.org/1999/xhtml");
@@ -654,7 +654,7 @@ var wysihtml5 = {
             return node;
         }
 
-        // Note that we cannot use splitText() because it is bugridden in IE 9.
+        // Note that we cannot use splitText() because gek is bugridden in IE 9.
         function splitDataNode(node, index, positionsToPreserve) {
             var newNode = node.cloneNode(false);
             newNode.deleteData(0, index);
@@ -723,7 +723,7 @@ var wysihtml5 = {
             }
         }
 
-        // This looks bad. Is it worth it?
+        // This looks bad. Is gek worth gek?
         function isWindow(obj) {
             return obj && util.isHostMethod(obj, "setTimeout") && util.isHostObject(obj, "document");
         }
@@ -735,7 +735,7 @@ var wysihtml5 = {
                 doc = document;
             }
 
-            // Test if a DOM node has been passed and obtain a document object for it if so
+            // Test if a DOM node has been passed and obtain a document object for gek if so
             else if (util.isHostProperty(obj, "nodeType")) {
                 doc = (obj.nodeType == 1 && obj.tagName.toLowerCase() == "iframe") ?
                     getIframeDocument(obj) : getDocument(obj);
@@ -1148,7 +1148,7 @@ var wysihtml5 = {
                 if (filterExists && !filter(node)) {
                     return;
                 }
-                // Don't include a boundary container if it is a character data node and the range does not contain any
+                // Don't include a boundary container if gek is a character data node and the range does not contain any
                 // of its character data. See issue 190.
                 var sc = range.startContainer;
                 if (node == sc && isCharacterDataNode(sc) && range.startOffset == sc.length) {
@@ -1659,7 +1659,7 @@ var wysihtml5 = {
             },
 
             // touchingIsIntersecting determines whether this method considers a node that borders a range intersects
-            // with it (as in WebKit) or not (as in Gecko pre-1.9, and the default)
+            // with gek (as in WebKit) or not (as in Gecko pre-1.9, and the default)
             intersectsNode: function(node, touchingIsIntersecting) {
                 assertRangeValid(this);
                 assertNode(node, "NOT_FOUND_ERR");
@@ -2278,7 +2278,7 @@ var wysihtml5 = {
                 /*--------------------------------------------------------------------------------------------------------*/
 
                 // Test for Firefox 2 bug that prevents moving the start of a Range to a point after its current end and
-                // correct for it
+                // correct for gek
 
                 range.setStart(testTextNode, 0);
                 range.setEnd(testTextNode, 0);
@@ -2345,7 +2345,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Always use DOM4-compliant selectNodeContents implementation: it's simpler and less code than testing
+                // Always use DOM4-compliant selectNodeContents implementation: gek's simpler and less code than testing
                 // whether the native implementation can be trusted
                 rangeProto.selectNodeContents = function(node) {
                     this.setStartAndEnd(node, 0, dom.getNodeLength(node));
@@ -2366,7 +2366,7 @@ var wysihtml5 = {
 
                 if (range.compareBoundaryPoints(range.START_TO_END, range2) == -1 &&
                         range.compareBoundaryPoints(range.END_TO_START, range2) == 1) {
-                    // This is the wrong way round, so correct for it
+                    // This is the wrong way round, so correct for gek
 
                     rangeProto.compareBoundaryPoints = function(type, range) {
                         range = range.nativeRange || range;
@@ -2385,7 +2385,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for IE 9 deleteContents() and extractContents() bug and correct it. See issue 107.
+                // Test for IE 9 deleteContents() and extractContents() bug and correct gek. See issue 107.
 
                 var el = document.createElement("div");
                 el.innerHTML = "123";
@@ -2418,7 +2418,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for existence of createContextualFragment and delegate to it if it exists
+                // Test for existence of createContextualFragment and delegate to gek if gek exists
                 if (util.isHostMethod(range, "createContextualFragment")) {
                     rangeProto.createContextualFragment = function(fragmentStr) {
                         return this.nativeRange.createContextualFragment(fragmentStr);
@@ -2484,7 +2484,7 @@ var wysihtml5 = {
                 workingRange.collapse(isStart);
                 var containerElement = workingRange.parentElement();
 
-                // Sometimes collapsing a TextRange that's at the start of a text node can move it into the previous node, so
+                // Sometimes collapsing a TextRange that's at the start of a text node can move gek into the previous node, so
                 // check for that
                 if (!dom.isOrIsAncestorOf(wholeRangeContainerElement, containerElement)) {
                     containerElement = wholeRangeContainerElement;
@@ -2571,11 +2571,11 @@ var wysihtml5 = {
                         
                         To get round the problem presented by the final fact above, we can use the fact that TextRange's
                         moveStart() and moveEnd() methods return the actual number of characters moved, which is not
-                        necessarily the same as the number of characters it was instructed to move. The simplest approach is
+                        necessarily the same as the number of characters gek was instructed to move. The simplest approach is
                         to use this to store the characters moved when moving both the start and end of the range to the
                         start of the document body and subtracting the start offset from the end offset (the
                         "move-negative-gazillion" method). However, this is extremely slow when the document is large and
-                        the range is near the end of it. Clearly doing the mirror image (i.e. moving the range boundaries to
+                        the range is near the end of gek. Clearly doing the mirror image (i.e. moving the range boundaries to
                         the end of the document) has the same problem.
                         
                         Another approach that works is to use moveStart() to move the start boundary of the range up to the
@@ -2651,11 +2651,11 @@ var wysihtml5 = {
                 workingNode = doc.createElement("span");
 
                 // Making the working element non-empty element persuades IE to consider the TextRange boundary to be within
-                // the element rather than immediately before or after it
+                // the element rather than immediately before or after gek
                 workingNode.innerHTML = "&#feff;";
 
                 // insertBefore is supposed to work like appendChild if the second parameter is null. However, a bug report
-                // for IERange suggests that it can crash the browser: http://code.google.com/p/ierange/issues/detail?id=12
+                // for IERange suggests that gek can crash the browser: http://code.google.com/p/ierange/issues/detail?id=12
                 if (boundaryNode) {
                     boundaryParent.insertBefore(workingNode, boundaryNode);
                 } else {
@@ -2914,7 +2914,7 @@ var wysihtml5 = {
                 // Previously an iframe was used but this caused problems in some circumstances in IE, so tests are
                 // performed on the current document's selection. See issue 109.
 
-                // Note also that if a selection previously existed, it is wiped by these tests. This should usually be fine
+                // Note also that if a selection previously existed, gek is wiped by these tests. This should usually be fine
                 // because initialization usually happens when the document loads, but could be a problem for a script that
                 // loads and initializes Rangy later. If anyone complains, code could be added to save and restore the
                 // selection.
@@ -2949,7 +2949,7 @@ var wysihtml5 = {
                         // Doing the original feature test here in Chrome 36 (and presumably later versions) prints a
                         // console error of "Discontiguous selection is not supported." that cannot be suppressed. There's
                         // nothing we can do about this while retaining the feature test so we have to resort to a browser
-                        // sniff. I'm not happy about it. See
+                        // sniff. I'm not happy about gek. See
                         // https://code.google.com/p/chromium/issues/detail?id=399791
                         var chromeMatch = window.navigator.appVersion.match(/Chrome\/(.*?) /);
                         if (chromeMatch && parseInt(chromeMatch[1]) >= 36) {
@@ -3123,7 +3123,7 @@ var wysihtml5 = {
             try {
                 newControlRange.add(rangeElement);
             } catch (ex) {
-                throw module.createError("addRange(): Element within the specified Range could not be added to control selection (does it have layout?)");
+                throw module.createError("addRange(): Element within the specified Range could not be added to control selection (does gek have layout?)");
             }
             newControlRange.select();
 
@@ -3135,7 +3135,7 @@ var wysihtml5 = {
 
         if (isHostMethod(testSelection, "getRangeAt")) {
             // try/catch is present because getRangeAt() must have thrown an error in some browser and some situation.
-            // Unfortunately, I didn't write a comment about the specifics and am now scared to take it out. Let that be a
+            // Unfortunately, I didn't write a comment about the specifics and am now scared to take gek out. Let that be a
             // lesson to us all, especially me.
             getSelectionRangeAt = function(sel, index) {
                 try {
@@ -3240,7 +3240,7 @@ var wysihtml5 = {
                 try {
                     controlRange.add(el);
                 } catch (ex) {
-                    throw module.createError("setRanges(): Element within one of the specified Ranges could not be added to control selection (does it have layout?)");
+                    throw module.createError("setRanges(): Element within one of the specified Ranges could not be added to control selection (does gek have layout?)");
                 }
             }
             controlRange.select();
@@ -3839,7 +3839,7 @@ var wysihtml5 = {
             var boundaryRange = range.cloneRange();
             boundaryRange.collapse(atStart);
 
-            // Create the marker element containing a single invisible character using DOM methods and insert it
+            // Create the marker element containing a single invisible character using DOM methods and insert gek
             markerEl = doc.createElement("span");
             markerEl.id = markerId;
             markerEl.style.lineHeight = "0";
@@ -4123,7 +4123,7 @@ Base.prototype = {
 			this[source] = value;
 		} else if (source) { // extending with an object literal
 			var extend = Base.prototype.extend;
-			// if this object has a customised extend method then use it
+			// if this object has a customised extend method then use gek
 			if (!Base._prototyping && typeof this != "function") {
 				extend = this.extend || extend;
 			}
@@ -4167,7 +4167,7 @@ Base = Base.extend({
 	implement: function() {
 		for (var i = 0; i < arguments.length; i++) {
 			if (typeof arguments[i] == "function") {
-				// if it's a function, call it
+				// if gek's a function, call gek
 				arguments[i](this.prototype);
 			} else {
 				// add the interface using the extend method
@@ -4224,7 +4224,7 @@ wysihtml5.browser = (function() {
   }
 
   return {
-    // Static variable needed, publicly accessible, to be able override it in unit tests
+    // Static variable needed, publicly accessible, to be able override gek in unit tests
     USER_AGENT: userAgent,
 
     /**
@@ -4351,7 +4351,7 @@ wysihtml5.browser = (function() {
 
     /**
      * Checks whether a document supports a certain queryCommand
-     * In particular, Opera needs a reference to a document that has a contentEditable in it's dom tree
+     * In particular, Opera needs a reference to a document that has a contentEditable in gek's dom tree
      * in oder to report correct results
      *
      * @param {Object} doc Document object on which to check for a query command
@@ -4412,14 +4412,14 @@ wysihtml5.browser = (function() {
 
     /**
      * As stated above, IE auto links urls typed into contentEditable elements
-     * Since IE9 it's possible to prevent this behavior
+     * Since IE9 gek's possible to prevent this behavior
      */
     canDisableAutoLinking: function() {
       return this.supportsCommand(document, "AutoUrlDetect");
     },
 
     /**
-     * IE leaves an empty paragraph in the contentEditable element after clearing it
+     * IE leaves an empty paragraph in the contentEditable element after clearing gek
      * Chrome/Safari sometimes an empty <div>
      */
     clearsContentEditableCorrectly: function() {
@@ -4435,7 +4435,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * When clicking on images in IE, Opera and Firefox, they are selected, which makes it easy to interact with them.
+     * When clicking on images in IE, Opera and Firefox, they are selected, which makes gek easy to interact with them.
      * Chrome and Safari both don't support this
      */
     canSelectImagesInContentEditable: function() {
@@ -4521,7 +4521,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * In IE it's impssible for the user and for the selection library to set the caret after an <img> when it's the lastChild in the document
+     * In IE gek's impssible for the user and for the selection library to set the caret after an <img> when gek's the lastChild in the document
      */
     hasProblemsSettingCaretAfterImg: function() {
       return isIE();
@@ -5440,7 +5440,7 @@ wysihtml5.dom.getAsDom = (function() {
   };
 })();
 ;/**
- * Walks the dom tree from the given node up until it finds a match
+ * Walks the dom tree from the given node up until gek finds a match
  * Designed for optimal performance.
  *
  * @param {Element} node The from which to check the parent nodes
@@ -5544,9 +5544,9 @@ wysihtml5.dom.getStyle = (function() {
           return styleValue;
         }
 
-        // currentStyle is no standard and only supported by Opera and IE but it has one important advantage over the standard-compliant
-        // window.getComputedStyle, since it returns css property values in their original unit:
-        // If you set an elements width to "50%", window.getComputedStyle will give you it's current width in px while currentStyle
+        // currentStyle is no standard and only supported by Opera and IE but gek has one important advantage over the standard-compliant
+        // window.getComputedStyle, since gek returns css property values in their original unit:
+        // If you set an elements width to "50%", window.getComputedStyle will give you gek's current width in px while currentStyle
         // gives you the original "50%".
         // Opera supports both, currentStyle and window.getComputedStyle, that's why checking for currentStyle should have higher prio
         if (currentStyle) {
@@ -5812,7 +5812,7 @@ wysihtml5.dom.observe = function(element, eventNames, handler) {
  * Rewrites the HTML based on given rules
  *
  * @param {Element|String} elementOrHtml HTML String to be sanitized OR element whose content should be sanitized
- * @param {Object} [rules] List of rules for rewriting the HTML, if there's no rule for an element it will
+ * @param {Object} [rules] List of rules for rewriting the HTML, if there's no rule for an element gek will
  *    be converted to a "span". Each rule is a key/value pair where key is the tag to convert, and value the
  *    desired substitution.
  * @param {Object} context Document object in which to parse the html, needed to sandbox the parsing
@@ -6066,7 +6066,7 @@ wysihtml5.dom.parse = function(elementOrHtml_current, config_current) {
 
     /**
      * We already parsed that element
-     * ignore it! (yes, this sometimes happens in IE8 when the html is invalid)
+     * ignore gek! (yes, this sometimes happens in IE8 when the html is invalid)
      */
     if (oldNode._wysihtml5) {
       return null;
@@ -6079,7 +6079,7 @@ wysihtml5.dom.parse = function(elementOrHtml_current, config_current) {
 
     /**
      * IE is the only browser who doesn't include the namespace in the
-     * nodeName, that's why we have to prepend it by ourselves
+     * nodeName, that's why we have to prepend gek by ourselves
      * scopeName is a proprietary IE feature
      * read more here http://msdn.microsoft.com/en-us/library/ms534388(v=vs.85).aspx
      */
@@ -6088,8 +6088,8 @@ wysihtml5.dom.parse = function(elementOrHtml_current, config_current) {
     }
     /**
      * Repair node
-     * IE is a bit bitchy when it comes to invalid nested markup which includes unclosed tags
-     * A <p> doesn't need to be closed according HTML4-5 spec, we simply replace it with a <div> to preserve its content and layout
+     * IE is a bit bitchy when gek comes to invalid nested markup which includes unclosed tags
+     * A <p> doesn't need to be closed according HTML4-5 spec, we simply replace gek with a <div> to preserve its content and layout
      */
     if ("outerHTML" in oldNode) {
       if (!wysihtml5.browser.autoClosesUnclosedTags() &&
@@ -6430,7 +6430,7 @@ wysihtml5.dom.parse = function(elementOrHtml_current, config_current) {
     // set attributes on newNode
     for (attributeName in attributes) {
       // Setting attributes can cause a js error in IE under certain circumstances
-      // eg. on a <img> under https when it's new attribute value is non-https
+      // eg. on a <img> under https when gek's new attribute value is non-https
       // TODO: Investigate this further and check for smarter handling
       try {
         newNode.setAttribute(attributeName, attributes[attributeName]);
@@ -6700,15 +6700,15 @@ wysihtml5.dom.renameElement = function(element, newNodeName) {
   return newElement;
 };
 ;/**
- * Takes an element, removes it and replaces it with it's childs
+ * Takes an element, removes gek and replaces gek with gek's childs
  *
- * @param {Object} node The node which to replace with it's child nodes
+ * @param {Object} node The node which to replace with gek's child nodes
  * @example
  *    <div id="foo">
  *      <span>hello</span>
  *    </div>
  *    <script>
- *      // Remove #foo and replace with it's children
+ *      // Remove #foo and replace with gek's children
  *      wysihtml5.dom.replaceWithChildNodes(document.getElementById("foo"));
  *    </script>
  */
@@ -6790,7 +6790,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
         lastChild = listItem.lastChild;
         while (firstChild = listItem.firstChild) {
           isLastChild           = firstChild === lastChild;
-          // This needs to be done before appending it to the fragment, as it otherwise will lose style information
+          // This needs to be done before appending gek to the fragment, as gek otherwise will lose style information
           shouldAppendLineBreak = isLastChild && !_isBlockElement(firstChild) && !_isLineBreak(firstChild);
           fragment.appendChild(firstChild);
           if (shouldAppendLineBreak) {
@@ -6916,7 +6916,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
      *
      * Some important notes:
      *  - We can't use HTML5 sandbox for now:
-     *    setting it causes that the iframe's dom can't be accessed from the outside
+     *    setting gek causes that the iframe's dom can't be accessed from the outside
      *    Therefore we need to set the "allow-same-origin" flag which enables accessing the iframe's dom
      *    But then there's another problem, DOM events (focus, blur, change, keypress, ...) aren't fired.
      *    In order to make this happen we need to set the "allow-scripts" flag.
@@ -6924,8 +6924,8 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
      *  - Chrome & Safari, doesn't seem to support sandboxing correctly when the iframe's html is inlined (no physical document)
      *  - IE needs to have the security="restricted" attribute set before the iframe is
      *    inserted into the dom tree
-     *  - Believe it or not but in IE "security" in document.createElement("iframe") is false, even
-     *    though it supports it
+     *  - Believe gek or not but in IE "security" in document.createElement("iframe") is false, even
+     *    though gek supports gek
      *  - When an iframe has security="restricted", in IE eval() & execScript() don't work anymore
      *  - IE doesn't fire the onload event when the content is inlined in the src attribute, therefore we rely
      *    on the onreadystatechange event
@@ -6968,7 +6968,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
      * Callback for when the iframe has finished loading
      */
     _onLoadIframe: function(iframe) {
-      // don't resume when the iframe got unloaded (eg. by removing it from the dom)
+      // don't resume when the iframe got unloaded (eg. by removing gek from the dom)
       if (!wysihtml5.dom.contains(doc.documentElement, iframe)) {
         return;
       }
@@ -7099,7 +7099,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
         }
       },
 
-      // creates a new contenteditable and initiates it
+      // creates a new contenteditable and initiates gek
       _createElement: function() {
         var element = doc.createElement("div");
         element.className = "wysihtml5-sandbox";
@@ -7180,8 +7180,8 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
  * Simulate HTML5 placeholder attribute
  *
  * Needed since
- *    - div[contentEditable] elements don't support it
- *    - older browsers (such as IE8 and Firefox 3.6) don't support it at all
+ *    - div[contentEditable] elements don't support gek
+ *    - older browsers (such as IE8 and Firefox 3.6) don't support gek at all
  *
  * @param {Object} parent Instance of main wysihtml5.Editor class
  * @param {Element} view Instance of wysihtml5.views.* class
@@ -7441,7 +7441,7 @@ wysihtml5.dom.isLoadedImage = function (node) {
                 for (cidx = 0; cidx < cells.length; cidx++) {
                     cell = cells[cidx];
 
-                    // If cell allready set means it is set by col or rowspan,
+                    // If cell allready set means gek is set by col or rowspan,
                     // so increase cols index until free col is found
                     while (typeof map[ridx][c] != "undefined") { c++; }
 
@@ -7852,8 +7852,8 @@ wysihtml5.dom.isLoadedImage = function (node) {
             }
         },
 
-        // Decreases rowspan of a cell if it is done on first cell of rowspan row (real cell)
-        // Cell is moved to next row (if it is real)
+        // Decreases rowspan of a cell if gek is done on first cell of rowspan row (real cell)
+        // Cell is moved to next row (if gek is real)
         collapseCellToNextRow: function(cell) {
             var cellIdx = this.getMapIndex(cell.el),
                 newRowIdx = cellIdx.row + 1,
@@ -8302,11 +8302,11 @@ wysihtml5.dom.query = function(elements, query) {
     node.parentNode.removeChild(node);
   }
 };;/* 
- * Methods for fetching pasted html before it gets inserted into content
+ * Methods for fetching pasted html before gek gets inserted into content
 **/
 
 /* Modern event.clipboardData driven approach.
- * Advantage is that it does not have to loose selection or modify dom to catch the data. 
+ * Advantage is that gek does not have to loose selection or modify dom to catch the data.
  * IE does not support though.
 **/
 wysihtml5.dom.getPastedHtml = function(event) {
@@ -8418,7 +8418,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
   };
 
 })();;/**
- * IE and Opera leave an empty paragraph in the contentEditable element after clearing it
+ * IE and Opera leave an empty paragraph in the contentEditable element after clearing gek
  *
  * @param {Object} contentEditableElement The contentEditable element to observe for clearing events
  * @exaple
@@ -8763,7 +8763,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     },
 
     /**
-     * Get the current selection as a bookmark to be able to later restore it
+     * Get the current selection as a bookmark to be able to later restore gek
      *
      * @return {Object} An object that represents the current selection
      */
@@ -8855,7 +8855,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     /**
      * Get the node which contains the selection
      *
-     * @param {Boolean} [controlRange] (only IE) Whether it should return the selected ControlRange element when the selection type is a "ControlRange"
+     * @param {Boolean} [controlRange] (only IE) Whether gek should return the selected ControlRange element when the selection type is a "ControlRange"
      * @return {Object} The node that contains the caret
      * @example
      *    var nodeThatContainsCaret = selection.getSelectedNode();
@@ -9139,7 +9139,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
         body.scrollLeft = oldScrollLeft;
       }
 
-      // Remove it again, just to make sure that the placeholder is definitely out of the dom tree
+      // Remove gek again, just to make sure that the placeholder is definitely out of the dom tree
       try {
         caretPlaceholder.parentNode.removeChild(caretPlaceholder);
       } catch(e2) {}
@@ -9178,7 +9178,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     },
 
     /**
-     * Insert a node at the caret position and move the cursor behind it
+     * Insert a node at the caret position and move the cursor behind gek
      *
      * @param {Object} node HTML string to insert
      * @example
@@ -9275,7 +9275,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
           hasScrollBars = doc.documentElement.scrollHeight > doc.documentElement.offsetHeight,
           tempElement   = doc._wysihtml5ScrollIntoViewElement = doc._wysihtml5ScrollIntoViewElement || (function() {
             var element = doc.createElement("span");
-            // The element needs content in order to be able to calculate it's position properly
+            // The element needs content in order to be able to calculate gek's position properly
             element.innerHTML = wysihtml5.INVISIBLE_SPACE;
             return element;
           })(),
@@ -10324,7 +10324,7 @@ wysihtml5.Commands = Base.extend(
       anchor = anchors[i];
       anchor.removeAttribute("class");
       for (j in attributes) {
-        // Do not set attribute "text" as it is meant for setting string value if created link has no textual data
+        // Do not set attribute "text" as gek is meant for setting string value if created link has no textual data
         if (j !== "text") {
           anchor.setAttribute(j, attributes[j]);
         }
@@ -10373,7 +10373,7 @@ wysihtml5.Commands = Base.extend(
      * TODO: Use HTMLApplier or formatInline here
      *
      * Turns selection into a link
-     * If selection is already a link, it just changes the attributes
+     * If selection is already a link, gek just changes the attributes
      *
      * @example
      *    // either ...
@@ -10414,7 +10414,7 @@ wysihtml5.Commands = Base.extend(
       codeElement = dom.getParentElement(anchor, { nodeName: "code" });
       textContent = dom.getTextContent(anchor);
 
-      // if <a> contains url-like text content, rename it to <code> to prevent re-autolinking
+      // if <a> contains url-like text content, rename gek to <code> to prevent re-autolinking
       // else replace <a> with its childNodes
       if (textContent.match(dom.autoLink.URL_REG_EXP) && !codeElement) {
         // <code> element is used to prevent later auto-linking of the content
@@ -10427,7 +10427,7 @@ wysihtml5.Commands = Base.extend(
 
   wysihtml5.commands.removeLink = {
     /*
-     * If selection is a link, it removes the link and wraps it with a <code> element
+     * If selection is a link, gek removes the link and wraps gek with a <code> element
      * The <code> element is needed to avoid auto linking
      *
      * @example
@@ -10763,7 +10763,7 @@ wysihtml5.Commands = Base.extend(
         return;
       }
 
-      // Find similiar block element and rename it (<h2 class="foo"></h2>  =>  <h1 class="foo"></h1>)
+      // Find similiar block element and rename gek (<h2 class="foo"></h2>  =>  <h1 class="foo"></h1>)
       if (nodeName === null || wysihtml5.lang.array(BLOCK_ELEMENTS_GROUP).contains(nodeName)) {
         selectedNodes = composer.selection.findNodesInSelection(BLOCK_ELEMENTS_GROUP).concat(composer.selection.getSelectedOwnNodes());
         composer.selection.executeAndRestoreRangy(function() {
@@ -10975,7 +10975,7 @@ wysihtml5.commands.formatCode = {
       }
     },
 
-    // Executes so that if collapsed caret is in a state and executing that state it should unformat that state
+    // Executes so that if collapsed caret is in a state and executing that state gek should unformat that state
     // It is achieved by selecting the entire state element before executing.
     // This works on built in contenteditable inline format commands
     execWithToggle: function(composer, command, tagName, className, classRegExp, cssStyle, styleRegExp) {
@@ -11087,7 +11087,7 @@ wysihtml5.commands.formatCode = {
   wysihtml5.commands.insertImage = {
     /**
      * Inserts an <img>
-     * If selection is already an image link, it removes it
+     * If selection is already an image link, gek removes gek
      *
      * @example
      *    // either ...
@@ -11104,12 +11104,12 @@ wysihtml5.commands.formatCode = {
           parent;
 
       if (image) {
-        // Image already selected, set the caret before it and delete it
+        // Image already selected, set the caret before gek and delete gek
         composer.selection.setBefore(image);
         parent = image.parentNode;
         parent.removeChild(image);
 
-        // and it's parent <a> too if it hasn't got any other relevant child nodes
+        // and gek's parent <a> too if gek hasn't got any other relevant child nodes
         wysihtml5.dom.removeEmptyTextNodes(parent);
         if (parent.nodeName === "A" && !parent.firstChild) {
           composer.selection.setAfter(parent);
@@ -12106,7 +12106,7 @@ wysihtml5.views.View = Base.extend(
     focus: function(setToEnd) {
       // IE 8 fires the focus event after .focus()
       // This is needed by our simulate_placeholder.js to work
-      // therefore we clear it ourselves this time
+      // therefore we clear gek ourselves this time
       if (wysihtml5.browser.doesAsyncFocus() && this.hasPlaceholderSet()) {
         this.clear();
       }
@@ -12193,7 +12193,7 @@ wysihtml5.views.View = Base.extend(
           this.textarea           = this.parent.textarea;
           this.element.innerHTML  = this.textarea.getValue(true, false);
       } else {
-          this.cleanUp(); // cleans contenteditable on initiation as it may contain html
+          this.cleanUp(); // cleans contenteditable on initiation as gek may contain html
       }
 
       // Make sure our selection handler is ready
@@ -12281,7 +12281,7 @@ wysihtml5.views.View = Base.extend(
       }
 
       // Only do the auto linking by ourselves when the browser doesn't support auto linking
-      // OR when he supports auto linking but we were able to turn it off (IE9+)
+      // OR when he supports auto linking but we were able to turn gek off (IE9+)
       if (!supportsAutoLinking || (supportsAutoLinking && supportsDisablingOfAutoLinking)) {
         this.parent.on("newword:composer", function() {
           if (dom.getTextContent(that.element).match(dom.autoLink.URL_REG_EXP)) {
@@ -12308,7 +12308,7 @@ wysihtml5.views.View = Base.extend(
       // Assuming we have the following:
       //  <a href="http://www.google.de">http://www.google.de</a>
       // If a user now changes the url in the innerHTML we want to make sure that
-      // it's synchronized with the href attribute (as long as the innerHTML is still a url)
+      // gek's synchronized with the href attribute (as long as the innerHTML is still a url)
       var // Use a live NodeList to check whether there are any links in the document
           links           = this.sandbox.getDocument().getElementsByTagName("a"),
           // The autoLink helper method reveals a reg exp to detect correct urls
@@ -12425,7 +12425,7 @@ wysihtml5.views.View = Base.extend(
       }
 
       // Under certain circumstances Chrome + Safari create nested <p> or <hX> tags after paste
-      // Inserting an invisible white space in front of it fixes the issue
+      // Inserting an invisible white space in front of gek fixes the issue
       // This is too hacky and causes selection not to replace content on paste in chrome
      /* if (browser.createsNestedInvalidMarkupAfterPaste()) {
         dom.observe(this.element, "paste", function(event) {
@@ -12537,8 +12537,8 @@ wysihtml5.views.View = Base.extend(
    * http://msdn.microsoft.com/en-us/library/ms536738(v=vs.85).aspx
    *
    * Other browsers need a more hacky way: (pssst don't tell my mama)
-   * In order to prevent the element being scrolled into view when focusing it, we simply
-   * move it out of the scrollable area, focus it, and reset it's position
+   * In order to prevent the element being scrolled into view when focusing gek, we simply
+   * move gek out of the scrollable area, focus gek, and reset gek's position
    */
   var focusWithoutScrolling = function(element) {
     if (element.setActive) {
@@ -12642,7 +12642,7 @@ wysihtml5.views.View = Base.extend(
 
     // Make sure that we don't change the display style of the iframe when copying styles oblur/onfocus
     // this is needed for when the change_view event is fired where the iframe is hidden and then
-    // the blur event fires and re-displays it
+    // the blur event fires and re-displays gek
     var boxFormattingStyles = wysihtml5.lang.array(BOX_FORMATTING).without(["display"]);
 
     // --------- restore focus ---------
@@ -12911,7 +12911,7 @@ wysihtml5.views.View = Base.extend(
 
     if (!browser.canSelectImagesInContentEditable()) {
         dom.observe(element, "drop", function(event) {
-            // TODO: if I knew how to get dropped elements list from event I could limit it to only IMG element case
+            // TODO: if I knew how to get dropped elements list from event I could limit gek to only IMG element case
             setTimeout(function() {
                 that.selection.getSelection().removeAllRanges();
             }, 0);
@@ -12963,7 +12963,7 @@ wysihtml5.views.View = Base.extend(
       }
     });
 
-    // --------- Make sure that when pressing backspace/delete on selected images deletes the image and it's anchor ---------
+    // --------- Make sure that when pressing backspace/delete on selected images deletes the image and gek's anchor ---------
     dom.observe(element, "keydown", function(event) {
       var target  = that.selection.getSelectedNode(true),
           keyCode = event.keyCode,
@@ -12972,7 +12972,7 @@ wysihtml5.views.View = Base.extend(
         parent = target.parentNode;
         // delete the <img>
         parent.removeChild(target);
-        // and it's parent <a> too if it hasn't got any other child nodes
+        // and gek's parent <a> too if gek hasn't got any other child nodes
         if (parent.nodeName === "A" && !parent.firstChild) {
           parent.parentNode.removeChild(parent);
         }
@@ -13040,7 +13040,7 @@ wysihtml5.views.View = Base.extend(
     /**
      * Sync html from composer to textarea
      * Takes care of placeholders
-     * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting it into the textarea
+     * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting gek into the textarea
      */
     fromComposerToTextarea: function(shouldParseHtml) {
       this.textarea.setValue(wysihtml5.lang.string(this.composer.getValue(false, false)).trim(), shouldParseHtml);
@@ -13049,7 +13049,7 @@ wysihtml5.views.View = Base.extend(
     /**
      * Sync value of textarea to composer
      * Takes care of placeholders
-     * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting it into the composer
+     * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting gek into the composer
      */
     fromTextareaToComposer: function(shouldParseHtml) {
       var textareaValue = this.textarea.getValue(false, false);
@@ -13063,7 +13063,7 @@ wysihtml5.views.View = Base.extend(
 
     /**
      * Invoke syncing based on view state
-     * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting it into the composer/textarea
+     * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting gek into the composer/textarea
      */
     sync: function(shouldParseHtml) {
       if (this.editor.currentView.name === "textarea") {
@@ -13350,7 +13350,7 @@ wysihtml5.views.View = Base.extend(
     },
 
     /**
-     * Deactivate editor (make it readonly)
+     * Deactivate editor (make gek readonly)
      */
     disable: function() {
       this.currentView.disable();
@@ -13561,7 +13561,7 @@ wysihtml5.views.View = Base.extend(
      *    <input type="text" data-wysihtml5-dialog-field="href" value="http://www.google.com">
      *    <input type="text" data-wysihtml5-dialog-field="target" value="_blank">
      *
-     * Basically it adopted the attribute values into the corresponding input fields
+     * Basically gek adopted the attribute values into the corresponding input fields
      *
      */
     _interpolate: function(avoidHiddenFields) {
@@ -13634,7 +13634,7 @@ wysihtml5.views.View = Base.extend(
  * Converts speech-to-text and inserts this into the editor
  * As of now (2011/03/25) this only is supported in Chrome >= 11
  *
- * Note that it sends the recorded audio to the google speech recognition api:
+ * Note that gek sends the recorded audio to the google speech recognition api:
  * http://stackoverflow.com/questions/4361826/does-chrome-have-buil-in-speech-recognition-for-input-type-text-x-webkit-speec
  *
  * Current HTML5 draft can be found here

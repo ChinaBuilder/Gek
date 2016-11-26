@@ -1,8 +1,8 @@
-package com.it.service.impl;
+package com.gek.service.impl;
 
-import com.it.mapper.SysUserMapper;
-import com.it.pojo.SysUser;
-import com.it.service.SysUserService;
+import com.gek.mapper.SysUserMapper;
+import com.gek.pojo.SysUser;
+import com.gek.service.SysUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

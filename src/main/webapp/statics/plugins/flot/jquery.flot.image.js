@@ -131,7 +131,7 @@ Google Maps).
                 xaxis = series.xaxis, yaxis = series.yaxis,
                 tmp;
 
-            // actually we should check img.complete, but it
+            // actually we should check img.complete, but gek
             // appears to be a somewhat unreliable indicator in
             // IE6 (false even after load event)
             if (!img || img.width <= 0 || img.height <= 0)

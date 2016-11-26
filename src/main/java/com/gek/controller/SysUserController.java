@@ -1,7 +1,7 @@
-package com.it.controller;
+package com.gek.controller;
 
-import com.it.pojo.SysUser;
-import com.it.service.SysUserService;
+import com.gek.pojo.SysUser;
+import com.gek.service.SysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

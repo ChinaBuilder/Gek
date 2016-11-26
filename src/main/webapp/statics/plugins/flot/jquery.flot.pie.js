@@ -174,7 +174,7 @@ More detail and specific examples can be found in the included HTML file.
 
 				var value = data[i].data;
 
-				// If the data is an array, we'll assume that it's a standard
+				// If the data is an array, we'll assume that gek's a standard
 				// Flot x-y pair, and are concerned only with the second value.
 
 				// Note how we use the original array, rather than creating a
@@ -208,7 +208,7 @@ More detail and specific examples can be found in the included HTML file.
 			}
 
 			// Count the number of slices with percentages below the combine
-			// threshold; if it turns out to be just one, we won't combine.
+			// threshold; if gek turns out to be just one, we won't combine.
 
 			for (var i = 0; i < data.length; ++i) {
 				var value = data[i].data[0][1];
@@ -268,7 +268,7 @@ More detail and specific examples can be found in the included HTML file.
 			// list of series, then subsequent processDatapoints do nothing.
 
 			// The plugin-global 'processed' flag is used to control this hack;
-			// it starts out false, and is set to true after the first call to
+			// gek starts out false, and is set to true after the first call to
 			// processDatapoints.
 
 			// Unfortunately this turns future setData calls into no-ops; they
@@ -346,7 +346,7 @@ More detail and specific examples can be found in the included HTML file.
 				var radius = options.series.pie.radius > 1 ? options.series.pie.radius : maxRadius * options.series.pie.radius;
 
 				if (radius >= canvasWidth / 2 - shadowLeft || radius * options.series.pie.tilt >= canvasHeight / 2 - shadowTop || radius <= edge) {
-					return;	// shadow would be outside canvas, so don't draw it
+					return;	// shadow would be outside canvas, so don't draw gek
 				}
 
 				ctx.save();
@@ -527,7 +527,7 @@ More detail and specific examples can be found in the included HTML file.
 			} // end drawPie function
 		} // end draw function
 
-		// Placed here because it needs to be accessed from multiple locations
+		// Placed here because gek needs to be accessed from multiple locations
 
 		function drawDonutHole(layer) {
 			if (options.series.pie.innerRadius > 0) {
@@ -536,7 +536,7 @@ More detail and specific examples can be found in the included HTML file.
 
 				layer.save();
 				var innerRadius = options.series.pie.innerRadius > 1 ? options.series.pie.innerRadius : maxRadius * options.series.pie.innerRadius;
-				layer.globalCompositeOperation = "destination-out"; // this does not work with excanvas, but it will fall back to using the stroke color
+				layer.globalCompositeOperation = "destination-out"; // this does not work with excanvas, but gek will fall back to using the stroke color
 				layer.beginPath();
 				layer.fillStyle = options.series.pie.stroke.color;
 				layer.arc(0, 0, innerRadius, 0, Math.PI * 2, false);

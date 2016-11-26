@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.it.mapper.UserMapper">
+
+<mapper namespace="com.gek.mapper.UserMapper">
+    <!--注意#{}取字符串 防止sql注入  ${}取属性get 不能防止注入 -->
     <delete id="deleteByPrimaryId" parameterType="java.lang.Long">
         DELETE FROM t_user WHERE id=#{id}
         <!--<where>-->
@@ -8,7 +10,7 @@
         <!--<if test="id != null and id != ''">-->
         <!--</where>-->
     </delete>
-    <select id="selectByUsername"  resultType="com.it.pojo.User">
-        SELECT  FROM  t_user WHERE username=${username};
+    <select id="selectByUsername" resultType="com.gek.pojo.User">
+        SELECT * FROM  t_user WHERE username=#{username};
     </select>
 </mapper>

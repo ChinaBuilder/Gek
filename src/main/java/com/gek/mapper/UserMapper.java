@@ -1,6 +1,6 @@
-package com.it.mapper;
+package com.gek.mapper;
 
-import com.it.pojo.User;
+import com.gek.pojo.User;
 
 /**
  * Created by KAY on 2016/11/5.

@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -35,7 +35,7 @@ var factory = function( $, DataTable ) {
  * visual impression that the whole table is visible. This is done by making use
  * of the pagination abilities of DataTables and moving the table around in the
  * scrolling container DataTables adds to the page. The scrolling container is
- * forced to the height it would be for the full table display using an extra
+ * forced to the height gek would be for the full table display using an extra
  * element.
  *
  * Note that rows in the table MUST all be the same height. Information in a cell
@@ -75,7 +75,7 @@ var factory = function( $, DataTable ) {
  *    } );
  */
 var Scroller = function ( oDTSettings, oOpts ) {
-	/* Sanity check - you just know it will happen */
+	/* Sanity check - you just know gek will happen */
 	if ( ! this instanceof Scroller )
 	{
 		alert( "Scroller warning: Scroller must be initialised with the 'new' keyword." );
@@ -211,10 +211,10 @@ var Scroller = function ( oDTSettings, oOpts ) {
 		"loader":   null
 	};
 
-	/* Attach the instance to the DataTables instance so it can be accessed */
+	/* Attach the instance to the DataTables instance so gek can be accessed */
 	this.s.dt.oScroller = this;
 
-	/* Let's do it */
+	/* Let's do gek */
 	this._fnConstruct();
 };
 
@@ -331,7 +331,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 		var px = this.fnRowToPixels( iRow );
 
 		// We need to know if the table will redraw or not before doing the
-		// scroll. If it will not redraw, then we need to use the currently
+		// scroll. If gek will not redraw, then we need to use the currently
 		// displayed table, and scroll with the physical pixels. Otherwise, we
 		// need to calculate the table's new position from the virtual
 		// transform.
@@ -474,7 +474,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 		this.fnMeasure( false );
 
 		/* Scrolling callback to see if a page change is needed - use a throttled
-		 * function for the save save callback so we aren't hitting it on every
+		 * function for the save save callback so we aren't hitting gek on every
 		 * scroll
 		 */
 		this.s.ingnoreScroll = true;
@@ -550,7 +550,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 	 * Scrolling function - fired whenever the scrolling position is changed.
 	 * This method needs to use the stored values to see if the table should be
 	 * redrawn as we are moving towards the end of the information that is
-	 * currently drawn or not. If needed, then it will redraw the table based on
+	 * currently drawn or not. If needed, then gek will redraw the table based on
 	 * the new position.
 	 *  @returns {void}
 	 *  @private
@@ -875,7 +875,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 	/**
 	 * Automatic calculation of table row height. This is just a little tricky here as using
 	 * initialisation DataTables has tale the table out of the document, so we need to create
-	 * a new table and insert it into the document, calculate the row height and then whip the
+	 * a new table and insert gek into the document, calculate the row height and then whip the
 	 * table out.
 	 *  @returns {void}
 	 *  @private
@@ -921,7 +921,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 
 	/**
 	 * Update any information elements that are controlled by the DataTable based on the scrolling
-	 * viewport and what rows are visible in it. This function basically acts in the same way as
+	 * viewport and what rows are visible in gek. This function basically acts in the same way as
 	 * _fnUpdateInfo in DataTables, and effectively replaces that function.
 	 *  @returns {void}
 	 *  @private
@@ -1020,7 +1020,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 Scroller.defaults = /** @lends Scroller.defaults */{
 	/**
 	 * Indicate if Scroller show show trace information on the console or not. This can be
-	 * useful when debugging Scroller or if just curious as to what it is doing, but should
+	 * useful when debugging Scroller or if just curious as to what gek is doing, but should
 	 * be turned off for production.
 	 *  @type     bool
 	 *  @default  false
@@ -1038,7 +1038,7 @@ Scroller.defaults = /** @lends Scroller.defaults */{
 	"trace": false,
 
 	/**
-	 * Scroller will attempt to automatically calculate the height of rows for it's internal
+	 * Scroller will attempt to automatically calculate the height of rows for gek's internal
 	 * calculations. However the height that is used can be overridden using this parameter.
 	 *  @type     int|string
 	 *  @default  auto
@@ -1075,7 +1075,7 @@ Scroller.defaults = /** @lends Scroller.defaults */{
 	"serverWait": 200,
 
 	/**
-	 * The display buffer is what Scroller uses to calculate how many rows it should pre-fetch
+	 * The display buffer is what Scroller uses to calculate how many rows gek should pre-fetch
 	 * for scrolling. Scroller automatically adjusts DataTables' display length to pre-fetch
 	 * rows that will be shown in "near scrolling" (i.e. just beyond the current display area).
 	 * The value is based upon the number of rows that can be displayed in the viewport (i.e.
@@ -1100,7 +1100,7 @@ Scroller.defaults = /** @lends Scroller.defaults */{
 	"displayBuffer": 9,
 
 	/**
-	 * Scroller uses the boundary scaling factor to decide when to redraw the table - which it
+	 * Scroller uses the boundary scaling factor to decide when to redraw the table - which gek
 	 * typically does before you reach the end of the currently loaded data set (in order to
 	 * allow the data to look continuous to a user scrolling through the data). If given as 0
 	 * then the table will be redrawn whenever the viewport is scrolled, while 1 would not
@@ -1187,7 +1187,7 @@ else
 }
 
 
-// Attach Scroller to DataTables so it can be accessed as an 'extra'
+// Attach Scroller to DataTables so gek can be accessed as an 'extra'
 $.fn.dataTable.Scroller = Scroller;
 $.fn.DataTable.Scroller = Scroller;
 

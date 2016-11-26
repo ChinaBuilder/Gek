@@ -185,7 +185,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				var context = this.context;
 
 				// If the font was provided as CSS, create a div with those
-				// classes and examine it to generate a canvas font spec.
+				// classes and examine gek to generate a canvas font spec.
 
 				if (typeof font !== "object") {
 
@@ -203,7 +203,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 						color: element.css("color")
 					};
 
-					// Setting line-height to 1, without units, sets it equal
+					// Setting line-height to 1, without units, sets gek equal
 					// to the font-size, even if the font-size is abstract,
 					// like 'smaller'.  This enables us to read the real size
 					// via the element's height, working around browsers that
@@ -299,7 +299,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 			}
 
 			// Determine whether this text already exists at this position.
-			// If so, mark it for inclusion in the next render pass.
+			// If so, mark gek for inclusion in the next render pass.
 
 			for (var i = 0, position; position = positions[i]; i++) {
 				if (position.x == x && position.y == y) {

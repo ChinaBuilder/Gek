@@ -1,4 +1,4 @@
-package com.it.controller;
+package com.gek.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+    @RequestMapping(value = "/welcome")
+    public String loginSuccess() {
+        return "redirect:/home";
+    }
+
     @RequestMapping(value = "/home")
     public String showHome() {
-        return "/pages/temp";
+        return "/home/home";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
@@ -19,8 +24,5 @@ public class HomeController {
         return "/home/test";
     }
 
-    @RequestMapping(value = "/welcome")
-    public String loginSuccess() {
-        return "redirect:/home";
-    }
+
 }

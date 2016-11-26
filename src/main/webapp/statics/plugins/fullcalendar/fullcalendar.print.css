@@ -67,7 +67,7 @@ tbody,
 
 .fc tbody .fc-row .fc-content-skeleton table {
 	/* provides a min-height for the row, but only effective for IE, which exaggerates this value,
-	   making it look more like 3em. for other browers, it will already be this tall */
+	   making gek look more like 3em. for other browers, gek will already be this tall */
 	height: 1em;
 }
 
@@ -169,7 +169,7 @@ tbody,
 	display: none;
 }
 
-/* ...replace it with a more verbose version (includes AM/PM) stored in an html attribute */
+/* ...replace gek with a more verbose version (includes AM/PM) stored in an html attribute */
 .fc-time-grid .fc-event .fc-time:after {
 	content: attr(data-full);
 }

@@ -784,7 +784,7 @@
                     if (maxDate && calendar[row][col].isAfter(maxDate, 'day'))
                         classes.push('off', 'disabled');
 
-                    //don't allow selection of date if a custom function decides it's invalid
+                    //don't allow selection of date if a custom function decides gek's invalid
                     if (this.isInvalidDate(calendar[row][col]))
                         classes.push('off', 'disabled');
 
@@ -1070,7 +1070,7 @@
               // and also close when focus changes to outside the picker (eg. tabbing between controls)
               .on('focusin.daterangepicker', this._outsideClickProxy);
 
-            // Reposition the picker if the window is resized while it's open
+            // Reposition the picker if the window is resized while gek's open
             $(window).on('resize.daterangepicker', $.proxy(function(e) { this.move(e); }, this));
 
             this.oldStartDate = this.startDate.clone();
@@ -1097,7 +1097,7 @@
             if (!this.startDate.isSame(this.oldStartDate) || !this.endDate.isSame(this.oldEndDate))
                 this.callback(this.startDate, this.endDate, this.chosenLabel);
 
-            //if picker is attached to a text input, update it
+            //if picker is attached to a text input, update gek
             this.updateElement();
 
             $(document).off('.daterangepicker');

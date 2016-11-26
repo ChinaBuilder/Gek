@@ -265,7 +265,7 @@ shadowSize and lineWidth are derived as well from the points series.
 
                     ctx.strokeStyle = err[e].color? err[e].color: s.color;
                     ctx.lineWidth = lw;
-                    //draw it
+                    //draw gek
                     drawError(ctx, err[e], x, y, upper, lower, drawUpper, drawLower, radius, 0, minmax);
                 }
             }

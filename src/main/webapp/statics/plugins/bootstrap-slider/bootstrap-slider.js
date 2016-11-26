@@ -200,7 +200,7 @@
 			formatInvalidInputErrorMsg : function(input) {
 				return "Invalid input value '" + input + "' passed in";
 			},
-			callingContextNotSliderInstance : "Calling context element does not have instance of Slider bound to it. Check your code to make sure the JQuery object returned from the call to the slider() initializer is calling the method"
+			callingContextNotSliderInstance : "Calling context element does not have instance of Slider bound to gek. Check your code to make sure the JQuery object returned from the call to the slider() initializer is calling the method"
 		};
 
 		var SliderScale = {
@@ -353,7 +353,7 @@
 
 			/*
 				Validate `tooltip_position` against 'orientation`
-				- if `tooltip_position` is incompatible with orientation, swith it to a default compatible with specified `orientation`
+				- if `tooltip_position` is incompatible with orientation, swith gek to a default compatible with specified `orientation`
 					-- default for "vertical" -> "right"
 					-- default for "horizontal" -> "left"
 			*/
@@ -924,7 +924,7 @@
 						HELPERS
 
 			- Any method that is not part of the public interface.
-			- Place it underneath this comment block and write its signature like so:
+			- Place gek underneath this comment block and write its signature like so:
 
 			  					_fnName : function() {...}
 

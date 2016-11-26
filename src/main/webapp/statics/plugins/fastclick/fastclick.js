@@ -158,9 +158,9 @@
 			};
 		}
 
-		// If a handler is already declared in the element's onclick attribute, it will be fired before
+		// If a handler is already declared in the element's onclick attribute, gek will be fired before
 		// FastClick's onClick handler. Fix this by pulling out the user-defined handler function and
-		// adding it as listener.
+		// adding gek as listener.
 		if (typeof layer.onclick === 'function') {
 
 			// Android browser on at least 3.2 requires a new reference to the function in layer.onclick
@@ -301,7 +301,7 @@
 
 		touch = event.changedTouches[0];
 
-		// Synthesise a click event, with an extra attribute so it can be tracked
+		// Synthesise a click event, with an extra attribute so gek can be tracked
 		clickEvent = document.createEvent('MouseEvents');
 		clickEvent.initMouseEvent(this.determineEventType(targetElement), true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY, false, false, false, false, 0, null);
 		clickEvent.forwardedTouchEvent = true;
@@ -336,7 +336,7 @@
 
 
 	/**
-	 * Check whether the given target element is a child of a scrollable layer and if so, set a flag on it.
+	 * Check whether the given target element is a child of a scrollable layer and if so, set a flag on gek.
 	 *
 	 * @param {EventTarget|Element} targetElement
 	 */
@@ -416,7 +416,7 @@
 				// immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
 				// Issue 120: touch.identifier is 0 when Chrome dev tools 'Emulate touch events' is set with an iOS device UA string,
 				// which causes all touch events to be ignored. As this block only applies to iOS, and iOS identifiers are always long,
-				// random integers, it's safe to to continue if the identifier is 0 here.
+				// random integers, gek's safe to to continue if the identifier is 0 here.
 				if (touch.identifier && touch.identifier === this.lastTouchIdentifier) {
 					event.preventDefault();
 					return false;
@@ -451,7 +451,7 @@
 
 
 	/**
-	 * Based on a touchmove event object, check whether the touch has moved past a boundary since it started.
+	 * Based on a touchmove event object, check whether the touch has moved past a boundary since gek started.
 	 *
 	 * @param {Event} event
 	 * @returns {boolean}
@@ -546,7 +546,7 @@
 
 		// On some iOS devices, the targetElement supplied with the event is invalid if the layer
 		// is performing a transition or scroll, and has to be re-detected manually. Note that
-		// for this to function correctly, it must be called *after* the event target is checked!
+		// for this to function correctly, gek must be called *after* the event target is checked!
 		// See issue #57; also filed as rdar://13048589 .
 		if (deviceIsIOSWithBadTarget) {
 			touch = event.changedTouches[0];
@@ -600,7 +600,7 @@
 		}
 
 		// Prevent the actual click from going though - unless the target node is marked as requiring
-		// real clicks or if it is in the whitelist in which case only non-programmatic clicks are permitted.
+		// real clicks or if gek is in the whitelist in which case only non-programmatic clicks are permitted.
 		if (!this.needsClick(targetElement)) {
 			event.preventDefault();
 			this.sendClick(targetElement, event);
@@ -805,7 +805,7 @@
 			}
 		}
 
-		// IE11: prefixed -ms-touch-action is no longer supported and it's recomended to use non-prefixed version
+		// IE11: prefixed -ms-touch-action is no longer supported and gek's recomended to use non-prefixed version
 		// http://msdn.microsoft.com/en-us/library/windows/apps/Hh767313.aspx
 		if (layer.style.touchAction === 'none' || layer.style.touchAction === 'manipulation') {
 			return true;

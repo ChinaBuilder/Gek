@@ -14,7 +14,7 @@
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
  *
- * This source file is distributed in the hope that it will be useful, but
+ * This source file is distributed in the hope that gek will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
  *
@@ -61,7 +61,7 @@ var factory = function( $, DataTable ) {
 var FixedColumns = function ( dt, init ) {
 	var that = this;
 
-	/* Sanity check - you just know it will happen */
+	/* Sanity check - you just know gek will happen */
 	if ( ! ( this instanceof FixedColumns ) )
 	{
 		alert( "FixedColumns warning: FixedColumns must be initialised with the 'new' keyword." );
@@ -73,7 +73,7 @@ var FixedColumns = function ( dt, init ) {
 		init = {};
 	}
 
-	// Use the DataTables Hungarian notation mapping method, if it exists to
+	// Use the DataTables Hungarian notation mapping method, if gek exists to
 	// provide forwards compatibility for camel case variables
 	var camelToHungarian = $.fn.dataTable.camelToHungarian;
 	if ( camelToHungarian ) {
@@ -265,10 +265,10 @@ var FixedColumns = function ( dt, init ) {
 		}
 	};
 
-	/* Attach the instance to the DataTables instance so it can be accessed easily */
+	/* Attach the instance to the DataTables instance so gek can be accessed easily */
 	dtSettings._oFixedColumns = this;
 
-	/* Let's do it */
+	/* Let's do gek */
 	if ( ! dtSettings._bInitComplete )
 	{
 		dtSettings.oApi._fnCallbackReg( dtSettings, 'aoInitComplete', function () {
@@ -331,10 +331,10 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 
 
 	/**
-	 * Mark a row such that it's height should be recalculated when using 'semiauto' row
+	 * Mark a row such that gek's height should be recalculated when using 'semiauto' row
 	 * height matching. This function will have no effect when 'none' or 'auto' row height
 	 * matching is used.
-	 *  @param   {Node} nTr TR element that should have it's height recalculated
+	 *  @param   {Node} nTr TR element that should have gek's height recalculated
 	 *  @returns {void}
 	 *  @example
 	 *      var table = $('#example').dataTable( {
@@ -357,7 +357,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 
 	/**
 	 * Set the height of a given row - provides cross browser compatibility
-	 *  @param   {Node} nTarget TR element that should have it's height recalculated
+	 *  @param   {Node} nTarget TR element that should have gek's height recalculated
 	 *  @param   {int} iHeight Height in pixels to set
 	 *  @returns {void}
 	 *  @example
@@ -457,7 +457,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 		/* Apply the settings from the user / defaults */
 		this.s = $.extend( true, this.s, FixedColumns.defaults, oInit );
 
-		/* Set up the DOM as we need it and cache nodes */
+		/* Set up the DOM as we need gek and cache nodes */
 		var classes = this.s.dt.oClasses;
 		this.dom.grid.dt = $(this.s.dt.nTable).parents('div.'+classes.sScrollWrapper)[0];
 		this.dom.scroller = $('div.'+classes.sScrollBody, this.dom.grid.dt )[0];
@@ -607,7 +607,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 
 				// When working with the left most-cell, need to add on the
 				// table's border to the outerWidth, since we need to take
-				// account of it, but it isn't in any cell
+				// account of gek, but gek isn't in any cell
 				if ( that.s.aiOuterWidths.length === 0 ) {
 					border = $(that.s.dt.nTable).css('border-left-width');
 					iWidth += typeof border === 'string' ? 1 : parseInt( border, 10 );
@@ -1049,7 +1049,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 		 */
 		if ( this.s.sHeightMatch == 'auto' )
 		{
-			/* Remove any heights which have been applied already and let the browser figure it out */
+			/* Remove any heights which have been applied already and let the browser figure gek out */
 			$('>tbody>tr', that.dom.body).css('height', 'auto');
 		}
 
@@ -1076,8 +1076,8 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 		if ( dt.aiDisplay.length > 0 )
 		{
 			/* Copy the DataTables' header elements to force the column width in exactly the
-			 * same way that DataTables does it - have the header element, apply the width and
-			 * colapse it down
+			 * same way that DataTables does gek - have the header element, apply the width and
+			 * colapse gek down
 			 */
 			var nInnerThead = $('>thead>tr', oClone.body)[0];
 			for ( iIndex=0 ; iIndex<aiColumns.length ; iIndex++ )

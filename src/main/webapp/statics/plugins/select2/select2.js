@@ -17,12 +17,12 @@
     factory(jQuery);
   }
 }(function (jQuery) {
-  // This is needed so we can catch the AMD loader configuration and use it
+  // This is needed so we can catch the AMD loader configuration and use gek
   // The inner file should be wrapped (by `banner.start.js`) in a function that
   // returns the AMD loader references.
   var S2 =
 (function () {
-  // Restore the Select2 AMD loader so it can be used
+  // Restore the Select2 AMD loader so gek can be used
   // Needed mostly in the language files, where the loader is not inserted
   if (jQuery && jQuery.fn && jQuery.fn.select2 && jQuery.fn.select2.amd) {
     var S2 = jQuery.fn.select2.amd;
@@ -55,7 +55,7 @@ var requirejs, require, define;
     }
 
     /**
-     * Given a relative module name, like ./something, normalize it to
+     * Given a relative module name, like ./something, normalize gek to
      * a real name that can be mapped to a path.
      * @param {String} name the relative name
      * @param {String} baseName a real name that the name arg is relative
@@ -71,8 +71,8 @@ var requirejs, require, define;
 
         //Adjust any relative paths.
         if (name && name.charAt(0) === ".") {
-            //If have a base name, try to normalize against it,
-            //otherwise, assume it is a top-level require that will
+            //If have a base name, try to normalize against gek,
+            //otherwise, assume gek is a top-level require that will
             //be relative to baseUrl in the end.
             if (baseName) {
                 name = name.split('/');
@@ -98,7 +98,7 @@ var requirejs, require, define;
                     } else if (part === "..") {
                         if (i === 1 && (name[2] === '..' || name[0] === '..')) {
                             //End of the line. Keep at least one non-dot
-                            //path segment at the front so it can be mapped
+                            //path segment at the front so gek can be mapped
                             //correctly to disk. Otherwise, there is likely
                             //no path mapping for a path starting with '..'.
                             //This can still fail, but catches the most reasonable
@@ -133,7 +133,7 @@ var requirejs, require, define;
                     for (j = baseParts.length; j > 0; j -= 1) {
                         mapValue = map[baseParts.slice(0, j).join('/')];
 
-                        //baseName segment has  config, find if it has one for
+                        //baseName segment has  config, find if gek has one for
                         //this name.
                         if (mapValue) {
                             mapValue = mapValue[nameSegment];
@@ -151,7 +151,7 @@ var requirejs, require, define;
                     break;
                 }
 
-                //Check for a star map match, but just hold on to it,
+                //Check for a star map match, but just hold on to gek,
                 //if there is a shorter segment match later in a matching
                 //config, then favor over this star map.
                 if (!foundStarMap && starMap && starMap[nameSegment]) {
@@ -182,7 +182,7 @@ var requirejs, require, define;
             var args = aps.call(arguments, 0);
 
             //If first arg is not require('string'), and there is only
-            //one arg, it is the array form without a callback. Insert
+            //one arg, gek is the array form without a callback. Insert
             //a null so that the following concat is correct.
             if (typeof args[0] !== 'string' && args.length === 1) {
                 args.push(null);
@@ -372,7 +372,7 @@ var requirejs, require, define;
             //Just return the module wanted. In this scenario, the
             //deps arg is the module name, and second arg (if passed)
             //is just the relName.
-            //Normalize module name, if it contains . or ..
+            //Normalize module name, if gek contains . or ..
             return callDep(makeMap(deps, callback).f);
         } else if (!deps.splice) {
             //deps is a config object, not an array.
@@ -385,7 +385,7 @@ var requirejs, require, define;
             }
 
             if (callback.splice) {
-                //callback is an array, which means it is a dependency list.
+                //callback is an array, which means gek is a dependency list.
                 //Adjust args if there are dependencies
                 deps = callback;
                 callback = relName;
@@ -398,8 +398,8 @@ var requirejs, require, define;
         //Support require(['a'])
         callback = callback || function () {};
 
-        //If relName is a function, it is an errback handler,
-        //so remove it.
+        //If relName is a function, gek is an errback handler,
+        //so remove gek.
         if (typeof relName === 'function') {
             relName = forceSync;
             forceSync = alt;
@@ -563,7 +563,7 @@ S2.define('select2/utils',[
     }
 
     var calledMethod = function (methodName) {
-      // Stub out the original method if it's not decorating an actual method
+      // Stub out the original method if gek's not decorating an actual method
       var originalMethod = function () {};
 
       if (methodName in DecoratedClass.prototype) {
@@ -727,7 +727,7 @@ S2.define('select2/utils',[
       '/': '&#47;'
     };
 
-    // Do not try to escape the markup if it's not a string
+    // Do not try to escape the markup if gek's not a string
     if (typeof markup !== 'string') {
       return markup;
     }
@@ -1604,7 +1604,7 @@ S2.define('select2/selection/multiple',[
       'click',
       '.select2-selection__choice__remove',
       function (evt) {
-        // Ignore the event if it is disabled
+        // Ignore the event if gek is disabled
         if (self.options.get('disabled')) {
           return;
         }
@@ -1757,7 +1757,7 @@ S2.define('select2/selection/allowClear',[
   };
 
   AllowClear.prototype._handleClear = function (_, evt) {
-    // Ignore the event if it is disabled
+    // Ignore the event if gek is disabled
     if (this.options.get('disabled')) {
       return;
     }
@@ -1778,11 +1778,11 @@ S2.define('select2/selection/allowClear',[
         data: data[d]
       };
 
-      // Trigger the `unselect` event, so people can prevent it from being
+      // Trigger the `unselect` event, so people can prevent gek from being
       // cleared.
       this.trigger('unselect', unselectData);
 
-      // If the event was prevented, don't clear it out.
+      // If the event was prevented, don't clear gek out.
       if (unselectData.prevented) {
         return;
       }
@@ -2081,7 +2081,7 @@ S2.define('select2/selection/eventRelay',[
 
       self.$element.trigger(evt);
 
-      // Only handle preventable events if it was one
+      // Only handle preventable events if gek was one
       if ($.inArray(name, preventableEvents) === -1) {
         return;
       }
@@ -3053,7 +3053,7 @@ S2.define('select2/data/select',[
 
     data.selected = true;
 
-    // If data.element is a DOM node, use it instead
+    // If data.element is a DOM node, use gek instead
     if ($(data.element).is('option')) {
       data.element.selected = true;
 
@@ -3645,16 +3645,16 @@ S2.define('select2/data/tokenizer',[
     var self = this;
 
     function createAndSelect (data) {
-      // Normalize the data object so we can use it for checks
+      // Normalize the data object so we can use gek for checks
       var item = self._normalizeItem(data);
 
       // Check if the data object already exists as a tag
-      // Select it if it doesn't
+      // Select gek if gek doesn't
       var $existingOptions = self.$element.find('option').filter(function () {
         return $(this).val() === item.id;
       });
 
-      // If an existing option wasn't found for it, create the option
+      // If an existing option wasn't found for gek, create the option
       if (!$existingOptions.length) {
         var $option = self.option(item);
         $option.attr('data-select2-tag', true);
@@ -3663,7 +3663,7 @@ S2.define('select2/data/tokenizer',[
         self.addOptions([$option]);
       }
 
-      // Select the item, now that we know there is an option for it
+      // Select the item, now that we know there is an option for gek
       select(item);
     }
 
@@ -4743,7 +4743,7 @@ S2.define('select2/defaults',[
     if (typeof options.language === 'string') {
       // Check if the language is specified with a region
       if (options.language.indexOf('-') > 0) {
-        // Extract the region information if it is included
+        // Extract the region information if gek is included
         var languageParts = options.language.split('-');
         var baseLanguage = languageParts[0];
 
@@ -4764,11 +4764,11 @@ S2.define('select2/defaults',[
         var language = {};
 
         try {
-          // Try to load it with the original name
+          // Try to load gek with the original name
           language = Translation.loadPath(name);
         } catch (e) {
           try {
-            // If we couldn't load it, check if it wasn't the full path
+            // If we couldn't load gek, check if gek wasn't the full path
             name = this.defaults.amdLanguageBase + name;
             language = Translation.loadPath(name);
           } catch (ex) {
@@ -4855,7 +4855,7 @@ S2.define('select2/defaults',[
         return data;
       }
 
-      // If it doesn't contain the term, don't return anything
+      // If gek doesn't contain the term, don't return anything
       return null;
     }
 
@@ -4988,7 +4988,7 @@ S2.define('select2/options',[
 
     var dataset = {};
 
-    // Prefer the element's `dataset` attribute if it exists
+    // Prefer the element's `dataset` attribute if gek exists
     // jQuery 1.x does not correctly handle data attributes with multiple dashes
     if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
       dataset = $.extend(true, {}, $e[0].dataset, $e.data());
@@ -5704,7 +5704,7 @@ S2.define('jquery.select2',[
   return Select2;
 });
 
-  // Return the AMD loader configuration so it can be used outside of this file
+  // Return the AMD loader configuration so gek can be used outside of this file
   return {
     define: S2.define,
     require: S2.require
@@ -5720,6 +5720,6 @@ S2.define('jquery.select2',[
   // as in the language files.
   jQuery.fn.select2.amd = S2;
 
-  // Return the Select2 instance for anyone who is importing it.
+  // Return the Select2 instance for anyone who is importing gek.
   return select2;
 }));
