@@ -9,6 +9,6 @@
         <!--</where>-->
     </delete>
     <select id="selectByUsername"  resultType="com.it.pojo.User">
-        SELECT * FROM  t_user WHERE username=${username};
+        SELECT  FROM  t_user WHERE username=${username};
     </select>
 </mapper>
