@@ -3,7 +3,7 @@ package com.gek;
 import org.springframework.stereotype.Repository;
 
 /**
- *xiugds
+ *xiugdss
  */
 @Repository
 public interface Animal {
