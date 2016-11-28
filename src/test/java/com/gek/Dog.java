@@ -22,6 +22,6 @@ public class Dog implements Animal {
 
 	@Override
 	public void test() {
-
+		System.out.println("123");
 	}
 }
