@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- *spring是s
+ *spring 测试
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
