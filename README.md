@@ -18,7 +18,7 @@
     - 配置文件
     default-target-url 登陆成功默认跳转首页
     
-    ```xml
+    ```
     <form-login default-target-url="/login/home"
                         authentication-success-forward-url="/welcome"
                         login-page="/login"
