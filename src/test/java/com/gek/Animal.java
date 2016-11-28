@@ -12,4 +12,5 @@ public interface Animal {
 	public void doMySelf();
 
 	public void eatSomething();
+	public void test();
 }
