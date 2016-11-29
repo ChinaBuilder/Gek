@@ -60,7 +60,8 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    <table id="users_datatable">
+                    <table id="users_datatable" class="table">
+                        <thead>
                         <tr>
                             <th>编号</th>
                             <th>账号</th>
@@ -69,14 +70,10 @@
                             <th>信息</th>
                             <th>操作</th>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
                     </table>
                 </div>
                 <!-- /.box-body -->
@@ -114,7 +111,12 @@
 <script src="/statics/plugins/datatables/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#users_datatable").DataTable();
+        /**
+         * datatable传入一个对象
+         */
+        $("#users_datatable").DataTable({
+
+        });
     })
 </script>
 </body>

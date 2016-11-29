@@ -13,7 +13,7 @@
         <intercept-url pattern="/statics/**" access="permitAll"/>
         <intercept-url pattern="index.jsp" access="permitAll"/>
         <intercept-url pattern="/login" access="permitAll"/>
-        <intercept-url pattern="/" access="permitAll"/>
+       <!-- <intercept-url pattern="/" access="permitAll"/>-->
         <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
 
         <!--TODO 2016年11月19日 登录失败跳转页面是/login/check 而不是/login?login_error=t-->

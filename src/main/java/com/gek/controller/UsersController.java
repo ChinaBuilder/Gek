@@ -1,7 +1,7 @@
 package com.gek.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gek.dto.DatatablesResult;
 import com.gek.pojo.User;
 import com.gek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,15 +30,11 @@ public class UsersController {
 
     @RequestMapping(value = "/userlist_data", method = RequestMethod.GET)
     @ResponseBody
-    public String userList() {
+    public DatatablesResult<User> userList() {
         List<User> userList = userService.findAll();
-        try {
-            String s = objectMapper.writeValueAsString(userList);
-            return s;
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return null;
+        DatatablesResult<User> result = new DatatablesResult<>();
+        result.setData(userList);
+        return result;
     }
 
     @RequestMapping(value = "/{username}")

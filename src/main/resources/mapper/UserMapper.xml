@@ -38,13 +38,13 @@
 
     <select id="findAll" resultType="com.gek.pojo.User">
         SELECT
-          id,username,enabled,realname,`level`,createTime,group_name
+          id,username,password,enabled,realname,`level`,createTime,group_name
         FROM
           t_user
     </select>
     <select id="findByPrimaryKey" resultType="com.gek.pojo.User" parameterType="long">
         SELECT
-          *
+          id,username,password,enabled,realname,`level`,createTime,group_name
         FROM
           t_user
         WHERE
