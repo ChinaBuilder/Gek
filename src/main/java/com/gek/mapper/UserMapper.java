@@ -9,8 +9,15 @@ import java.util.List;
  */
 
 public interface UserMapper {
+	void addUser(User user);
+
 	void deleteByPrimaryId(Long id);
-	User selectByUsername(String username);
+
+	void updateUser(User user);
+
+	User findByUsername(String username);
+
+	User findByPrimaryKey(Long id);
 
     List<User> findAll();
 }

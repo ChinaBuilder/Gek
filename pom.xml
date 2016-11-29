@@ -44,7 +44,7 @@
         <httpclient.version>4.3.3</httpclient.version>
         <jackson-databind.version>2.4.2</jackson-databind.version>
         <fastjson.version>1.1.43</fastjson.version>
-
+        <lombok.version>1.16.10</lombok.version>
         <!--架包版本变量 end-->
 
         <!--插件版本变量 start-->
@@ -267,7 +267,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
         <!-- 日志文件管理包 start -->
         <!--下面这三个是配套使用：http://blog.csdn.net/woshiwxw765/article/details/7624556-->
         <!--使用log4j start-->
