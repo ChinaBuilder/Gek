@@ -110,6 +110,7 @@
 <!-- 引入datatables-->
 <script src="/statics/plugins/datatables/jquery.dataTables.min.js"></script>
 <script>
+    //checkout
     $(document).ready(function () {
         /**
          * datatable传入一个对象
