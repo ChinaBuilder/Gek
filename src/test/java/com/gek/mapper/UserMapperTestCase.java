@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * spring
  */
@@ -53,8 +56,24 @@ public class UserMapperTestCase {
         Assert.assertNotNull(user);
         Assert.assertNotNull(user1);
     }
+
     @Test
-    public void deleteUser(){
+    public void deleteUser() {
         userMapper.deleteByPrimaryId(1L);
+    }
+
+    @Test
+    public void findByParamsTestCase() {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("keyword", "tom");
+        hashMap.put("start", 0L);
+        hashMap.put("length", 1L);
+        List<User> users = userMapper.findByParams(hashMap);
+        for (User u :
+                users) {
+            System.out.println(u.toString()+".。。。。。。。。。。。。。。。。。。。。。。。");
+        }
+        System.out.println(users.size());
+
     }
 }
