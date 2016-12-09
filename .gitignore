@@ -15,7 +15,8 @@ log/
 target/
 ### intellij
 
-/*.iml
+
+*.iml
 /.idea/
 ### ohters
 LICENSE
