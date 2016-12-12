@@ -23,4 +23,5 @@ LICENSE
 ### eclipse
 .classpath
 .project
+.settings
 
