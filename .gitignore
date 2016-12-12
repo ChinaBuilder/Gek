@@ -20,5 +20,7 @@ target/
 /.idea/
 ### ohters
 LICENSE
-
+### eclipse
+.classpath
+.project
 
