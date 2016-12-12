@@ -113,7 +113,7 @@
 <script>
     //document.ready(function(){/***/})
     //function(function(){/****/})
-    //TODO 2016年12月3日 上面两者有什么区别么?
+    //TODO 2016年12月3日 上面两者有什么区别么? 没区别
     $(document).ready(function () {
         /**
          * datatable传入数据
@@ -178,12 +178,8 @@
 
         });
         //datatables end
-
-
     })
 </script>
-
-
 </body>
 </html>
 
