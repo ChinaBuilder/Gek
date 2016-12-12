@@ -50,5 +50,21 @@
         WHERE
          id=#{id}
     </select>
+    <!-- 根据传入的map集合来查询数据 -->
+    <select id="findByParams" parameterType="map" resultType="com.gek.pojo.User">
+        SELECT
+        id,username,password,enabled,realname,`level`,createTime,group_name
+        FROM
+        t_user
+        <where>
+            <if test="keyword != null and keyword != '' ">
+                username LIKE concat("%",#{keyword},"%")
+                or
+                realname LIKE concat("%",#{keyword},"%")
+            </if>
+            order by t_user.id desc
+            limit #{start},#{length}
+        </where>
+    </select>
 
 </mapper>

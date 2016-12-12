@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by KAY on 2016/11/29.
@@ -15,7 +16,11 @@ import java.util.List;
 @NoArgsConstructor
 public class DatatablesResult<T> {
     /**
-     *
+     * 数据查询的状态
+     */
+    private Map<String,Boolean> status;
+    /**
+     *是否重新绘制table表格
      */
     private String draw;
     /**

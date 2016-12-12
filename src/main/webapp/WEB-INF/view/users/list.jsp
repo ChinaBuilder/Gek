@@ -67,7 +67,8 @@
                             <th>账号</th>
                             <th>密码</th>
                             <th>是否可用</th>
-                            <th>信息</th>
+                            <th>等级</th>
+                            <th>权限</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -110,14 +111,73 @@
 <!-- 引入datatables-->
 <script src="/statics/plugins/datatables/jquery.dataTables.min.js"></script>
 <script>
-    //checkout
+    //document.ready(function(){/***/})
+    //function(function(){/****/})
+    //TODO 2016年12月3日 上面两者有什么区别么? 没区别
     $(document).ready(function () {
         /**
-         * datatable传入一个对象
+         * datatable传入数据
          */
         $("#users_datatable").DataTable({
+            searching: true,               //设置增加搜索选项
+            serverSide: true,              //数据来自于服务端(而不是自己统计)
+            ordering: false,                //禁止排序功能
+            ajax: "/users/userlist_data",  //向服务器请求数据
+            columns: [                     //使用columns映射json字符串里面的data数组
+                {"data": "id"},
+                {"data": "username"},
+                {"data": "password"},
+                {
+                    "data": function (row) {
+                        if (row.enabled) {
+                            return "<span class='label label-success'>可用</span>"
+                        }
+                        if (row.enabled) {
+                            return "<span class='label label-default'>冻结</span>"
+                        }
+                    }
+                },
+                {"data": "level"},
+                {
+                    "data": function (row) {
+                        if (row.groupname == "ROLE_USER") {
+                            return "<span class='label label-default'>普通员工</span>"
+                        }
+                        if (row.groupname == "ROLE_ADMIN") {
+                            return "<span class='label label-danger'>管理员</span>"
+                        }
+                    }
+                },
+                {
+                    "data": function (r) {
+                        if (r.groupname == "ROLE_ADMIN" && r.enabled) {
+                            return "<button href='javascript:;' class='btn btn-success btn-xs  resetpwd' rel='" + r.id + "'>重置密码</button>" +
+                                    "&nbsp;&nbsp;" +
+                                    "<button href='javascript:;' class='btn btn-primary btn-xs edit' rel='" + r.id + "'>修改本列</button>"
+                        }
+                    }
+                }
+            ],
+            //定义国际化
+            "language": {
+                "search": "请输入员工姓名或登录账号:",                      //搜索条件
+                "zeroRecords": "没有匹配的数据",                          //搜索结果显示
+                "lengthMenu": "显示 _MENU_ 条数据",
+                "info": "显示从 _START_ 到 _END_ 条数据 共 _TOTAL_ 条数据",
+                "infoFiltered": "(从 _MAX_ 条数据中过滤得来)",
+                "loadingRecords": "加载中...",
+                "processing": "处理中...",
+                "paginate": {
+                    "first": "首页",
+                    "last": "末页",
+                    "next": "下一页",
+                    "previous": "上一页"
+                }
+            }
+
 
         });
+        //datatables end
     })
 </script>
 </body>

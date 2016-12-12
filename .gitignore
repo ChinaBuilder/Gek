@@ -16,7 +16,12 @@ target/
 ### intellij
 
 /*.iml
+*.iml
 /.idea/
 ### ohters
 LICENSE
+### eclipse
+.classpath
+.project
+.settings
 
